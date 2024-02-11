@@ -1,78 +1,131 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
 a, p, button {
-    font-family: 'Acme';
-    font-size: medium;
-    color:black;
+  font-family: "Acme";
+  font-size: medium;
+  color: black;
 }
 
-.header {
-    height: 100px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px;
+body, html {
+  scroll-padding-top: 100px;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 60px;
 }
 
 .izq {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .der {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+/* Header */
+
+.header {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
 }
 
 .headerLogo {
-    height: 80px;
+  height: 80px;
+}
+
+
+.btn {
+  border: 1px ;
+  background: none;
+  cursor: pointer;
+}
+
+.espacioDer {
+    margin-right: 10px;
 }
 
 .linkHeader {
-    padding-left: 30px;
-    text-decoration: none;
+  position: relative;
+  color: black;
+  padding-bottom: 5px;
 }
 
-.linkHeader::after{
-    content:"";
-    height: 4px;
-    width: 0;
-    background-color: #B08969;
-    display: block;
-    transition: all 500ms;
+.linkHeader:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff9c35;
+  transform-origin: bottom right;
+  transition: transform 0.4s ease-out;
 }
 
-.linkHeader:hover::after{
-    width: 100%;
+.btn:hover .linkHeader:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .regisButton {
-    background-color: #dfe0df;
-    border: 0px;
-    border-radius: 16px;
-    width: 120px;
-    height: 40px;
+  background-color: #dfe0df;
+  border: 0px;
+  border-radius: 16px;
+  width: 120px;
+  height: 40px;
 }
 
 .loginButton {
-    background-color: #B08969;
-    border: 0px;
-    border-radius: 16px;
-    width: 120px;
-    height: 40px;
-    margin-left: 15px;
+  background-color: #ff9c35;
+  border: 0px;
+  border-radius: 16px;
+  width: 120px;
+  height: 40px;
+  margin-left: 10px;
 }
 
 .regisButton:hover {
-    box-shadow: 0 4px 16px #dfe0df;
-    transition: all 0.2s ease;
+  box-shadow: 0 4px 16px #dfe0df;
+  transition: all 0.2s ease;
 }
 
 .loginButton:hover {
-    box-shadow: 0 4px 16px #B08969;
-    transition: all 0.2s ease;
+  box-shadow: 0 4px 16px #ff9c35;
+  transition: all 0.2s ease;
+}
+
+/* Contenido */
+
+/* Footer */
+
+.footer {
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  padding: 10px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerLogo {
+  height: 30px;
+  padding-right: 10px;
+}
+
+.footerRedes {
+  height: 30px;
 }
