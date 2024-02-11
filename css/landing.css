@@ -1,0 +1,78 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+a, p, button {
+    font-family: 'Acme';
+    font-size: medium;
+    color:black;
+}
+
+.header {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+
+.izq {
+    display: flex;
+    align-items: center;
+}
+
+.der {
+    display: flex;
+    align-items: center;
+}
+
+.headerLogo {
+    height: 80px;
+}
+
+.linkHeader {
+    padding-left: 30px;
+    text-decoration: none;
+}
+
+.linkHeader::after{
+    content:"";
+    height: 4px;
+    width: 0;
+    background-color: #B08969;
+    display: block;
+    transition: all 500ms;
+}
+
+.linkHeader:hover::after{
+    width: 100%;
+}
+
+.regisButton {
+    background-color: #dfe0df;
+    border: 0px;
+    border-radius: 16px;
+    width: 120px;
+    height: 40px;
+}
+
+.loginButton {
+    background-color: #B08969;
+    border: 0px;
+    border-radius: 16px;
+    width: 120px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.regisButton:hover {
+    box-shadow: 0 4px 16px #dfe0df;
+    transition: all 0.2s ease;
+}
+
+.loginButton:hover {
+    box-shadow: 0 4px 16px #B08969;
+    transition: all 0.2s ease;
+}
