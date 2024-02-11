@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  /*border: 1px solid black;*/
 }
 
 a, p, button {
@@ -107,6 +108,65 @@ body {
 }
 
 /* Contenido */
+
+section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    padding: 100px 20vw;
+}
+
+.tituloPrincipal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dog{
+    height: 200px;
+    margin-right: 20px;
+
+}
+
+/* Colores */
+.melocoton{
+    background-color: #FFDD95;
+}
+
+.blanco{
+    background-color: #ffffff;
+}
+
+.naranja{
+    background-color: #ff9c35;
+}
+
+.gris{
+    background-color: #dfe0df;
+}
+
+/* Curvas */
+.curva {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.curva svg {
+    position: relative;
+    display: block;
+    width: calc(103% + 1.3px);
+    height: 83px;
+}
+
+.curva .shape-fill {
+    fill: #ffffff;
+}
 
 /* Footer */
 
