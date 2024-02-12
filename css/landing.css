@@ -23,11 +23,20 @@ body {
 .izq {
   display: flex;
   align-items: center;
+  justify-content: left;
+  width: 250px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
 }
 
 .der {
   display: flex;
   align-items: center;
+  justify-content: right;
+  width: 250px;
 }
 
 /* Header */
@@ -45,15 +54,14 @@ body {
   height: 80px;
 }
 
-
 .btn {
-  border: 1px ;
+  border: 1px;
   background: none;
   cursor: pointer;
 }
 
 .espacioDer {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .linkHeader {
@@ -109,40 +117,41 @@ body {
 
 /* Contenido */
 
-section{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 400px;
-    padding: 100px 20vw;
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 400px;
+  padding: 100px 20vw;
 }
 
-.tituloPrincipal{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.tituloPrincipal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
-.dog{
-    height: 300px;
+.dog {
+  height: 300px;
+  border-bottom: 3px solid black;
 }
 
 /* Colores */
-.melocoton{
-    background-color: #FFDD95;
+.melocoton {
+  background-color: #ffdd95;
 }
 
-.blanco{
-    background-color: #ffffff;
+.blanco {
+  background-color: #ffffff;
 }
 
-.naranja{
-    background-color: #ff9c35;
+.naranja {
+  background-color: #ff9c35;
 }
 
-.gris{
-    background-color: #dfe0df;
+.gris {
+  background-color: #dfe0df;
 }
 
 /* Curvas */
@@ -164,7 +173,7 @@ section{
 }
 
 .curva .shape-fill {
-  fill: #FF9C35;
+  fill: #ff9c35;
 }
 
 /* Footer */
