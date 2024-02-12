@@ -205,6 +205,26 @@ section {
   margin-bottom: 100px;
 }
 
+/* Seccion Informacion General */
+.infoGeneral {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+}
+
+.txtInfoGeneral{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+
+.perroInfoGeneral img{
+  width: 1000px;
+  height: auto;
+}
+
 /* Colores */
 .naranja {
   background-color: #ff9c35;
@@ -218,7 +238,7 @@ section {
   background-color: #86a7fc;
 }
 
-azulOscuro {
+.azulOscuro {
   background-color: #3468c0;
 }
 
@@ -254,6 +274,28 @@ azulOscuro {
 
 .curva .shape-fill {
   fill: #ff9c35;
+}
+
+/*Curva Entre Bienvenido y Servicios*/
+.curvaBienvenida-Servicios {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.curvaBienvenida-Servicios svg {
+  position: relative;
+  display: block;
+  width: calc(300% + 1.3px);
+  height: 138px;
+}
+
+.curvaBienvenida-Servicios .shape-fill {
+  fill: #86A7FC;
 }
 
 /* Footer */
