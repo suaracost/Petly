@@ -166,7 +166,6 @@ section {
 
 .image-container img {
 	width: 80%;
-  filter: drop-shadow(15px 5px 5px black);
   animation: scale-up both ease-in-out,
              fade-away both linear;
   animation-timeline: --scroll;
@@ -352,6 +351,7 @@ section {
 
 .containerMapa {
   width: 60%;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
@@ -505,4 +505,65 @@ section {
 
 .footerRedes {
   height: 30px;
+}
+
+/* Back to top */
+
+.goTop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.backTop {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 4px #3468c0;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  position: relative;
+}
+
+.svgIcon {
+  width: 12px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.backTop:hover {
+  width: 140px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: #86A7FC;
+  align-items: center;
+}
+
+.backTop:hover .svgIcon {
+  transition-duration: 0.3s;
+  transform: translateY(-200%);
+}
+
+.backTop::before {
+  position: absolute;
+  bottom: -20px;
+  content: "Regresar al inicio";
+  color: white;
+  font-size: 0px;
+}
+
+.backTop:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  bottom: unset;
+  transition-duration: 0.3s;
 }
