@@ -357,7 +357,9 @@ section {
 }
 
 .borde {
+  padding: 4px;
   border: 3px solid #3468c0;
+  border-radius: 16px;
 }
 
 .btnUbi {
