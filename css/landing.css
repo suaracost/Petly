@@ -139,7 +139,7 @@ section {
 }
 
 @keyframes scale-up {
-  to { transform: scale(1.4); }
+  to { transform: scale(1.35); }
 }
 
 @keyframes fade-away {
