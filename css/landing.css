@@ -213,7 +213,7 @@ section {
 }
 
 .txtInfoGeneral{
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -228,6 +228,76 @@ section {
 .perroInfoGeneral img{
   width: 1000px;
   height: auto;
+}
+
+/* Seccion servicios */
+.servicios {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Seccion ubicación */
+.ubicacion {
+  height: 600px;
+  display: flex;
+  flex-direction: row;
+}
+
+.txtUbicacion{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+}
+
+.txtUbicacion h1{
+  font-size: 3em;
+}
+
+.txtUbicacion p {
+  text-align: center;
+}
+
+.containerMapa {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.borde {
+  border: 3px solid #3468c0;
+}
+
+.btnUbi {
+  border: 1px;
+  background: none;
+  cursor: pointer;
+}
+
+.linkUbi {
+  position: relative;
+  color: black;
+  padding-bottom: 5px;
+}
+
+.linkUbi:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #3468c0;
+  transform-origin: bottom right;
+  transition: transform 0.4s ease-out;
+}
+
+.btnUbi:hover .linkUbi:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 /* Colores */
@@ -301,6 +371,28 @@ section {
 
 .curvaBienvenida-Servicios .shape-fill {
   fill: #86A7FC;
+}
+
+/* Curva entre servicios y ubicación */
+
+.curvaUbicacion {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.curvaUbicacion svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 64px;
+}
+
+.curvaUbicacion .shape-fill {
+  fill: #FFFFFF;
 }
 
 /* Footer */
