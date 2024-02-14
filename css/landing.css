@@ -60,6 +60,16 @@ html {
   padding: 30px;
 }
 
+/*Tamano Texto NavBar*/
+.header a{
+  font-size: 20px;
+}
+
+.regisButton, .loginButton{
+  font-size: 20px;
+}
+
+
 .headerLogo {
   height: 80px;
 }
@@ -222,7 +232,20 @@ section {
   padding-bottom: 100px; /*Se sube lo que falta por el SVG de arriba, esto para que quede centrado*/
 }
 
+/*Tamano*/
 .txtInfoGeneral h1{
+  text-align: center;
+  font-size: 5em;
+}
+
+.txtInfoGeneral p {
+  text-align: center;
+  font-size: 1.3em;
+}
+
+.txtInfoGeneral h2{
+  padding-top: 10px;
+  text-align: center;
   font-size: 3em;
 }
 
@@ -240,7 +263,7 @@ section {
 }
 
 .servicios h1{
-  font-size: 3em;
+  font-size: 5em;
   margin-bottom: 50px;
 }
 
@@ -341,12 +364,18 @@ section {
   align-items: center;
 }
 
+/*Tamano*/
 .txtUbicacion h1{
-  font-size: 3em;
+  font-size: 5em;
 }
 
 .txtUbicacion p {
   text-align: center;
+  font-size: 1.5em;
+}
+
+.btnUbi a{
+  font-size: 1.3em;
 }
 
 .containerMapa {
