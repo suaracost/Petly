@@ -1,4 +1,4 @@
-![logo](images/logoFull.png)
+![logo](demo/src/main/resources/static/images/logoFull.png)
 
 ### Bienvenido a Petly 🐶
 
