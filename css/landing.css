@@ -63,7 +63,7 @@ html {
 
 /*Tamano Texto NavBar*/
 .header a{
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .regisButton, .loginButton{
@@ -261,7 +261,7 @@ section {
 
 /* Seccion servicios */
 .servicios {
-  height: 600px;
+  height: 760px;
   display: flex;
   flex-direction: column;
   padding-top: 25px;
@@ -270,11 +270,12 @@ section {
 .servicios h1{
   font-size: 4em;
   margin-bottom: 50px;
+  text-decoration:underline #ff9c35;
 }
 
 .contenedorServ{
   width: 100%;
-  height: 300px;
+  height: 500px;
 }
 
 .carrusel{
@@ -282,7 +283,7 @@ section {
   display: grid;
   grid-auto-flow: column;
   scroll-behavior: auto;
-  gap: 1.2rem;
+  gap: 2rem;
   overflow-y: auto;
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
@@ -296,9 +297,9 @@ section {
 .card {
   display: flex;
   flex-direction: column;
-  width: 230px;
-  height: 280px;
-  max-height: 330px;
+  width: 400px;
+  height: 450px;
+  max-height: 500px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
@@ -333,7 +334,7 @@ section {
 
 .card-title {
   margin: 0;
-  font-size: 17px;
+  font-size: 2em;
   font-weight: 600;
   cursor: default;
   -webkit-box-orient: vertical;
@@ -350,9 +351,108 @@ section {
   -webkit-line-clamp: 3;
   line-clamp: 3;
   margin: 0;
-  font-size: 13px;
+  font-size: 1.3em;
   cursor: default;
 }
+
+/* Seccion veterinarios */
+
+.veterinarios h1{
+  font-size: 4em;
+  margin-bottom: 50px;
+  text-decoration:underline #ff9c35;
+}
+
+.vetCard {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  background-color: #fffffe;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.vetCard::before {
+  content: "";
+  width: 400px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom: 3px solid #fefefe;
+  background: linear-gradient(40deg, #5988ff 0%, rgba(253,29,29,1) 50%, #ff9c35 100%);
+  transition: all 0.3s ease;
+}
+
+.vetCard * {
+  z-index: 1;
+}
+
+.vetImage {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 4px solid #fefefe;
+  transition: all 0.5s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.vet-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  transition: all 0.5s ease;
+}
+
+.vet-card-info span {
+  padding-top: 10px;
+  font-weight: 600;
+  font-size: 24px;
+  font-family: 'Acme';
+  color: #161A42;
+  line-height: 5px;
+}
+
+.vet-card-info p {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 23px;
+}
+
+.vetCard:hover {
+  width: 400px;
+  border-radius: 250px;
+  
+}
+
+.vetCard:hover::before {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border-bottom: none;
+  transform: scale(0.95);
+}
+
+.vetCard:hover .vetImage {
+  transform: translate(0%,10.5%);
+  width: 350px;
+  height: 350px;
+}
+
+.vetCard:hover .vet-card-info {
+  opacity: 0;
+}
+
+
 
 /* Seccion ubicación */
 .ubicacion {
@@ -499,7 +599,29 @@ section {
   fill: #86A7FC;
 }
 
-/* Curva entre servicios y ubicación */
+/* Curva entre servicios y veterianrios*/
+
+.curvaServicios-Ubicacion {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.curvaServicios-Ubicacion svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 64px;
+}
+
+.curvaServicios-Ubicacion .shape-fill {
+  fill: #3468c0;
+}
+
+/* Curva entre veterianrios y ubicación */
 
 .curvaUbicacion {
   position: absolute;
@@ -518,7 +640,7 @@ section {
 }
 
 .curvaUbicacion .shape-fill {
-  fill: #FFFFFF;
+  fill: #ffffff;
 }
 
 /* Back to top */
