@@ -66,10 +66,6 @@ html {
   font-size: 25px;
 }
 
-.regisButton, .loginButton{
-  font-size: 20px;
-}
-
 .headerLogo {
   height: 80px;
 }
@@ -113,21 +109,13 @@ html {
   transform-origin: bottom left;
 }
 
-.regisButton {
-  background-color: #86a7fc;
-  color: white;
-  border: 0px;
-  border-radius: 16px;
-  width: 120px;
-  height: 40px;
-}
-
 .loginButton {
+  font-size: 25px;
   background-color: #ff9c35;
   color: white;
   border: 0px;
   border-radius: 16px;
-  width: 120px;
+  width: 180px;
   height: 40px;
   margin-left: 10px;
 }
