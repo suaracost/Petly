@@ -275,6 +275,10 @@ section {
 .contenedorServ, .contenedorVet{
   width: 100%;
   height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .carrusel, .carrusel-veterinarios {
@@ -364,16 +368,16 @@ section {
   cursor: pointer;
   padding: 5px 5px; /* Ajusta este valor según necesites para el tamaño de las flechas */
   z-index: 2;
-  font-size: 36px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes */
+  font-size: 100px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes */
   outline: none; /* Elimina el borde al hacer clic */
 }
 
 .carrusel-control.izquierda {
-  left: -30px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
+  left: -70px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
 }
 
 .carrusel-control.derecha {
-  right: -30px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
+  right: -65px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
 }
 
 .contenedorServ, .contenedorVet{
@@ -480,6 +484,7 @@ section {
 
 .carrusel-veterinarios-control {
   color: #FFFFFF; /* Cambia el color de las flechas a blanco */
+  font-size: 100px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes */
 }
 
 /* Seccion ubicación */
