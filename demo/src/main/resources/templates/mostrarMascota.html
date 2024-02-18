@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Informacion <span th:text=${mascota.nombre}></span></h1>
+    <ul>
+        <li>Raza: <span th:text="${mascota.raza}"></span></li>
+        <li>Edad: <span th:text="${mascota.edad}"></span></li>
+        <li>Peso: <span th:text="${mascota.peso}"></span></li>
+        <li>Enfermedad: <span th:text="${mascota.enfermedad}"></span></li>
+        <li>Estado: <span th:text="${mascota.estado}"></span></li>
+    </ul>
+</body>
+</html>

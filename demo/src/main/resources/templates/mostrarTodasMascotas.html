@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Todas las mascotas</h1>
+    
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Peso</th>
+                    <th>Enfermedad</th>
+                    <th>Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="mascota : ${mascotas}">
+                    <td th:text="${mascota.nombre}"></td>
+                    <td th:text="${mascota.raza}"></td>
+                    <td th:text="${mascota.edad}"></td>
+                    <td th:text="${mascota.peso}"></td>
+                    <td th:text="${mascota.enfermedad}"></td>
+                    <td><img th:src="${mascota.foto}"/></td>
+                </tr>
+        </table>
+    </div>
+</body>
+</html>
