@@ -66,10 +66,6 @@ html {
   font-size: 25px;
 }
 
-.regisButton, .loginButton{
-  font-size: 20px;
-}
-
 .headerLogo {
   height: 80px;
 }
@@ -113,21 +109,13 @@ html {
   transform-origin: bottom left;
 }
 
-.regisButton {
-  background-color: #86a7fc;
-  color: white;
-  border: 0px;
-  border-radius: 16px;
-  width: 120px;
-  height: 40px;
-}
-
 .loginButton {
+  font-size: 25px;
   background-color: #ff9c35;
   color: white;
   border: 0px;
   border-radius: 16px;
-  width: 120px;
+  width: 180px;
   height: 40px;
   margin-left: 10px;
 }
@@ -272,12 +260,16 @@ section {
   margin-bottom: 50px;
 }
 
-.contenedorServ{
+.contenedorServ, .contenedorVet{
   width: 100%;
   height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.carrusel{
+.carrusel, .carrusel-veterinarios {
   padding-top: 10px;
   display: grid;
   grid-auto-flow: column;
@@ -289,7 +281,7 @@ section {
   scrollbar-width: none;
 }
 
-.carrusel::-webkit-scrollbar {
+.carrusel::-webkit-scrollbar , .carrusel-veterinarios::-webkit-scrollbar {
   display: none;
 }
 
@@ -352,6 +344,33 @@ section {
   margin: 0;
   font-size: 1.3em;
   cursor: default;
+}
+
+.carrusel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent; /* Fondo transparente */
+  color: #000000; /* Color de las flechas */
+  border: none;
+  cursor: pointer;
+  padding: 5px 5px; /* Ajusta este valor según necesites para el tamaño de las flechas */
+  z-index: 2;
+  font-size: 100px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes */
+  outline: none; /* Elimina el borde al hacer clic */
+}
+
+.carrusel-control.izquierda {
+  left: -70px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
+}
+
+.carrusel-control.derecha {
+  right: -65px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
+}
+
+.contenedorServ, .contenedorVet{
+  position: relative;
+  margin: 0 auto;
 }
 
 /* Seccion veterinarios */
@@ -451,7 +470,10 @@ section {
   opacity: 0;
 }
 
-
+.carrusel-veterinarios-control {
+  color: #FFFFFF; /* Cambia el color de las flechas a blanco */
+  font-size: 100px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes */
+}
 
 /* Seccion ubicación */
 .ubicacion {
