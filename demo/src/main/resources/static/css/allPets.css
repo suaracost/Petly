@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    /*border: 1px solid black;*/
+  }
+
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0; /* Añade margen cero para evitar espacios innecesarios */
+    font-family: 'Acme';
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Utiliza el 100% de la altura de la ventana */
+    width: 12.5%; /* Anchura fija del header */
+    background-color: #3468c0;
+}
+
+.header-logo {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 7%;
+
+}
+
+.header-logo img {
+    height: 125%;
+}
+
+.header-logo h1 {
+    margin: 0;
+    font-family: 'Acme';
+    font-size: 45px;
+    color: white;
+    padding-left: 15px;
+}
+
+.infoVet {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+}
+
+.infoVet img {
+    height: 70%;
+    border-radius: 50%;
+}
+
+.infoVet p {
+    margin: 0;
+    padding-top: 15px;
+    font-family: 'Acme', sans-serif;
+    font-size: 22.5px;
+    color: white;
+}
+
+.navMenu {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    margin-left: 25px;
+    margin-right: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    border-radius: 5%;
+    background-color: #86a7fc;
+}
+
+.navMenu a {
+    flex-grow: 1;
+    padding-top: 25px;
+    font-family: 'Acme', sans-serif;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+}
+
+.navMenu a:hover {
+    color: #ffdd95;
+}
+
+.log-out {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+}
+
+.log-out a {
+    text-decoration: none;
+    margin: 0;
+    font-family: 'Acme', sans-serif;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.cuerpo {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Utiliza el 100% de la altura de la ventana */
+    width: 87.5%; /* Anchura fija del cuerpo */
+    padding-left: 100px;
+    padding-right: 100px;
+    background-color: #ffffff;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-items: center;
+    height: 10%;
+    margin-top: 70px;
+}
+
+.search h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.search input {
+    font-size: 1.5em;
+    width: 50%;
+    height: 40px;
+    border-radius: 50px;
+    border: 2px solid #000000;
+    padding-left: 30px;
+
+}
+
+.cuerpo table {
+    font-size: 1.5em;
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 50px;
+}
+
+.cuerpo th, .cuerpo td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: center;
+}
+
+.cuerpo th {
+    background-color: #ff9c35;
+    color: white;
+}
+
+
+
+

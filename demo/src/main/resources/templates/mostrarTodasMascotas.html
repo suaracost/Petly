@@ -3,33 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Petly allPets</title>
+    <link rel="icon" href="/images/dog.png" />
+    <meta
+      name="author"
+      content="Hermann Hernández, Nicolás Rincón, Alejandro Suárez"
+    />
+    <meta name="keywords" content="petly, veterinary, vet, pet, dog" />
+    <link rel="stylesheet" href="/css/allPets.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+    
 </head>
 <body>
-    <h1>Todas las mascotas</h1>
+
+    <header>
+        <div class = "header-logo">
+            <img src="/images/dog.png" alt="logo" class="headerLogo" />
+            <h1 class="tituloHeader">Petly</h1>
+        </div>
+
+        <div class = "infoVet">
+            <img src="/images/vet1.jpg" alt="Veterinario" />
+            <p>Dr. Alexander García</p>
+        </div>
+
+        <div class = "navMenu">
+            <a href="/demo/src/main/resources/templates/mostrarTodasMascotas.html">Ver mascotas</a>
+            <a href="/demo/src/main/resources/templates/registrarMascota.html">Registrar mascota</a>
+            <a href="/demo/src/main/resources/templates/atencionMedica.html">Atención medica</a>
+            <a href="/demo/src/main/resources/templates/tratamientos.html">Ver Tratamientos</a>
+            <a href="/demo/src/main/resources/templates/registrarCliente.html">Registrar cliente</a>
+        </div>
+
+        <div class = "log-out">
+            <a href="/demo/src/main/resources/templates/index.html">Cerrar sesión</a>
+        </div>
+    </header>  
     
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Raza</th>
-                    <th>Edad</th>
-                    <th>Peso</th>
-                    <th>Enfermedad</th>
-                    <th>Foto</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="mascota : ${mascotas}">
-                    <td th:text="${mascota.nombre}"></td>
-                    <td th:text="${mascota.raza}"></td>
-                    <td th:text="${mascota.edad}"></td>
-                    <td th:text="${mascota.peso}"></td>
-                    <td th:text="${mascota.enfermedad}"></td>
-                    <td><img th:src="${mascota.foto}"/></td>
-                </tr>
-        </table>
-    </div>
+    <section class = "cuerpo">
+        <div class="search">
+            <h1>Mascotas de Petly</h1>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
+        </div>
+        
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Raza</th>
+                        <th>Edad</th>
+                        <th>Peso</th>
+                        <th>Enfermedad</th>
+                        <th>Foto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="mascota : ${mascotas}">
+                        <td th:text="${mascota.nombre}"></td>
+                        <td th:text="${mascota.raza}"></td>
+                        <td th:text="${mascota.edad}"></td>
+                        <td th:text="${mascota.peso}"></td>
+                        <td th:text="${mascota.enfermedad}"></td>
+                        <td><img th:src="${mascota.foto}"/></td>
+                    </tr>
+            </table>
+        </div>
+    </section>
 </body>
 </html>
