@@ -59,15 +59,15 @@ header {
     margin: 0;
     padding-top: 15px;
     font-family: 'Acme', sans-serif;
-    font-size: 22.5px;
+    font-size: 1.5em;
     color: white;
 }
 
 .navMenu {
     margin-top: 30px;
     margin-bottom: 70px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 18px;
+    margin-right: 18px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,9 +79,9 @@ header {
 
 .navMenu a {
     flex-grow: 1;
-    padding-top: 25px;
+    padding-top: 20px;
     font-family: 'Acme', sans-serif;
-    font-size: 18px;
+    font-size: 1.5em;
     color: white;
     text-decoration: none;
 }
@@ -102,7 +102,7 @@ header {
     text-decoration: none;
     margin: 0;
     font-family: 'Acme', sans-serif;
-    font-size: 20px;
+    font-size: 1.5em;
     color: white;
     cursor: pointer;
 }
