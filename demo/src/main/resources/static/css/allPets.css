@@ -112,8 +112,8 @@ header {
     flex-direction: column;
     height: 100vh; /* Utiliza el 100% de la altura de la ventana */
     width: 87.5%; /* Anchura fija del cuerpo */
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
     background-color: #ffffff;
 }
 
@@ -124,7 +124,7 @@ header {
     align-items: flex-end;
     align-items: center;
     height: 10%;
-    margin-top: 70px;
+    margin-top: 25px;
 }
 
 .search h1 {

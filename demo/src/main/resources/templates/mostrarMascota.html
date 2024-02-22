@@ -54,14 +54,35 @@
         </div>
             
         <div class = "info">
-            <img src="https://img.freepik.com/fotos-premium/cachorro-pastor-aleman-2-meses-casa_748575-108.jpg" alt="fotoPerro"/>
-            <ul>
-                <li>Raza: <span th:text="${mascota.raza}"></span></li>
-                <li>Edad: <span th:text="${mascota.edad}"></span></li>
-                <li>Peso: <span th:text="${mascota.peso}"></span></li>
-                <li>Enfermedad: <span th:text="${mascota.enfermedad}"></span></li>
-                <!-- <li>Estado: <span th:text="${mascota.estado}"></span></li> -->
-            </ul>
+            <div class="card-image-container">
+                <img src="https://img.freepik.com/fotos-premium/cachorro-pastor-aleman-2-meses-casa_748575-108.jpg" alt="fotoPerro"/>
+            </div> 
+
+            <div class = info-texto>
+                <div class = info-dog>
+                    <h2>Información Macota</h2>
+                    <ul class="card-des">
+                        <li>Raza: <span th:text="${mascota.raza}"></span></li>
+                        <li>Edad: <span th:text="${mascota.edad}"></span></li>
+                        <li>Peso: <span th:text="${mascota.peso}"></span></li>
+                        <li>Enfermedad: <span th:text="${mascota.enfermedad}"></span></li>
+                        <!-- <li>Estado: <span th:text="${mascota.estado}"></span></li> -->
+                    </ul>
+                </div>
+                <div class = info-dueño>
+                    <h2>Información Dueño</h2>
+                    <ul class="card-des">
+                        <!-- <li>Raza: <span th:text="${mascota.raza}"></span></li>
+                        <li>Edad: <span th:text="${mascota.edad}"></span></li>
+                        <li>Peso: <span th:text="${mascota.peso}"></span></li>
+                        <li>Enfermedad: <span th:text="${mascota.enfermedad}"></span></li> -->
+                        <!-- <li>Estado: <span th:text="${mascota.estado}"></span></li> -->
+                    </ul>
+                </div> 
+            </div>
+
+                      
+            
         </div>        
 
         <div class = "search">
