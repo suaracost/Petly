@@ -17,40 +17,83 @@
       href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 
 </head>
 <body>
 
-    <header>
-        <div class = "header-logo">
-            <img src="/images/dog.png" alt="logo" class="headerLogo" />
-            <h1 class="tituloHeader">Petly</h1>
+    <div class = "sidebar">
+        <div class = "top">
+            <img src="/images/dog.png" alt="logo" id="btn"/>
+            <div class = "logo">
+                <span>Petly</span>
+            </div>
         </div>
 
-        <div class = "infoVet">
-            <img src="/images/vet1.jpg" alt="Veterinario" />
-            <p>Dr. Alexander García</p>
+        <div class = "user">
+            <img src="/images/vet1.jpg" alt="Veterinario" class="user-img"/>
+            <p>Dr. Alexander García</p>           
         </div>
+        
+        <div class = "nav">
+            <ul>
+                <li>
+                    <a href="/demo/src/main/resources/templates/mostrarTodasMascotas.html">
+                        <i class="bx bx-table"></i>
+                        <span class="nav-item">Ver mascotas</span>
+                    </a>
+                </li>
 
-        <div class = "navMenu">
-            <a href="/demo/src/main/resources/templates/mostrarTodasMascotas.html">Ver mascotas</a>
-            <a href="/demo/src/main/resources/templates/registrarMascota.html">Registrar mascota</a>
-            <a href="/demo/src/main/resources/templates/tratamientos.html">Ver Tratamientos</a>
-            <a href="/demo/src/main/resources/templates/atencionMedica.html">Atención medica</a>
-            <a href="/demo/src/main/resources/templates/verClientes.html">Ver clientes</a>
-            <a href="/demo/src/main/resources/templates/registrarCliente.html">Registrar cliente</a>
+                <li>
+                    <a href="/demo/src/main/resources/templates/registrarMascota.html">
+                        <i class="bx bxs-dog"></i>
+                        <span class="nav-item">Registrar mascota</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/demo/src/main/resources/templates/tratamientos.html">
+                        <i class="bx bx-capsule"></i>
+                        <span class="nav-item">Ver tratamientos</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/demo/src/main/resources/templates/atencionMedica.html">
+                        <i class="bx bx-plus-medical"></i>
+                        <span class="nav-item">Atención medica</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/demo/src/main/resources/templates/verClientes.html">
+                        <i class="bx bx-group"></i>
+                        <span class="nav-item">Ver clientes</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/demo/src/main/resources/templates/registrarCliente.html">
+                        <i class="bx bx-user-plus"></i>
+                        <span class="nav-item">Registrar cliente</span>
+                    </a>
+                </li>
+
+                <li id="logout">
+                    <a href="/demo/src/main/resources/templates/registrarCliente.html">
+                        <i class="bx bx-log-out"></i>
+                        <span class="nav-item">Cerrar sesión</span>
+                    </a>
+                </li>
+            </ul>
         </div>
+    </div> 
 
-        <div class = "log-out">
-            <a href="/demo/src/main/resources/templates/index.html">Cerrar sesión</a>
-        </div>
-    </header>
-
-    <section class = "cuerpo">
+    <div class = "main-content">
 
         <div class = "cabeza">
-            <h1>Informacion <span th:text=${mascota.nombre}></span></h1>
-            <button class="btn" onclick="window.location.href='/demo/src/main/resources/templates/mostrarTodasMascotas.html'">Volver</button>
+            <h1> <span th:text=${mascota.nombre}></span></h1>
+            <button class="btn" onclick="window.location.href='/mascotas/all'">Volver</button>
         </div>
             
         <div class = "info">
@@ -80,7 +123,6 @@
                     </ul>
                 </div> 
             </div>
-
                       
             
         </div>        
@@ -108,9 +150,16 @@
         </table>
 
 
-    </section>
-
-    
-
+    </div>
 </body>
+
+<script>
+    let btn = document.querySelector('#btn');
+    let sidebar = document.querySelector('.sidebar');
+
+    btn.onclick = function() {
+        sidebar.classList.toggle("active");
+    };
+</script>
+
 </html>
