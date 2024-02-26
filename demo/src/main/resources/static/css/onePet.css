@@ -293,8 +293,15 @@
 .info-dog h2 , .info-dueño h2 {
     width: 100%;
     text-align: center; 
-    padding: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
     font-size: 2em;
+}
+
+.info-dog h2 {
+    padding-top: 20px;
 }
 
 .lista {
