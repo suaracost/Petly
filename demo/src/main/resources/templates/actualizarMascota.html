@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <form th:object="${mascota}" th:action="@{/mascotas/update/{id}(id=${mascota.id})}" method="post">
+        <div class="form-group">
+            <label for="nombre">Nombre Mascota</label>
+            <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el Nombre">
+        </div>
+        
+        <div class="form-group">
+            <label for="raza">Raza</label>
+            <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza">
+        </div>
+
+        <div class="form-group">
+            <label for="edad">Edad</label>
+            <input th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad">
+        </div>
+
+        <div class="form-group">
+            <label for="peso">Peso</label>
+            <input th:field="*{peso}" type="number" id="peso" placeholder="Ingresa el peso">
+        </div>
+
+        <div class="form-group">
+            <label for="enfermedad">Enfermedad</label>
+            <input th:field="*{enfermedad}" type="text" id="enfermedad" placeholder="Ingresa la enfermedad">
+        </div>
+
+        <div class="form-group">
+            <label for="foto">Foto</label>
+            <input th:field="*{foto}" type="txt" id="foto" placeholder="Ingresa la foto">
+        </div>
+
+        <div class="form-group">
+            <label for="estado">Estado</label>
+            <input th:field="*{estado}" type="text" id="estado" placeholder="Ingresa el estado">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</body>
+</html>

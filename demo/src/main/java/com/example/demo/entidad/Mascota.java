@@ -1,6 +1,7 @@
 package com.example.demo.entidad;
 
 public class Mascota {
+    private Integer id;
     private String nombre;
     private String raza;
     private int edad;
@@ -9,7 +10,8 @@ public class Mascota {
     private String foto;
     private String estado;
 
-    public Mascota(String nombre, String raza, int edad, float peso, String enfermedad, String foto, String estado) {
+    public Mascota(Integer id, String nombre, String raza, int edad, float peso, String enfermedad, String foto, String estado) {
+        this.id = id;
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
@@ -17,6 +19,17 @@ public class Mascota {
         this.enfermedad = enfermedad;
         this.foto = foto;
         this.estado = estado;
+    }
+
+    public Mascota() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
