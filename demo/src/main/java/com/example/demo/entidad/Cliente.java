@@ -1,5 +1,7 @@
 package com.example.demo.entidad;
 
+import java.util.List;
+
 public class Cliente {
     private Integer id;
     private String cedula;
@@ -7,17 +9,28 @@ public class Cliente {
     private String apellido;
     private String correo;
     private String celular;
+    private List<Mascota> mascotas;
 
-    public Cliente(Integer id, String cedula, String nombre, String apellido, String correo, String celular) {
+    public Cliente(Integer id, String cedula, String nombre, String apellido, String correo, String celular, List<Mascota> mascotas) {
         this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.celular = celular;
+        this.mascotas = mascotas;
+
     }
 
     public Cliente() {
+    }
+
+    public List<Mascota> getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(List<Mascota> mascotas) {
+        this.mascotas = mascotas;
     }
 
     public Integer getId() {

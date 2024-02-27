@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error</title>
+    <meta
+      name="author"
+      content="Hermann Hernández, Nicolás Rincón, Alejandro Suárez"
+    />
+    <meta name="keywords" content="petly, veterinary, vet, pet, dog" />
+    <link rel="stylesheet" href="/css/errorMascota.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contenido">
+      <h1>La cedula que buscas no existe bro</h1>
+      <h3 th:text="'Cedula buscada = ' + ${cedula}"></h3>
+
+      <img src="/images/perroError.jpg" alt="logo" id="btn" />
+
+      <div class="cabeza">
+        <button class="botonVolver" onclick="window.location.href='/login/cliente'">
+          <h3 id="volver">Volver</h3>
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

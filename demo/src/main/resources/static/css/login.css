@@ -5,6 +5,16 @@
     font-family: 'Acme', sans-serif;
 }
 
+
+.logoLogin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
 .container {
     height: 100vh;
     display: flex;
@@ -91,6 +101,20 @@
 }
 
 .boton:hover {
-    box-shadow: 0 4px 16px #ff9c35;
+    box-shadow: 0 4px 16px #ff9843;
+    transition: all 0.2s ease;
+}
+
+.redirect {
+    margin-top: 10px;
+    color: #898989;
+}
+
+.redirect a {
+    color:#ff9843;
+}
+
+.redirect a:hover {
+    color: #3468c0;
     transition: all 0.2s ease;
 }
