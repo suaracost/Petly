@@ -1,25 +1,34 @@
 package com.example.demo.repositorio;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entidad.Cliente;
+import com.example.demo.entidad.Mascota;
 
 @Repository
 public class ClienteRepository {
     private Map<Integer, Cliente> data = new HashMap<>();
 
     //Creacion base de datos falsa de Clientes
-    public ClienteRepository(){
-        data.put(1, new Cliente(1, "1000000001", "Pedro", "Duran", "pedro@gmail.com", "12345671"));
-        data.put(2, new Cliente(2, "1000000002", "Juan", "Sanchez", "juan@gmail.com", "12345672"));
-        data.put(3, new Cliente(3, "1000000003", "Maria", "Perez", "maria@gmail.com", "12345673"));
-        data.put(4, new Cliente(4, "1000000004", "Luis", "Ramirez", "luis@gmail.com", "12345674"));
-        data.put(5, new Cliente(5, "1000000005", "Ana", "Lopez", "ana@gmail.com", "12345675"));
-        data.put(6, new Cliente(6, "1000000006", "Jose", "Gonzalez", "jose@gmail.com", "12345676"));
+    public ClienteRepository() {
+        // Crear una instancia de Mascota y agregarla a la lista de mascotas del cliente
+        List<Mascota> mascotasPedro = new ArrayList<>();
+        mascotasPedro.add(new Mascota(1, "Firulais", "Pastor Aleman", 3, 20, "Moquillo", "foto1.jpg", "Adoptado"));
+        mascotasPedro.add(new Mascota(2, "Rex", "Bulldog", 2, 15, "Gastritis", "foto2.jpg", "Disponible"));
+        mascotasPedro.add(new Mascota(3, "Scooby", "Gran Danes", 4, 25, "Diarrea", "foto3.jpg", "Disponible"));
+
+        data.put(1, new Cliente(1, "1000000001", "Pedro", "Duran", "pedro@gmail.com", "12345671", mascotasPedro)); // Agregar mascotas a Pedro
+        data.put(2, new Cliente(2, "1000000002", "Juan", "Sanchez", "juan@gmail.com", "12345672", null));
+        data.put(3, new Cliente(3, "1000000003", "Maria", "Perez", "maria@gmail.com", "12345673", null));
+        data.put(4, new Cliente(4, "1000000004", "Luis", "Ramirez", "luis@gmail.com", "12345674", null));
+        data.put(5, new Cliente(5, "1000000005", "Ana", "Lopez", "ana@gmail.com", "12345675", null));
+        data.put(6, new Cliente(6, "1000000006", "Jose", "Gonzalez", "jose@gmail.com", "12345676", null));
     }
 
     //Metodos para mostrar las Clientes (queries)

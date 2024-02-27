@@ -45,7 +45,7 @@ public class ClienteController {
     @GetMapping("/add")
     public String mostrarFormularioCreaString(Model model) {
 
-        Cliente cliente = new Cliente( 0, "", "", "", "", "");
+        Cliente cliente = new Cliente( 0, "", "", "", "", "", null);
 
         model.addAttribute("cliente", cliente);
 
