@@ -82,59 +82,62 @@
             </ul>
         </div>
     </div>  
-
-    <div>
+    
+    <div class = "titulo">
         <h1 class="main-title">Modificar Mascota</h1>
         <h1 class="main-subtitle">Actualizar una mascota en la base de datos de Petly</h1>
     </div>
-
+    
     <div class = "main-content">
+        
 
         <div class = "left-side">
 
-            <form th:object="${mascota}" th:action="@{/mascotas/update/{id}(id=${mascota.id})}" method="post">
+            <h1> Informacion Modificada </h1>
+
+            <form th:object="${mascota}" th:action="@{/mascotas/update/{id}(id=${mascota.id})}" method="post" class="formulario">
                 <div class="form-group">
-                    <label for="nombre">Nombre Mascota</label>
-                    <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el Nombre">
+                    <label for="nombre">Nombre Mascota </label>
+                    <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el Nombre" class="input">
                 </div>
                 
                 <div class="form-group">
                     <label for="raza">Raza</label>
-                    <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza">
+                    <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza" class="input">
                 </div>
     
                 <div class="form-group">
                     <label for="edad">Edad</label>
-                    <input th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad">
+                    <input th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad"  class="input">
                 </div>
     
                 <div class="form-group">
                     <label for="peso">Peso</label>
-                    <input th:field="*{peso}" type="number" id="peso" placeholder="Ingresa el peso">
+                    <input th:field="*{peso}" type="number" id="peso" placeholder="Ingresa el peso" class="input">
                 </div>
     
                 <div class="form-group">
                     <label for="enfermedad">Enfermedad</label>
-                    <input th:field="*{enfermedad}" type="text" id="enfermedad" placeholder="Ingresa la enfermedad">
+                    <input th:field="*{enfermedad}" type="text" id="enfermedad" placeholder="Ingresa la enfermedad" class="input">
                 </div>
     
                 <div class="form-group">
                     <label for="foto">Foto</label>
-                    <input th:field="*{foto}" type="txt" id="foto" placeholder="Ingresa la foto">
+                    <input th:field="*{foto}" type="txt" id="foto" placeholder="Ingresa la foto" class="input">
                 </div>
     
                 <div class="form-group">
                     <label for="estado">Estado</label>
-                    <input th:field="*{estado}" type="text" id="estado" placeholder="Ingresa el estado">
+                    <input th:field="*{estado}" type="text" id="estado" placeholder="Ingresa el estado" class="input">
                 </div>
     
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </form>
         </div>
 
         <div class="right-side">
             <div class = "cabeza">
-                <h1> <span th:text=${mascota.nombre}></span></h1>
+                <h1> Información actual: <span th:text=${mascota.nombre}></span></h1>
                 <button class="btn" onclick="window.location.href='/mascotas/all'">Volver</button>
             </div>
                 

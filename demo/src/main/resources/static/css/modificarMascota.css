@@ -19,26 +19,7 @@
     transition: all 0.5s ease;
 }
 
-.main-title.active,
-.main-subtitle.active {
-    transform: translateX(100px);
-    transition: all 0.5s ease;
-}
-
-.sidebar.active ~ .main-title,
-.sidebar.active ~ .main-subtitle {
-    transform: translateX(100px);
-    transition: all 0.5s ease;
-}
-
-.main-title,
-.main-subtitle {
-    transition: all 0.5s ease;
-}
-
-
-
-.sidebar.active ~ .main-content{
+.sidebar.active ~ .main-content , .sidebar.active ~ .titulo{
     left: 250px;
     width: calc(100% - 250px);
 }
@@ -201,16 +182,38 @@
     margin-top: 120px;
 }
 
+.titulo {
+    position: relative;
+    left: 100px;
+    transition: all 0.5s ease;
+    width: calc(100% - 100px);
+    transition: all 0.5s ease;
+
+}
+
+.main-title{
+    font-size: 3em;
+    position: relative;
+    text-align: center;
+    padding-top: 25px;  
+    color: black;
+}
+
+.main-subtitle{
+    position: relative;
+    font-size: 2em;
+    text-align: center;
+    color: #3468c0;
+}
+
 .main-content {
     position: relative;
-    min-height: 100vh;
     top: 0;
     left: 100px;
     transition: all 0.5s ease;
     width: calc(100% - 100px);
     padding: 1rem;
     padding-top: 25px;
-    padding-bottom: 25px;
     padding-left: 50px;
     padding-right: 50px;
     
@@ -223,7 +226,6 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding-right: 25px;
 
 }
@@ -238,25 +240,6 @@
 
 }
 
-/*
-Titulo principal de la pagina.
-*/
-.main-title{
-    position: relative;
-    font-size: 3em;
-    text-align: center;
-    padding-top: 25px;  
-    color: black;
-}
-
-.main-subtitle{
-    position: relative;
-    font-size: 2em;
-    text-align: center;
-    color: #3468c0;
-}
-
-
 .cabeza {
     display: flex;
     flex-direction: row;
@@ -265,7 +248,7 @@ Titulo principal de la pagina.
     align-items: center;
     height: 10%;
     width: 100%;
-    margin-top: 25px;
+    margin-top: 0px;
     margin-bottom: 25px;
 }
 
@@ -293,9 +276,9 @@ Titulo principal de la pagina.
 
 .info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
-    height: 780px;
+    height: 676.5px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
@@ -306,8 +289,7 @@ Titulo principal de la pagina.
 }
 
 .card-image-container {
-    width: 100%;
-    height: 800px;
+    width: 130%;
     border-radius: 10px;
     overflow: hidden;
     background-color: rgb(165, 165, 165);
@@ -325,7 +307,8 @@ Titulo principal de la pagina.
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 100%;
+    width: 70%;
+    padding-left: 50px;
 }
 
 .info-dog h2 , .info-dueño h2 {
@@ -333,7 +316,7 @@ Titulo principal de la pagina.
     text-align: center; 
     padding-top: 10px;
     padding-left: 10px;
-    padding-right: 10px;
+    padding-right: 50px;
     padding-bottom: 5px;
     font-size: 2em;
 }
@@ -376,40 +359,47 @@ Titulo principal de la pagina.
     padding-right: 30px;
 }
 
-table.tablita {
-    font-size: 1.5em;
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;  
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0px;
 }
 
-.tablita th, .tablita td {
-    
-    padding: 10px;
-    text-align: center;
+.form-group label {
+    font-size: 1.5em;  
+    margin-bottom: 0px;
+    width: 100%;
 }
 
-.tablita th:first-child {
-    border-top-left-radius: 10px;
+.input {
+    font-size: 1.25em;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    padding-left: 10px;
 }
 
-.tablita th:last-child {
-    border-top-right-radius: 10px;
+.formulario h1 {
+    display: flex;
+    font-size: 40px;
+    flex-direction: row;
+    height: 10%;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
-.tablita th {
-    background-color: #3468c0;
-    color: white;
-}
-
-.tablita tr:nth-child(even) {
-    background-color: #eeeeee;
-}
-
-.tablita tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
-}
-
-.tablita tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
+.btn-enviar {
+    margin-top: 10px;
+    height: 40px;
+    width: 100%;
 }
