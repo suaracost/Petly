@@ -12,6 +12,6 @@ public class ErrorController {
 
         model.addAttribute("id", e.getId());
 
-        return "paginaError";
+        return "paginaErrorMascota";
     }
 }

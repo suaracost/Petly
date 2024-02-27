@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.contenido {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido h1 {
+    font-family: Acme;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenido h3 {
+    font-family: Acme;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3468c0;
+}
+
+.contenido img {
+    margin-bottom: 20px;
+}
+
+.botonVolver {
+    height: 30px;
+    width: 90px;
+    background-color: #ff9c35;
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+#volver {
+    color: unset;
+    margin-bottom: unset;
+}
+
+.botonVolver:hover {
+    box-shadow: 0 4px 16px #ff9c35;
+    transition: all 0.2s ease;
+  }
