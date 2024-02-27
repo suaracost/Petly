@@ -8,8 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
     
     @RequestMapping("/cliente")
-    public String mostrarFormularioLogin(){
-        return "login";
+    public String loginCliente(){
+        return "loginCliente";
     }
     
+    @RequestMapping("/vet")
+    public String loginVet(){
+        return "loginVeterinario";
+    }
 }
