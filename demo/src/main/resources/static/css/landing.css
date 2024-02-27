@@ -56,10 +56,11 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-
-
 
 /*Tamano Texto NavBar*/
 .header a{
@@ -118,6 +119,11 @@ html {
   width: 180px;
   height: 40px;
   margin-left: 10px;
+}
+
+.loginButton a {
+  color: white;
+  text-decoration: none;
 }
 
 .loginButton:hover {

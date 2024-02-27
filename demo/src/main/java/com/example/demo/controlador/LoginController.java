@@ -32,4 +32,9 @@ public class LoginController {
         }
     }
 
+    @RequestMapping("/vet")
+    public String loginVet() {
+        return "loginVeterinario";
+    }
+
 }

@@ -19,6 +19,10 @@
     />
   </head>
   <body>
+    <a th:href="@{/}">
+      <img src="/images/dog.png" class="logoLogin" />
+    </a>
+
     <div class="container">
       <img src="/images/loginCliente.jpg" class="fotoLogin" />
 
@@ -35,6 +39,11 @@
           <button type="submit" class="boton">
             Iniciar sesión
           </button>
+
+          <p class="redirect">
+            ¿Eres un veterinario? 
+            <a th:href="@{/login/vet}">Inicia sesión aqui</a>
+          </p>
         </form>
       </div>
     </div>
