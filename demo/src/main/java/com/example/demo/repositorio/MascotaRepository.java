@@ -14,7 +14,7 @@ public class MascotaRepository {
 
     //Creacion base de datos falsa de mascotas
     public MascotaRepository(){
-        data.put(1, new Mascota(1, "Firulais", "Pastor Aleman", 3, 20, "Moquillo", "foto1.jpg", "Adoptado"));
+        data.put(1, new Mascota(1, "Firulais", "Pastor Aleman", 3, 20, "Moquillo", "https://images.pexels.com/photos/1458916/pexels-photo-1458916.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500", "Adoptado"));
         data.put(2, new Mascota(2, "Rex", "Bulldog", 2, 15, "Gastritis", "foto2.jpg", "Disponible"));
         data.put(3, new Mascota(3, "Scooby", "Gran Danes", 4, 25, "Diarrea", "foto3.jpg", "Disponible"));
         data.put(4, new Mascota(4, "Pluto", "Labrador", 5, 30, "Gripe", "foto4.jpg", "Adoptado"));
