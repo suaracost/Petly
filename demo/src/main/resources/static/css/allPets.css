@@ -263,7 +263,7 @@ table.tablita {
 }
 
 .opciones {
-    height: 56px;
+    height: 120px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -271,6 +271,7 @@ table.tablita {
 }
 
 .links {
+    font-size: 1.3em;
     color: #898989;
     text-decoration: none;
     display: flex;
@@ -295,4 +296,10 @@ table.tablita {
     color: red;
     text-shadow: 0 4px 16px red;
     transition: all 0.2s ease;
+}
+
+.fotoPerro {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
