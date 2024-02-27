@@ -14,4 +14,13 @@ public class ErrorController {
 
         return "paginaErrorMascota";
     }
+
+    @ExceptionHandler(CedulaNotFoundException.class)
+    public String errorLogin(Model model, CedulaNotFoundException e){
+
+        model.addAttribute("cedula", e.getCedula());
+
+        return "paginaErrorCliente";
+    }
+    
 }

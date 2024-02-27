@@ -28,6 +28,16 @@ public class ClienteRepository {
         return data.get(id);
     }
 
+    //Metodo para buscar por cedula
+    public Cliente findByCedula(String cedula){
+        for (Cliente Cliente : data.values()) {
+            if(Cliente.getCedula().equals(cedula)){
+                return Cliente;
+            }
+        }
+        return null;
+    }
+
     //Mostrar todos los Clientes (findAll)
     public Collection<Cliente> findAll(){
         return data.values();
