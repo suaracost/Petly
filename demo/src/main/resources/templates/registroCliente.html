@@ -10,27 +10,27 @@
     <form th:object="${cliente}" th:action="@{/clientes/agregar}" method="post">
         <div class="form-group">
             <label for="cedula">Cedula Cliente</label>
-            <input th:field="*{cedula}" type="text" id="cedula" placeholder="Ingresa la cedula">
+            <input th:field="*{cedula}" type="number" id="cedula" placeholder="Ingresa la cedula" required>
         </div>
         
         <div class="form-group">
             <label for="nombre">Nombre Cliente</label>
-            <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre">
+            <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre" required>
         </div>
 
         <div class="form-group">
             <label for="apellido">Apellido Cliente</label>
-            <input th:field="*{apellido}" type="text" id="apellido" placeholder="Ingresa el apellido">
+            <input th:field="*{apellido}" type="text" id="apellido" placeholder="Ingresa el apellido" required>
         </div>
 
         <div class="form-group">
             <label for="correo">Correo Cliente</label>
-            <input th:field="*{correo}" type="text" id="correo" placeholder="Ingresa el correo">
+            <input th:field="*{correo}" type="email" id="correo" placeholder="Ingresa el correo" required>
         </div>
 
         <div class="form-group">
             <label for="celular">Celular Cliente</label>
-            <input th:field="*{celular}" type="text" id="celular" placeholder="Ingresa el celular">
+            <input th:field="*{celular}" type="number" id="celular" placeholder="Ingresa el celular" required>
         </div>
 
         <button type="submit" class="btn btn-primary">Enviar</button>
