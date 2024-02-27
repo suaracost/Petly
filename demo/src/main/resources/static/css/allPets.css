@@ -218,7 +218,7 @@
     width: 50%;
     height: 40px;
     border-radius: 50px;
-    border: 2px solid #000000;
+    border: 2px solid #898989;
     padding-left: 30px;
     padding-right: 30px;
 
@@ -260,4 +260,39 @@ table.tablita {
 
 .tablita tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
+}
+
+.opciones {
+    height: 56px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.links {
+    color: #898989;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.info:hover {
+    color: #ff9c35;
+    text-shadow: 0 4px 16px #ff9c35;
+    transition: all 0.2s ease;
+}
+
+.edit:hover {
+    color: #3468c0;
+    text-shadow: 0 4px 16px #3468c0;
+    transition: all 0.2s ease;
+}
+
+.delete:hover {
+    color: red;
+    text-shadow: 0 4px 16px red;
+    transition: all 0.2s ease;
 }

@@ -42,49 +42,49 @@
         <div class = "nav">
             <ul>
                 <li>
-                    <a href="/demo/src/main/resources/templates/mostrarTodasMascotas.html">
+                    <a th:href="@{/mascotas/all}">
                         <i class="bx bx-table"></i>
                         <span class="nav-item">Ver mascotas</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/demo/src/main/resources/templates/registrarMascota.html">
+                    <a th:href="@{/mascotas/add}">
                         <i class="bx bxs-dog"></i>
                         <span class="nav-item">Registrar mascota</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/demo/src/main/resources/templates/tratamientos.html">
+                    <a href="">
                         <i class="bx bx-capsule"></i>
                         <span class="nav-item">Ver tratamientos</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/demo/src/main/resources/templates/atencionMedica.html">
+                    <a href="">
                         <i class="bx bx-plus-medical"></i>
                         <span class="nav-item">Atención medica</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/demo/src/main/resources/templates/verClientes.html">
+                    <a href="">
                         <i class="bx bx-group"></i>
                         <span class="nav-item">Ver clientes</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="/demo/src/main/resources/templates/registrarCliente.html">
+                    <a href="">
                         <i class="bx bx-user-plus"></i>
                         <span class="nav-item">Registrar cliente</span>
                     </a>
                 </li>
 
                 <li id="logout">
-                    <a href="/demo/src/main/resources/templates/registrarCliente.html">
+                    <a href="/">
                         <i class="bx bx-log-out"></i>
                         <span class="nav-item">Cerrar sesión</span>
                     </a>
@@ -96,7 +96,6 @@
     <div class = "main-content">
         <div class="search">
             <h1>Mascotas de Petly</h1>
-            <a type="button" class="btn btn-primary" th:href="@{/mascotas/add}">Agregar Mascota</a>
             <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Buscar" title="Type in a name">
         </div>
         
@@ -110,7 +109,7 @@
                         <th>Edad</th>
                         <th>Peso</th>
                         <th>Enfermedad</th>
-                        <th>Mas Información</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,10 +120,16 @@
                         <td th:text="${mascota.edad}"></td>
                         <td th:text="${mascota.peso}"></td>
                         <td th:text="${mascota.enfermedad}"></td>
-                        <td>
-                            <a class="btn btn-info" th:href="@{/mascotas/find/{id}(id=${mascota.id})}">Ver más</a>
-                            <a class="btn btn-warning" th:href="@{/mascotas/update/{id}(id=${mascota.id})}">Editar</a>
-                            <a class="btn btn-danger" th:href="@{/mascotas/delete/{id}(id=${mascota.id})}">Eliminar</a>
+                        <td class="opciones">
+                            <a class="links info" th:href="@{/mascotas/find/{id}(id=${mascota.id})}">
+                                <i class='bx bx-info-circle'></i>
+                            </a>
+                            <a class="links edit" th:href="@{/mascotas/update/{id}(id=${mascota.id})}">
+                                <i class='bx bxs-edit'></i>
+                            </a>
+                            <a class="links delete" th:href="@{/mascotas/delete/{id}(id=${mascota.id})}">
+                                <i class='bx bxs-trash'></i>
+                            </a>
                         </td>
                     </tr>
             </table>

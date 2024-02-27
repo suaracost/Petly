@@ -120,11 +120,6 @@ html {
   margin-left: 10px;
 }
 
-.regisButton:hover {
-  box-shadow: 0 4px 16px #86a7fc;
-  transition: all 0.2s ease;
-}
-
 .loginButton:hover {
   box-shadow: 0 4px 16px #ff9c35;
   transition: all 0.2s ease;
