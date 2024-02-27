@@ -140,7 +140,7 @@
                 </thead>
                 <tbody>
                     <tr th:each="mascota : ${cliente.mascotas}">
-                        <td><img th:src="${mascota.foto}" alt="Foto Mascota"/></td>
+                        <td><img class="fotoPerro" th:src="${mascota.foto}" alt="Foto Mascota"/></td>
                         <td th:text="${mascota.nombre}"></td>
                         <td th:text="${mascota.raza}"></td>
                         <td th:text="${mascota.edad}"></td>

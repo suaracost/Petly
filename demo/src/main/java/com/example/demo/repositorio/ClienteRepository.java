@@ -19,9 +19,9 @@ public class ClienteRepository {
     public ClienteRepository() {
         // Crear una instancia de Mascota y agregarla a la lista de mascotas del cliente
         List<Mascota> mascotasPedro = new ArrayList<>();
-        mascotasPedro.add(new Mascota(1, "Firulais", "Pastor Aleman", 3, 20, "Moquillo", "foto1.jpg", "Adoptado"));
-        mascotasPedro.add(new Mascota(2, "Rex", "Bulldog", 2, 15, "Gastritis", "foto2.jpg", "Disponible"));
-        mascotasPedro.add(new Mascota(3, "Scooby", "Gran Danes", 4, 25, "Diarrea", "foto3.jpg", "Disponible"));
+        mascotasPedro.add(new Mascota(1, "Firulais", "Pastor Aleman", 3, 20, "Moquillo", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Adoptado"));
+        mascotasPedro.add(new Mascota(2, "Rex", "Bulldog", 2, 15, "Gastritis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
+        mascotasPedro.add(new Mascota(3, "Scooby", "Gran Danes", 4, 25, "Diarrea", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
 
         data.put(1, new Cliente(1, "1000000001", "Pedro", "Duran", "pedro@gmail.com", "12345671", mascotasPedro)); // Agregar mascotas a Pedro
         data.put(2, new Cliente(2, "1000000002", "Juan", "Sanchez", "juan@gmail.com", "12345672", null));

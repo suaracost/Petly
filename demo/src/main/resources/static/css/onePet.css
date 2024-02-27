@@ -375,3 +375,9 @@ table.tablita {
 .tablita tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
 }
+
+.fotoPerro {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
