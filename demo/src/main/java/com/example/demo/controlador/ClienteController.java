@@ -38,7 +38,7 @@ public class ClienteController {
             throw new NotFoundException(identificacion);
         }
 
-        return "mostrarCliente"; //Esto retornara al HTML que se debe mostrar
+        return "perfilCliente"; //Esto retornara al HTML que se debe mostrar
     }
 
     //http://localhost:8090/clientes/add
