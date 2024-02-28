@@ -38,6 +38,20 @@ public class ClienteController {
             throw new NotFoundException(identificacion);
         }
 
+        return "mostrarCliente"; //Esto retornara al HTML que se debe mostrar
+    }
+
+    //http://localhost:8090/clientes/find/1
+    @GetMapping("/perfil/{id}")
+    public String mostrarPerfil(Model model, @PathVariable("id") int identificacion) {
+        Cliente cliente = clienteService.SearchById(identificacion);
+
+        if(cliente!=null){
+            model.addAttribute("cliente", clienteService.SearchById(identificacion));
+        } else{
+            throw new NotFoundException(identificacion);
+        }
+
         return "perfilCliente"; //Esto retornara al HTML que se debe mostrar
     }
 
