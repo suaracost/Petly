@@ -11,3 +11,8 @@ Nuestro proyecto consiste en desarrollar una página web que sirva como platafor
 ### ¿Quienes somos? 🤖
 
 Somos un equipo de estudiantes de la Universidad Javeriana, apasionados por el desarrollo web y comprometidos con aplicar nuestros conocimientos en la creación de este proyecto. Conoce al equipo que está detrás de Petly: [Hermann Hernández](https://github.com/Hermann103), [Nicolás Rincón](https://github.com/Rinconjr) y [Alejandro Suárez](https://github.com/suaracost).
+
+
+
+
+
