@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Petly</title>
+    <link rel="icon" href="/images/dog.png" />
+    <meta
+      name="author"
+      content="Hermann Hernández, Nicolás Rincón, Alejandro Suárez"
+    />
+    <meta name="keywords" content="petly, veterinary, vet, pet, dog" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Acme&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/registroCliente.css" />
 </head>
 <body>
-    <form th:object="${cliente}" th:action="@{/clientes/agregar}" method="post">
-        <div class="form-group">
-            <label for="cedula">Cedula Cliente</label>
-            <input th:field="*{cedula}" type="number" id="cedula" placeholder="Ingresa la cedula" required>
-        </div>
+    <form th:object="${cliente}" th:action="@{/clientes/agregar}" method="post" class="card">
         
-        <div class="form-group">
-            <label for="nombre">Nombre Cliente</label>
-            <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre" required>
+        <div class="card-top">
+            <a href="/clientes/all"><img src="/images/logo.png" alt="logo"/></a>            
+            <h1>Registrar nuevo cliente</h1>
         </div>
 
-        <div class="form-group">
-            <label for="apellido">Apellido Cliente</label>
-            <input th:field="*{apellido}" type="text" id="apellido" placeholder="Ingresa el apellido" required>
+        <div class="formulario">
+
+            <div class="form-div">
+
+                <div class="form-group input-container">
+                    <input th:field="*{cedula}" type="number" id="cedula" required>
+                    <label class="label" for="cedula">Cedula Cliente</label>
+                    <div class="underline"></div>
+                </div>
+                
+                <div class="form-group input-container">
+                    <input th:field="*{nombre}" type="text" id="nombre" required>
+                    <label class="label" for="nombre">Nombre Cliente</label>
+                    <div class="underline"></div>
+                </div>
+
+            </div>
+        
+            <div class="form-div">
+
+                <div class="form-group input-container">
+                    <input th:field="*{apellido}" type="text" id="apellido" required>
+                    <label class="label" for="apellido">Apellido Cliente</label>
+                    <div class="underline"></div>
+                </div>
+        
+                <div class="form-group input-container">
+                    <input th:field="*{correo}" type="email" id="correo" required>
+                    <label class="label" for="correo">Correo Cliente</label>
+                    <div class="underline"></div>
+                </div>
+
+            </div>
+    
+    
+            <div class="form-group input-container form-div">
+                <input th:field="*{celular}" type="number" id="celular" required>
+                <label class="label" for="celular">Celular Cliente</label>
+                <div class="underline"></div>
+            </div>
+    
+            <button type="submit" class="btn btn-primary">Registrar</button>
+
         </div>
 
-        <div class="form-group">
-            <label for="correo">Correo Cliente</label>
-            <input th:field="*{correo}" type="email" id="correo" placeholder="Ingresa el correo" required>
-        </div>
-
-        <div class="form-group">
-            <label for="celular">Celular Cliente</label>
-            <input th:field="*{celular}" type="number" id="celular" placeholder="Ingresa el celular" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </body>
 </html>
