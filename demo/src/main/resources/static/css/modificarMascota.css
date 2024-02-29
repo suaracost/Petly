@@ -259,23 +259,6 @@
     font-size: 40px;
 }
 
-.cabeza button {
-    font-size: 25px;
-    font-family: 'Acme', sans-serif;
-    background-color: #ff9c35;
-    color: white;
-    border: 0px;
-    border-radius: 16px;
-    width: 180px;
-    height: 40px;
-    margin-left: 10px;
-}
-
-.cabeza button:hover {
-    box-shadow: 0 4px 16px #ff9c35;
-    transition: all 0.2s ease;
-}
-
 .info {
     display: flex;
     flex-direction: row;

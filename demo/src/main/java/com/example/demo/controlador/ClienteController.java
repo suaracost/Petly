@@ -35,7 +35,7 @@ public class ClienteController {
         if(cliente!=null){
             model.addAttribute("cliente", clienteService.SearchById(identificacion));
         } else{
-            throw new NotFoundException(identificacion);
+            throw new IdClienteNotFoundException(identificacion);
         }
 
         return "mostrarCliente"; //Esto retornara al HTML que se debe mostrar

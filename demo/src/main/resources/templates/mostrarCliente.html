@@ -95,13 +95,12 @@
         <div class = "left-side">
             <div class = "cabeza">
                 <h1> <span th:text="${cliente.nombre + ' ' + cliente.apellido}"></span></h1>
-                <button class="btn" onclick="window.location.href='/clientes/all'">Volver</button>
             </div>
                 
             <div class = "info">
                 
-                <div class="card-image-container">
-                    <img src="https://img.freepik.com/fotos-premium/concepto-mascotas-personas-joven-feliz-posando-su-adorable-perro-golden-retriever-sentado_116547-25460.jpg" alt="fotoPerro"/>
+                <div class="card-user-container">
+                    <i class='bx bxs-user' style='color:#898989'></i>
                 </div> 
 
                 <div class = info-texto>
@@ -136,6 +135,7 @@
                         <th>Edad</th>
                         <th>Peso</th>
                         <th>Enfermedad</th>
+                        <th>Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -146,6 +146,11 @@
                         <td th:text="${mascota.edad}"></td>
                         <td th:text="${mascota.peso}"></td>
                         <td th:text="${mascota.enfermedad}"></td>
+                        <td class="opciones">
+                            <a class="links icono" th:href="@{/mascotas/find/{id}(id=${mascota.id})}">
+                                <i class='bx bx-info-circle'></i>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

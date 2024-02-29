@@ -22,5 +22,13 @@ public class ErrorController {
 
         return "paginaErrorCliente";
     }
+
+    @ExceptionHandler(IdClienteNotFoundException.class)
+    public String errorCliente(Model model, IdClienteNotFoundException e){
+
+        model.addAttribute("id", e.getid());
+
+        return "paginaErrorClienteId";
+    }
     
 }

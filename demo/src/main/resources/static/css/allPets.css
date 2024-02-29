@@ -282,7 +282,7 @@ table.tablita {
     align-items: center;
 }
 
-.info:hover {
+.informa:hover {
     color: #ff9c35;
     text-shadow: 0 4px 16px #ff9c35;
     transition: all 0.2s ease;
