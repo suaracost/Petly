@@ -256,9 +256,10 @@ section {
   padding-top: 25px;
 }
 
-.servicios h1{
+.servicios h1, .veterinarios h1{
   font-size: 4em;
   margin-bottom: 50px;
+  color: #FFFFFF;
 }
 
 .contenedorServ, .contenedorVet{
@@ -268,9 +269,12 @@ section {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
 }
 
-.carrusel, .carrusel-veterinarios {
+.carruselServ, .carruselVet {
   padding-top: 10px;
   display: grid;
   grid-auto-flow: column;
@@ -280,10 +284,7 @@ section {
   overscroll-behavior-x: contain;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-}
-
-.carrusel::-webkit-scrollbar , .carrusel-veterinarios::-webkit-scrollbar {
-  display: none;
+  margin-left: -432px;
 }
 
 .card {
@@ -348,39 +349,38 @@ section {
 }
 
 .carrusel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: transparent; /* Fondo transparente */
-  color: #000000; /* Color de las flechas */
+  color: #ffffff; /* Color de las flechas */
   border: none;
-  cursor: pointer;
   padding: 5px 5px; /* Ajusta este valor según necesites para el tamaño de las flechas */
   z-index: 2;
-  font-size: 100px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes */
   outline: none; /* Elimina el borde al hacer clic */
+  
+  position: absolute;
+  
+  background-color: transparent; /* Fondo transparente */
+  transform: translateY(-50%); 
+  font-size: 100px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes */
+  text-align: center;
+  cursor: pointer;
+}
+
+.carrusel-veterinarios-control {
+  top: 57.25%;
+}
+
+.carrusel-servicios-control {
+  top: 53.25%;
 }
 
 .carrusel-control.izquierda {
-  left: -70px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
+  left: 25px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
 }
 
 .carrusel-control.derecha {
-  right: -65px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
-}
-
-.contenedorServ, .contenedorVet{
-  position: relative;
-  margin: 0 auto;
+  right: 25px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
 }
 
 /* Seccion veterinarios */
-
-.veterinarios h1{
-  font-size: 4em;
-  margin-bottom: 50px;
-  color: #ffffff
-}
 
 .vetCard {
   width: 400px;
@@ -407,7 +407,7 @@ section {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border-bottom: 3px solid #fefefe;
-  background: linear-gradient(40deg, #5988ff 0%, #ff9c35 100%);
+  background:  #86A7FC;
   transition: all 0.3s ease;
 }
 
@@ -471,10 +471,10 @@ section {
   opacity: 0;
 }
 
-.carrusel-veterinarios-control {
-  color: #FFFFFF; /* Cambia el color de las flechas a blanco */
-  font-size: 100px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes */
-}
+/* .carrusel-veterinarios-control {
+  color: #FFFFFF; /* Cambia el color de las flechas a blanco 
+  font-size: 100px; /* Aumenta el tamaño de la fuente para hacer las flechas más grandes 
+} */
 
 /* Seccion ubicación */
 .ubicacion {

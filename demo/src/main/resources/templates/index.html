@@ -121,10 +121,8 @@
       
       <div class="contenedorServ">
 
-        <!-- Botón izquierdo para desplazar hacia la izquierda -->
-        <button class="carrusel-control izquierda" aria-label="Anterior">&lt;</button>
-
-        <div class="carrusel">
+        
+        <div class="carruselServ">
           <article class="card">
             <div class="card-image-container">
               <img src="https://www.animalshealth.es/fileuploads/news/perro-vacunacion-guia-mascota-veterinaria-216624624471.jpg" alt="vacunacion"/>
@@ -134,7 +132,7 @@
               Protege a tu perro contra enfermedades con nuestros programas de vacunación.
             </p>
           </article>
-
+          
           <article class="card">
             <div class="card-image-container">
               <img src="https://cdn.colombia.com/sdi/2022/10/10/veterinario-y-auxiliar-sacrificaron-perros-de-calle-ofrecer-capacitaciones-cirugias-1073793.jpg" alt="cirugia"/>
@@ -144,7 +142,7 @@
               Cuida la salud de tu perro con nuestros procedimientos quirúrgicos especializados.
             </p>
           </article>
-
+          
           <article class="card">
             <div class="card-image-container">
               <img src="https://www.zooplus.es/magazine/wp-content/uploads/2017/10/fotolia_107403823-768x512.jpg" alt="consulta"/>
@@ -205,11 +203,15 @@
             </p>
           </article>
         </div>
-
-        <!-- Botón derecho para desplazar hacia la derecha -->
-        <button class="carrusel-control derecha" aria-label="Siguiente">&gt;</button>
-
+        
+        
       </div>
+      
+      <!-- Botón izquierdo para desplazar hacia la izquierda -->
+      <button class="carrusel-control carrusel-servicios-control izquierda" id="btn-left-serv" aria-label="Anterior">&lt;</button>
+      
+      <!-- Botón derecho para desplazar hacia la derecha -->
+      <button class="carrusel-control carrusel-servicios-control derecha" id="btn-right-serv" aria-label="Siguiente">&gt;</button>
 
       <div class="curvaServicios-Ubicacion">
         <svg
@@ -231,23 +233,21 @@
       
       <div class="contenedorVet">
 
-        <!-- Botón izquierdo para desplazar hacia la izquierda en el carrusel de veterinarios -->
-        <button class="carrusel-control carrusel-veterinarios-control izquierda" aria-label="Anterior">&lt;</button>
+        
+        <div class="carruselVet">
 
-        <div class="carrusel-veterinarios">
-          
           <article class="vetCard">
             
-              <img class="vetImage" src="/images/vet1.jpg" alt="Veterinario1">
+            <img class="vetImage" src="/images/vet1.jpg" alt="Veterinario1">
               <div class="vet-card-info">
                 <span>Dr. Alexander García</span>
                 <p>Veterinario General</p>
               </div>
-
+              
           </article>
-
+            
           <article class="vetCard">
-
+              
             <img class="vetImage" src="/images/vet2.jpg" alt="Veterinario2">
             <div class="vet-card-info">
               <span>Dra. Isabella Martínez</span>
@@ -255,7 +255,7 @@
             </div>
 
           </article>
-
+          
           <article class="vetCard">
 
             <img class="vetImage" src="/images/vet3.jpg" alt="Veterinario3">
@@ -263,17 +263,17 @@
               <span>Dr. Sebastián Rojas</span>
               <p>Veterinario Intensivista</p>
             </div>
-
+            
           </article>
 
           <article class="vetCard">
-
+            
             <img class="vetImage" src="/images/vet4.png" alt="Veterinario4">
             <div class="vet-card-info">
               <span>Dra. Valentina López</span>
               <p>Veterinario de Medicina Interna</p>
             </div>
-
+            
           </article>
 
           <article class="vetCard">
@@ -283,9 +283,9 @@
               <span> Dra. Sofia Herrera</span>
               <p>Veterinario - Dermatologo</p>
             </div>
-
+            
           </article>
-
+          
           <article class="vetCard">
 
             <img class="vetImage" src="/images/vet6.jpg" alt="Veterinario6">
@@ -293,7 +293,7 @@
               <span>Dr. Mateo González</span>
               <p>Veterinario Quirurgico</p>
             </div>
-
+            
           </article>
 
           <article class="vetCard">
@@ -303,25 +303,28 @@
               <span>Dra. Natalia Silva</span>
               <p>Veterinario de Medicina Interna</p>
             </div>
-
+            
           </article>
-
+          
           <article class="vetCard">
-
+            
             <img class="vetImage" src="/images/vet8.png" alt="Veterinario8">
             <div class="vet-card-info">
               <span>Dr. Leonardo Pérez</span>
               <p>Veterinario - Odontologo</p>
             </div>
-
+            
           </article>
-
+          
         </div>
-
-        <!-- Botón derecho para desplazar hacia la derecha en el carrusel de veterinarios -->
-<button class="carrusel-control carrusel-veterinarios-control derecha" aria-label="Siguiente">&gt;</button>
-
+        
+        
       </div>
+      
+      <!-- Botón izquierdo para desplazar hacia la izquierda en el carrusel de veterinarios -->
+      <button class="carrusel-control carrusel-veterinarios-control izquierda" id="btn-left-vet" aria-label="Anterior">&lt;</button>
+      <!-- Botón derecho para desplazar hacia la derecha en el carrusel de veterinarios -->
+      <button class="carrusel-control carrusel-veterinarios-control derecha" id="btn-right-vet" aria-label="Siguiente">&gt;</button>
 
       <div class="curvaUbicacion">
         <svg
