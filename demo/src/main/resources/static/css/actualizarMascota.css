@@ -353,35 +353,6 @@
     padding-right: 30px;
 }
 
-.formulario {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;  
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.form-group label {
-    font-size: 1.5em;  
-    margin-bottom: 0px;
-    width: 100%;
-}
-
-.input {
-    font-size: 1.25em;
-    width: 100%;
-    height: 40px;
-    border-radius: 10px;
-    border: 2px solid #000000;
-    padding-left: 10px;
-}
-
 .formulario h1 {
     display: flex;
     font-size: 40px;
@@ -412,4 +383,77 @@
     transition: all 0.2s ease !important;
 }
 
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;  
 
+}
+
+.input-container {
+    position: relative;
+    margin: 24.5px auto; 
+    width: 100%;
+}
+
+.input-container input[type="text"],
+.input-container input[type="number"],
+.input-container input[type="url"] {
+    font-size: 25px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0; 
+    background-color: transparent;
+    outline: none;
+    font-family: 'Acme';
+}
+
+  .input-container .label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ccc;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 25px;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label,
+.input-container input[type="number"]:focus ~ .label,
+.input-container input[type="number"]:valid ~ .label,
+.input-container input[type="url"]:focus ~ .label,
+.input-container input[type="url"]:valid ~ .label {
+    top: -20px;
+    font-size: 20px;
+    color: #3468c0;
+}
+
+.input-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #ff9843;
+    transform: scaleX(0);
+    transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline, 
+.input-container input[type="number"]:focus ~ .underline,
+.input-container input[type="number"]:valid ~ .underline,
+.input-container input[type="url"]:focus ~ .underline,
+.input-container input[type="url"]:valid ~ .underline {
+    transform: scaleX(1);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}

@@ -280,6 +280,10 @@
     font-size: 25em;
 }
 
+.bxs-user {
+    padding-top: 18px
+}
+
 .info img {
     height: 100%;
     margin-right: 50px;
@@ -298,8 +302,8 @@
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 5px;
-    font-size: 2em;
+    padding-bottom: 10px;
+    font-size: 40px;
 }
 
 .info-dog h2 {
@@ -309,8 +313,15 @@
 .lista {
     display: flex;
     flex-direction: column;
+    height: 100%;
     width: 100%;
-    font-size: 1.5em;
+    font-size: 35px;
+    padding-top: 20px;
+}
+
+.card-des {
+    list-style: none;
+    padding-left: 30px; /* Para asegurarse de que no haya espacio adicional a la izquierda */
 }
 
 .search {

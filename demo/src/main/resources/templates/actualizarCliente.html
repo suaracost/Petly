@@ -93,33 +93,44 @@
         <div class = "left-side">
             <h1> Informacion Modificada </h1>
 
-            <form th:object="${cliente}" th:action="@{/clientes/update/{id}(id=${cliente.id})}" method="post" class="formulario">
-                <div class="form-group">
-                    <label for="cedula">Cedula Cliente</label>
-                    <input th:field="*{cedula}" type="text" id="cedula" placeholder="Ingresa la cedula" class="input">
+            <form th:object="${cliente}" th:action="@{/clientes/update/{id}(id=${cliente.id})}" method="post">
+                
+                <div class="formulario">
+
+                    <div class="form-group input-container">
+                        <input th:field="*{cedula}" type="text" id="cedula" required>
+                        <label class="label" for="cedula">Cedula Cliente</label>
+                        <div class="underline"></div>
+                    </div>
+                    
+                    <div class="form-group input-container">
+                        <input th:field="*{nombre}" type="text" id="nombre" required>
+                        <label class="label" for="nombre">Nombre Cliente</label>
+                        <div class="underline"></div>
+                    </div>
+            
+                    <div class="form-group input-container">
+                        <input th:field="*{apellido}" type="text" id="apellido" required>
+                        <label class="label" for="apellido">Apellido Cliente</label>
+                        <div class="underline"></div>
+                    </div>
+            
+                    <div class="form-group input-container">
+                        <input th:field="*{correo}" type="text" id="correo" required>
+                        <label class="label" for="correo">Correo Cliente</label>
+                        <div class="underline"></div>
+                    </div>
+            
+                    <div class="form-group input-container">
+                        <input th:field="*{celular}" type="text" id="celular" required>
+                        <label class="label" for="celular">Celular Cliente</label>
+                        <div class="underline"></div>
+                    </div>
+            
+                    <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+
                 </div>
                 
-                <div class="form-group">
-                    <label for="nombre">Nombre Cliente</label>
-                    <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el nombre" class="input">
-                </div>
-        
-                <div class="form-group">
-                    <label for="apellido">Apellido Cliente</label>
-                    <input th:field="*{apellido}" type="text" id="apellido" placeholder="Ingresa el apellido" class="input">
-                </div>
-        
-                <div class="form-group">
-                    <label for="correo">Correo Cliente</label>
-                    <input th:field="*{correo}" type="text" id="correo" placeholder="Ingresa el correo" class="input">
-                </div>
-        
-                <div class="form-group">
-                    <label for="celular">Celular Cliente</label>
-                    <input th:field="*{celular}" type="text" id="celular" placeholder="Ingresa el celular" class="input">
-                </div>
-        
-                <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </form>
 
         </div>
@@ -149,22 +160,43 @@
                         </div>
                         
                     </div>
-
-                    <div class = info-pets>
-                        <h2>Es dueño de</h2>
-                        <div class="lista">
-                            <tr th:each="mascota : ${cliente.mascotas}">
-                                <ul class="card-des">
-                                    <li th:text="${mascota.nombre}"></li>
-                                </ul>
-                        </div>
-                        
-                    </div> 
+                    
                 </div>                     
                 
             </div>
         </div>
 
+    </div>
+
+    <div class="bottom-part">
+        <table class="tablita">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Peso</th>
+                    <th>Enfermedad</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="mascota : ${cliente.mascotas}">
+                    <td><img class="fotoPerro" th:src="${mascota.foto}" alt="Foto Mascota"/></td>
+                    <td th:text="${mascota.nombre}"></td>
+                    <td th:text="${mascota.raza}"></td>
+                    <td th:text="${mascota.edad}"></td>
+                    <td th:text="${mascota.peso}"></td>
+                    <td th:text="${mascota.enfermedad}"></td>
+                    <td class="opciones">
+                        <a class="links icono" th:href="@{/mascotas/find/{id}(id=${mascota.id})}">
+                            <i class='bx bx-info-circle'></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 

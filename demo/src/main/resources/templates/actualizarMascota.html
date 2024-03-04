@@ -95,43 +95,56 @@
 
             <h1> Informacion Modificada </h1>
 
-            <form th:object="${mascota}" th:action="@{/mascotas/update/{id}(id=${mascota.id})}" method="post" class="formulario">
-                <div class="form-group">
-                    <label for="nombre">Nombre Mascota </label>
-                    <input th:field="*{nombre}" type="text" id="nombre" placeholder="Ingresa el Nombre" class="input">
+            <form th:object="${mascota}" th:action="@{/mascotas/update/{id}(id=${mascota.id})}" method="post">
+                
+                <div class ="formulario">
+
+                    <div class="form-group input-container">
+                        <input th:field="*{nombre}" type="text" id="nombre" required>
+                        <label class="label" for="nombre">Nombre de la </label>
+                        <div class="underline"></div>
+                    </div>
+                    
+                    <div class="form-group input-container">
+                        <input th:field="*{raza}" type="text" id="raza" required>
+                        <label class="label" for="raza">Raza</label>
+                        <div class="underline"></div>
+                    </div>
+        
+                    <div class="form-group input-container">
+                        <input th:field="*{edad}" type="number" id="edad" required>
+                        <label class="label" for="edad">Edad</label>
+                        <div class="underline"></div>
+                    </div>
+        
+                    <div class="form-group input-container">
+                        <input th:field="*{peso}" type="number" id="peso" required>
+                        <label class="label" for="peso">Peso</label>
+                        <div class="underline"></div>
+                    </div>
+        
+                    <div class="form-group input-container">
+                        <input th:field="*{enfermedad}" type="text" id="enfermedad" required>
+                        <label class="label" for="enfermedad">Enfermedad</label>
+                        <div class="underline"></div>
+                    </div>
+        
+                    <div class="form-group input-container">
+                        <input th:field="*{foto}" type="url" id="foto" required>
+                        <label class="label" for="foto">Foto</label>
+                        <div class="underline"></div>
+                    </div>
+        
+                    <div class="form-group input-container">
+                        <input th:field="*{estado}" type="text" id="estado">
+                        <label class="label" for="estado">Estado</label>
+                        <div class="underline"></div>
+                    </div>
+        
+                    <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+
                 </div>
                 
-                <div class="form-group">
-                    <label for="raza">Raza</label>
-                    <input th:field="*{raza}" type="text" id="raza" placeholder="Ingresa la raza" class="input">
-                </div>
-    
-                <div class="form-group">
-                    <label for="edad">Edad</label>
-                    <input th:field="*{edad}" type="number" id="edad" placeholder="Ingresa la edad"  class="input">
-                </div>
-    
-                <div class="form-group">
-                    <label for="peso">Peso</label>
-                    <input th:field="*{peso}" type="number" id="peso" placeholder="Ingresa el peso" class="input">
-                </div>
-    
-                <div class="form-group">
-                    <label for="enfermedad">Enfermedad</label>
-                    <input th:field="*{enfermedad}" type="text" id="enfermedad" placeholder="Ingresa la enfermedad" class="input">
-                </div>
-    
-                <div class="form-group">
-                    <label for="foto">Foto</label>
-                    <input th:field="*{foto}" type="url" id="foto" placeholder="Ingresa la foto" class="input">
-                </div>
-    
-                <div class="form-group">
-                    <label for="estado">Estado</label>
-                    <input th:field="*{estado}" type="text" id="estado" placeholder="Ingresa el estado" class="input">
-                </div>
-    
-                <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </form>
         </div>
 
