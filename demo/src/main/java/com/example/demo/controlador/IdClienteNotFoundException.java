@@ -1,17 +1,17 @@
 package com.example.demo.controlador;
 
 public class IdClienteNotFoundException extends RuntimeException{
-    private Integer id;
+    private Long id;
 
-    public IdClienteNotFoundException(Integer id){
+    public IdClienteNotFoundException(Long id){
         this.id = id;
     }
 
-    public Integer getid(){
+    public Long getid(){
         return id;
     }
 
-    public void setid(Integer id){
+    public void setid(Long id){
         this.id = id;
     }
     

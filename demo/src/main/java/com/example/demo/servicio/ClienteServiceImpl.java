@@ -14,14 +14,16 @@ public class ClienteServiceImpl implements ClienteService{
     @Autowired
     ClienteRepository repo;
 
+    
     @Override
     public Cliente SearchByCedula(String cedula) {
         return repo.findByCedula(cedula);
     }
+    
 
     @Override
-    public Cliente SearchById(int id) {
-        return repo.findById(id);
+    public Cliente SearchById(Long id) {
+        return repo.findById(id).get();
     }
 
     @Override
@@ -30,18 +32,18 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         repo.deleteById(id);
     }
 
     @Override
     public void update(Cliente cliente) {
-        repo.update(cliente);
+        repo.save(cliente);
     }
 
     @Override
     public void add(Cliente cliente) {
-        repo.add(cliente);
+        repo.save(cliente);
     }
 
     

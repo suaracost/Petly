@@ -29,7 +29,7 @@ public class ClienteController {
 
     //http://localhost:8090/clientes/find/1
     @GetMapping("/find/{id}")
-    public String showClient(Model model, @PathVariable("id") int identificacion) {
+    public String showClient(Model model, @PathVariable("id") Long identificacion) {
         Cliente cliente = clienteService.SearchById(identificacion);
 
         if(cliente!=null){
@@ -43,7 +43,7 @@ public class ClienteController {
 
     //http://localhost:8090/clientes/find/1
     @GetMapping("/perfil/{id}")
-    public String mostrarPerfil(Model model, @PathVariable("id") int identificacion) {
+    public String mostrarPerfil(Model model, @PathVariable("id") Long identificacion) {
         Cliente cliente = clienteService.SearchById(identificacion);
 
         if(cliente!=null){
@@ -59,7 +59,7 @@ public class ClienteController {
     @GetMapping("/add")
     public String mostrarFormularioCreaString(Model model) {
 
-        Cliente cliente = new Cliente( 0, "", "", "", "", "", null);
+        Cliente cliente = new Cliente("", "", "", "", "");
 
         model.addAttribute("cliente", cliente);
 
@@ -74,13 +74,13 @@ public class ClienteController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteClient(@PathVariable("id") int identificacion) {
+    public String deleteClient(@PathVariable("id") Long identificacion) {
         clienteService.deleteById(identificacion);
         return "redirect:/clientes/all";
     }
     
     @GetMapping("/update/{id}")
-    public String mostrarFormularioUpdate(@PathVariable("id") int identificacion, Model model) {
+    public String mostrarFormularioUpdate(@PathVariable("id") Long identificacion, Model model) {
         model.addAttribute("cliente", clienteService.SearchById(identificacion));
         return "actualizarCliente";
     }

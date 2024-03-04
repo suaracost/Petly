@@ -1,43 +1,55 @@
 package com.example.demo.entidad;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+@Entity
 public class Cliente {
-    private Integer id;
+    
     private String cedula;
     private String nombre;
     private String apellido;
     private String correo;
     private String celular;
-    private List<Mascota> mascotas;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    public Cliente(Integer id, String cedula, String nombre, String apellido, String correo, String celular, List<Mascota> mascotas) {
+    //Relacion con la tabla mascota para representar las mascotas que tiene el cliente
+    @OneToMany(mappedBy = "cliente")
+    private List<Mascota> mascotas = new ArrayList<>();
+
+    public Cliente(Long id, String cedula, String nombre, String apellido, String correo, String celular) {
         this.id = id;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.celular = celular;
-        this.mascotas = mascotas;
-
     }
 
     public Cliente() {
     }
 
-    public List<Mascota> getMascotas() {
-        return mascotas;
+    public Cliente(String cedula, String nombre, String apellido, String correo, String celular) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.celular = celular;
     }
 
-    public void setMascotas(List<Mascota> mascotas) {
-        this.mascotas = mascotas;
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -79,6 +91,14 @@ public class Cliente {
 
     public void setCelular(String celular) {
         this.celular = celular;
+    }
+
+    public List<Mascota> getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(List<Mascota> mascotas) {
+        this.mascotas = mascotas;
     }
     
 }

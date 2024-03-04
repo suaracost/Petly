@@ -1,7 +1,13 @@
 package com.example.demo.entidad;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
+@Entity
 public class Mascota {
-    private Integer id;
+    
     private String nombre;
     private String raza;
     private int edad;
@@ -9,8 +15,15 @@ public class Mascota {
     private String enfermedad;
     private String foto;
     private String estado;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-    public Mascota(Integer id, String nombre, String raza, int edad, float peso, String enfermedad, String foto, String estado) {
+    //Relacion con la tabla cliente para representar el dueño de la mascota
+    @ManyToOne
+    private Cliente cliente;
+
+    public Mascota(Long id, String nombre, String raza, int edad, float peso, String enfermedad, String foto, String estado) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
@@ -22,13 +35,24 @@ public class Mascota {
     }
 
     public Mascota() {
+
     }
 
-    public Integer getId() {
+    public Mascota(String nombre, String raza, int edad, float peso, String enfermedad, String foto, String estado) {
+        this.nombre = nombre;
+        this.raza = raza;
+        this.edad = edad;
+        this.peso = peso;
+        this.enfermedad = enfermedad;
+        this.foto = foto;
+        this.estado = estado;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -86,6 +110,14 @@ public class Mascota {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     
