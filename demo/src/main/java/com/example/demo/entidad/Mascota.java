@@ -20,8 +20,6 @@ public class Mascota {
     private Long id;
 
     //Relacion con la tabla cliente para representar el dueño de la mascota
-    private String cedulaCliente;
-
     @ManyToOne
     private Cliente cliente;
 
@@ -122,13 +120,6 @@ public class Mascota {
         this.cliente = cliente;
     }
 
-    public String getCedulaCliente() {
-        return cedulaCliente;
-    }
-
-    public void setCedulaCliente(String cedulaCliente) {
-        this.cedulaCliente = cedulaCliente;
-    }
     
 
 
