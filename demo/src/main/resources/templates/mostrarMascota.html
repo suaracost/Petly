@@ -120,10 +120,10 @@
                         <h2>Información Dueño</h2>
                         <div class="lista">
                             <ul class="card-des">
-                                <li>Cedula: <span th:text="a"></span></li>
-                                <li>Nombre: <span th:text="a"></span></li>
-                                <li>Apellido: <span th:text="a"></span></li>
-                                <li>Celular: <span th:text="a"></span></li>
+                                <li>Cedula: <span th:text="${mascota.cliente.cedula}"></span></li>
+                                <li>Nombre: <span th:text="${mascota.cliente.nombre}"></span></li>
+                                <li>Apellido: <span th:text="${mascota.cliente.apellido}"></span></li>
+                                <li>Celular: <span th:text="${mascota.cliente.celular}"></span></li>
                             </ul>
                         </div>
                         
