@@ -224,7 +224,12 @@ public class Databaseinit implements ApplicationRunner{
         //Asociar cada mascota con un dueño distinto
         for (int i = 1; i <= 100; i++) {
             Mascota mascota = mascotaRepository.findById((long) i).get();
-            mascota.setCliente(clienteRepository.findById((long) i).get());
+
+            int cedulaCliente = 1000000000 + i;
+            String cedula = Integer.toString(cedulaCliente);
+
+            mascota.setCedulaCliente(cedula);
+            mascota.setCliente(clienteRepository.findByCedula(cedula));
             mascotaRepository.save(mascota);
         }        
     }
