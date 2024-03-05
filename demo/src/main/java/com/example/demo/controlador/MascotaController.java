@@ -90,6 +90,8 @@ public class MascotaController {
 
     @PostMapping("/update/{id}")
     public String updatePet(@PathVariable("id") Long identificacion, @ModelAttribute("mascota") Mascota mascota) {
+        Mascota aux = mascotaService.SearchById(identificacion);
+        mascota.setCliente(aux.getCliente());
         mascotaService.update(mascota);
         return "redirect:/mascotas/all";
     }
