@@ -4,7 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.demo.entidad.Cliente;
 import com.example.demo.entidad.Mascota;
+import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.MascotaService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +23,9 @@ public class MascotaController {
 
     @Autowired
     MascotaService mascotaService;
+
+    @Autowired
+    ClienteService clienteService;
 
     //http://localhost:8090/mascotas/all
     @GetMapping("/all")
@@ -54,8 +61,18 @@ public class MascotaController {
 
     //Metodo que recibe el POST del formulario para agregar mascota de (/mascotas/add)
     @PostMapping("/agregar")
-    public String agregarMascota(@ModelAttribute("mascota") Mascota mascota) {
-        mascotaService.add(mascota);
+    public String agregarMascota(@ModelAttribute("mascota") Mascota mascota, @RequestParam("cedulaDueno") String cedula) {
+        
+        Cliente cliente = clienteService.SearchByCedula(cedula);
+
+        if(cliente!=null){
+            mascota.setCliente(cliente);
+            mascota.setEstado("Disponible");
+            mascotaService.add(mascota);
+        } else {
+            throw new CedulaNotFoundException(cedula);
+        }
+
         return "redirect:/mascotas/all";
     }
 

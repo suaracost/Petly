@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/css/registroMascota.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <form th:object="${mascota}" th:action="@{/mascotas/agregar}" method="post" class="card">
@@ -61,7 +62,7 @@
             <div class="form-div">
 
                 <div class="form-group input-container">
-                    <input th:field="*{enfermedad}" type="text" id="enfermedad" required>
+                    <input th:field="*{enfermedad}" type="text" id="enfermedad">
                     <label class="label" for="enfermedad">Enfermedad</label>
                     <div class="underline"></div>
                 </div>
@@ -76,8 +77,8 @@
     
             <!-- Revisar esta parte para que el registro funcione -->
             <div class="form-group input-container form-div">
-                <input th:field="*{cliente}" type="text" id="cedulaDueno">
-                <label class="label" for="cedulaDueno">CedulaDueno</label>
+                <input type="text" id="cedulaDueno" name="cedulaDueno" required>
+                <label class="label" for="cedulaDueno">Cedula Dueño</label>
                 <div class="underline"></div>
             </div>
             
@@ -93,6 +94,7 @@
     window.onload = function() {
         document.getElementById('edad').value = '';
         document.getElementById('peso').value = '';
+        document.getElementById('enfermedad').value = '';
     };
 </script>
 
