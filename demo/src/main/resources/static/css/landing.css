@@ -4,6 +4,10 @@
   /*border: 1px solid black;*/
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 a, p, button {
   font-family: "Acme";
   color: black;

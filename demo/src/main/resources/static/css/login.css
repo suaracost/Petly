@@ -5,6 +5,9 @@
     font-family: 'Acme', sans-serif;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 
 .logoLogin {
     position: absolute;
@@ -94,14 +97,14 @@
     height: 50px;
     margin-top: 26px;
     border-radius: 16px;
-    background-color: #ff9843;
+    background-color: #FF9C35;
     border: none;
     font-size: 2rem;
     color: #ffffff;
 }
 
 .boton:hover {
-    box-shadow: 0 4px 16px #ff9843;
+    box-shadow: 0 4px 16px #FF9C35;
     transition: all 0.2s ease;
 }
 
@@ -111,7 +114,7 @@
 }
 
 .redirect a {
-    color:#ff9843;
+    color:#FF9C35;
 }
 
 .redirect a:hover {
