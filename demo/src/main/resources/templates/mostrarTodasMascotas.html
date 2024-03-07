@@ -129,8 +129,8 @@
                             <a class="links edit" th:href="@{/mascotas/update/{id}(id=${mascota.id})}">
                                 <i class='bx bxs-edit'></i>
                             </a>
-                            <a class="links delete" th:href="@{/mascotas/delete/{id}(id=${mascota.id})}">
-                                <i class='bx bxs-trash'></i>
+                            <a th:id="${mascota.id}" class="links delete" onclick="mostrarAlerta(id)">
+                                <i class='bx bx-transfer'></i>
                             </a>
                         </td>
                     </tr>
@@ -139,6 +139,7 @@
     </div>
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     let sidebar = document.querySelector('.sidebar');
 
@@ -149,6 +150,28 @@
     sidebar.addEventListener('mouseleave', function() {
         sidebar.classList.remove("active");
     });
+
+    function mostrarAlerta(idMascota) {
+        Swal.fire({
+            title: '<span style="color: #000000;">Cambiar estado de la mascota<span>',
+            textColor: '#000000',
+            text: '¿Estas seguro que quieres cambiar el estado de esta mascota?',
+            imageUrl: "/images/popup.png",
+            imageWidth: 400,
+            imageHeight: 400,
+            imageAlt: "Custom image",
+            showCancelButton: true,
+            cancelButtonColor: '#898989',
+            cancelButtonText: 'Cancelar',
+            confirmButtonColor: '#3468c0',
+            confirmButtonText: 'Cambiar estado',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/mascotas/delete/" + idMascota;
+            }
+        });
+    }
 </script>
 
 

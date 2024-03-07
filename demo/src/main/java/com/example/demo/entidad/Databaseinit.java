@@ -19,107 +19,55 @@ public class Databaseinit implements ApplicationRunner{
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Charlie", "Beagle", 6, 22, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Lucy", "Schnauzer", 7, 17, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Cooper", "Boxer", 3, 28, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Daisy", "Dachshund", 5, 12, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bailey", "German Shepherd", 4, 30, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Molly", "Rottweiler", 2, 27, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Tucker", "Siberian Husky", 8, 35, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Sadie", "Great Dane", 3, 40, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Charlie", "Beagle", 6, 22, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Lucy", "Schnauzer", 7, 17, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Cooper", "Boxer", 3, 28, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Daisy", "Dachshund", 5, 12, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bailey", "German Shepherd", 4, 30, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Molly", "Rottweiler", 2, 27, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Tucker", "Siberian Husky", 8, 35, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Sadie", "Great Dane", 3, 40, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Charlie", "Beagle", 6, 22, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Lucy", "Schnauzer", 7, 17, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Cooper", "Boxer", 3, 28, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Daisy", "Dachshund", 5, 12, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bailey", "German Shepherd", 4, 30, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Molly", "Rottweiler", 2, 27, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Tucker", "Siberian Husky", 8, 35, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Sadie", "Great Dane", 3, 40, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Charlie", "Beagle", 6, 22, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Lucy", "Schnauzer", 7, 17, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Cooper", "Boxer", 3, 28, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Daisy", "Dachshund", 5, 12, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bailey", "German Shepherd", 4, 30, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Molly", "Rottweiler", 2, 27, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Tucker", "Siberian Husky", 8, 35, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Sadie", "Great Dane", 3, 40, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Charlie", "Beagle", 6, 22, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Lucy", "Schnauzer", 7, 17, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Cooper", "Boxer", 3, 28, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Daisy", "Dachshund", 5, 12, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bailey", "German Shepherd", 4, 30, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Molly", "Rottweiler", 2, 27, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Tucker", "Siberian Husky", 8, 35, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Sadie", "Great Dane", 3, 40, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Charlie", "Beagle", 6, 22, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Lucy", "Schnauzer", 7, 17, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Cooper", "Boxer", 3, 28, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Daisy", "Dachshund", 5, 12, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bailey", "German Shepherd", 4, 30, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Molly", "Rottweiler", 2, 27, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Tucker", "Siberian Husky", 8, 35, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Sadie", "Great Dane", 3, 40, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Charlie", "Beagle", 6, 22, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Lucy", "Schnauzer", 7, 17, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Cooper", "Boxer", 3, 28, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Daisy", "Dachshund", 5, 12, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bailey", "German Shepherd", 4, 30, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Molly", "Rottweiler", 2, 27, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Tucker", "Siberian Husky", 8, 35, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Sadie", "Great Dane", 3, 40, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Charlie", "Beagle", 6, 22, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Lucy", "Schnauzer", 7, 17, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Cooper", "Boxer", 3, 28, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Daisy", "Dachshund", 5, 12, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bailey", "German Shepherd", 4, 30, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Molly", "Rottweiler", 2, 27, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
-        mascotaRepository.save(new Mascota("Tucker", "Siberian Husky", 8, 35, "Diabetes", "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Sadie", "Great Dane", 3, 40, "Cataratas", "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Max", "Labrador Retriever", 5, 25, "Gastritis", "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Luna", "Golden Retriever", 3, 20, "Dermatitis", "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Rocky", "Bulldog Inglés", 2, 18, "Otitis", "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg", "Disponible"));
-        mascotaRepository.save(new Mascota("Bella", "Poodle", 4, 15, "Artritis", "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=", "Disponible"));
 
+        String[] nombresPerros = {
+            "Max", "Bella", "Charlie", "Lucy", "Cooper", "Daisy", "Buddy", "Luna", "Rocky", "Lola",
+            "Bailey", "Sadie", "Toby", "Molly", "Bear", "Maggie", "Duke", "Sophie", "Jake", "Chloe",
+            "Teddy", "Zoe", "Jack", "Roxy", "Riley", "Penny", "Oliver", "Ruby", "Murphy", "Gracie",
+            "Harley", "Coco", "Lucky", "Sasha", "Oscar", "Zoey", "Sam", "Rosie", "Tucker", "Mia",
+            "Zeus", "Annie", "Marley", "Princess", "Gus", "Sandy", "Leo", "Pepper", "Winston", "Apolo"
+        };
+
+        String[] razasPerros = {
+            "Labrador Retriever", "Golden Retriever", "German Shepherd", "Beagle", "Bulldog", 
+            "Poodle", "Boxer", "Siberian Husky", "Dachshund", "Shih Tzu", 
+            "Yorkshire Terrier", "Rottweiler", "Australian Shepherd", "Border Collie", "Pug",
+            "Chihuahua", "Doberman Pinscher", "Great Dane", "Shetland Sheepdog", "Boston Terrier",
+            "Cocker Spaniel", "Maltese", "Pomeranian", "Saint Bernard", "Cavalier King Charles Spaniel"
+        };
+        String[] enfermedadesPerros = {
+            "Parvovirus", "Moquillo Canino", "Leptospirosis", "Tos de las perreras", "Gastroenteritis",
+            "Obesidad", "Diabetes", "Artritis", "Alergias cutáneas", "Otitis", 
+            "Enfermedad del corazón", "Cáncer", "Enfermedad periodontal", "Insuficiencia renal", "Hepatitis",
+            "Luxación de rótula", "Diarrea", "Cistitis", "Dermatitis", "Epilepsia",
+            "Hipotiroidismo", "Hipertiroidismo", "Displasia de cadera", "Cálculos urinarios", "Hipertensión"
+        };
+        String[] enlaces = {
+            "https://static.fundacion-affinity.org/cdn/farfuture/PVbbIC-0M9y4fPbbCsdvAD8bcjjtbFc0NSP3lRwlWcE/mtime:1643275542/sites/default/files/los-10-sonidos-principales-del-perro.jpg",
+            "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg",
+            "https://img.freepik.com/fotos-premium/perrito-lindo-pequeno-posando-alegre-aislado-gris_155003-42660.jpg",
+            "https://media.istockphoto.com/id/636475496/es/foto/retrato-de-cachorro-marr%C3%B3n-con-fondo-bokeh.jpg?s=612x612&w=0&k=20&c=xVLp2lHN7AhVyTMBXWTf1yfRyJovXT1R0hUwk98Riw8=",
+            "https://cdn.pixabay.com/photo/2019/02/06/15/18/puppy-3979350_640.jpg",
+            "https://www.ngenespanol.com/wp-content/uploads/2023/12/descubren-que-los-humanos-influimos-en-el-color-de-ojos-de-los-perros-770x431.jpg"
+        };
+        int numFoto = 0;
+
+        for (int i = 1; i <= 100; i++) {
+            String nombre = nombresPerros[(int) (Math.random() * 50) ];
+            String raza = razasPerros[(int) (Math.random() * 25)];
+            int edad = (int) (Math.random() * 15);
+            float peso = (float) (Math.round(((Math.random() * 20) + 5) * 10) / 10.0);
+            String enfermedad = enfermedadesPerros[(int) (Math.random() * 25)];
+            String foto = enlaces[numFoto];
+            
+            numFoto++;
+            if (numFoto == 6) {
+                numFoto = 0;
+            }
+
+            mascotaRepository.save(new Mascota(nombre, raza, edad, peso, enfermedad, foto, "Disponible"));
+        }
+        
         clienteRepository.save(new Cliente("1000000001", "Pedro", "Duran", "pedro@gmail.com", "12345671"));
         clienteRepository.save(new Cliente("1000000002", "Juan", "Sanchez", "juan@gmail.com", "12345672"));
         clienteRepository.save(new Cliente("1000000003", "Maria", "Perez", "maria@gmail.com", "12345673"));
@@ -170,62 +118,21 @@ public class Databaseinit implements ApplicationRunner{
         clienteRepository.save(new Cliente("1000000048", "Sandra", "Hernandez", "sandra@gmail.com", "12345718"));
         clienteRepository.save(new Cliente("1000000049", "Francisco", "Alvarez", "francisco@gmail.com", "12345719"));
         clienteRepository.save(new Cliente("1000000050", "Elena", "Santos", "elena2@gmail.com", "12345720"));
-        clienteRepository.save(new Cliente("1000000051", "Rosa", "Castro", "rosa2@gmail.com", "12345721"));
-        clienteRepository.save(new Cliente("1000000052", "David", "Flores", "david@gmail.com", "12345722"));
-        clienteRepository.save(new Cliente("1000000053", "Ana", "Ruiz", "ana2@gmail.com", "12345723"));
-        clienteRepository.save(new Cliente("1000000054", "Javier", "Garcia", "javier2@gmail.com", "12345724"));
-        clienteRepository.save(new Cliente("1000000055", "Laura", "Lopez", "laura2@gmail.com", "12345725"));
-        clienteRepository.save(new Cliente("1000000056", "Marcos", "Vazquez", "marcos@gmail.com", "12345726"));
-        clienteRepository.save(new Cliente("1000000057", "Lucia", "Ramos", "lucia2@gmail.com", "12345727"));
-        clienteRepository.save(new Cliente("1000000058", "Pedro", "Gomez", "pedro2@gmail.com", "12345728"));
-        clienteRepository.save(new Cliente("1000000059", "Sara", "Perez", "sara2@gmail.com", "12345729"));
-        clienteRepository.save(new Cliente("1000000060", "Juan", "Sanchez", "juan2@gmail.com", "12345730"));
-        clienteRepository.save(new Cliente("1000000061", "Cristina", "Martinez", "cristina@gmail.com", "12345731"));
-        clienteRepository.save(new Cliente("1000000062", "Alvaro", "Hernandez", "alvaro@gmail.com", "12345732"));
-        clienteRepository.save(new Cliente("1000000063", "Maria", "Diaz", "maria2@gmail.com", "12345733"));
-        clienteRepository.save(new Cliente("1000000064", "Diego", "Jimenez", "diego3@gmail.com", "12345734"));
-        clienteRepository.save(new Cliente("1000000065", "Nerea", "Gutierrez", "nerea@gmail.com", "12345735"));
-        clienteRepository.save(new Cliente("1000000066", "Carlos", "Torres", "carlos2@gmail.com", "12345736"));
-        clienteRepository.save(new Cliente("1000000067", "Sandra", "Alvarez", "sandra2@gmail.com", "12345737"));
-        clienteRepository.save(new Cliente("1000000068", "Jose", "Lopez", "jose2@gmail.com", "12345738"));
-        clienteRepository.save(new Cliente("1000000069", "Elena", "Fernandez", "elena3@gmail.com", "12345739"));
-        clienteRepository.save(new Cliente("1000000070", "Manuel", "Garcia", "manuel@gmail.com", "12345740"));
-        clienteRepository.save(new Cliente("1000000071", "Paula", "Rojas", "paula2@gmail.com", "12345741"));
-        clienteRepository.save(new Cliente("1000000072", "Francisco", "Sanchez", "francisco2@gmail.com", "12345742"));
-        clienteRepository.save(new Cliente("1000000073", "Alba", "Martinez", "alba@gmail.com", "12345743"));
-        clienteRepository.save(new Cliente("1000000074", "Miguel", "Gonzalez", "miguel2@gmail.com", "12345744"));
-        clienteRepository.save(new Cliente("1000000075", "Beatriz", "Perez", "beatriz@gmail.com", "12345745"));
-        clienteRepository.save(new Cliente("1000000076", "Ivan", "Fernandez", "ivan@gmail.com", "12345746"));
-        clienteRepository.save(new Cliente("1000000077", "Celia", "Lopez", "celia@gmail.com", "12345747"));
-        clienteRepository.save(new Cliente("1000000078", "Gonzalo", "Gomez", "gonzalo@gmail.com", "12345748"));
-        clienteRepository.save(new Cliente("1000000079", "Luisa", "Santos", "luisa@gmail.com", "12345749"));
-        clienteRepository.save(new Cliente("1000000080", "Daniel", "Diaz", "daniel2@gmail.com", "12345750"));
-        clienteRepository.save(new Cliente("1000000081", "Julia", "Moreno", "julia@gmail.com", "12345751"));
-        clienteRepository.save(new Cliente("1000000082", "Fernando", "Perez", "fernando2@gmail.com", "12345752"));
-        clienteRepository.save(new Cliente("1000000083", "Carmen", "Gutierrez", "carmen2@gmail.com", "12345753"));
-        clienteRepository.save(new Cliente("1000000084", "Adrian", "Hernandez", "adrian@gmail.com", "12345754"));
-        clienteRepository.save(new Cliente("1000000085", "Natalia", "Fernandez", "natalia2@gmail.com", "12345755"));
-        clienteRepository.save(new Cliente("1000000086", "Roberto", "Garcia", "roberto2@gmail.com", "12345756"));
-        clienteRepository.save(new Cliente("1000000087", "Eva", "Martinez", "eva2@gmail.com", "12345757"));
-        clienteRepository.save(new Cliente("1000000088", "Sergio", "Sanchez", "sergio@gmail.com", "12345758"));
-        clienteRepository.save(new Cliente("1000000089", "Clara", "Perez", "clara2@gmail.com", "12345759"));
-        clienteRepository.save(new Cliente("1000000090", "Marcos", "Gomez", "marcos2@gmail.com", "12345760"));
-        clienteRepository.save(new Cliente("1000000091", "Elena", "Rodriguez", "elena4@gmail.com", "12345761"));
-        clienteRepository.save(new Cliente("1000000092", "Antonio", "Alvarez", "antonio2@gmail.com", "12345762"));
-        clienteRepository.save(new Cliente("1000000093", "Rocio", "Santos", "rocio@gmail.com", "12345763"));
-        clienteRepository.save(new Cliente("1000000094", "Jesus", "Lopez", "jesus@gmail.com", "12345764"));
-        clienteRepository.save(new Cliente("1000000095", "Lorena", "Fernandez", "lorena@gmail.com", "12345765"));
-        clienteRepository.save(new Cliente("1000000096", "Alvaro", "Garcia", "alvaro2@gmail.com", "12345766"));
-        clienteRepository.save(new Cliente("1000000097", "Luis", "Rodriguez", "luis2@gmail.com", "12345767"));
-        clienteRepository.save(new Cliente("1000000098", "Rosa", "Hernandez", "rosa3@gmail.com", "12345768"));
-        clienteRepository.save(new Cliente("1000000099", "David", "Gonzalez", "david2@gmail.com", "12345769"));
-        clienteRepository.save(new Cliente("1000000100", "Ana", "Jimenez", "ana3@gmail.com", "12345770"));
-
+        
         //Asociar cada mascota con un dueño distinto
         for (int i = 1; i <= 100; i++) {
-            Mascota mascota = mascotaRepository.findById((long) i).get();
-            mascota.setCliente(clienteRepository.findById((long) i).get());
-            mascotaRepository.save(mascota);
+
+            if (i > 50) {
+                Mascota mascota = mascotaRepository.findById((long) i).get();
+                int aux = i - 50;
+                mascota.setCliente(clienteRepository.findById((long) aux).get());
+                mascotaRepository.save(mascota);
+
+            } else {
+                Mascota mascota = mascotaRepository.findById((long) i).get();
+                mascota.setCliente(clienteRepository.findById((long) i).get());
+                mascotaRepository.save(mascota);
+            }
         }        
     }
     

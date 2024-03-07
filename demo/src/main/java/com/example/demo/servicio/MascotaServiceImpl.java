@@ -43,7 +43,12 @@ public class MascotaServiceImpl implements MascotaService{
     public void updateState(Long id) {
         //Hacer un update de la mascota con el id que se recibe y cambiar el estado, de disponible a inactivo o viceversa
         Mascota mascota = repo.findById(id).get();
-        mascota.setEstado("Inactivo");
+
+        if(mascota.getEstado().equals("Disponible"))
+            mascota.setEstado("Inactivo");
+        else
+            mascota.setEstado("Disponible");
+
         repo.save(mascota);
     }
 
