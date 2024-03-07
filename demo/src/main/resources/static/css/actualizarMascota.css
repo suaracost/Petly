@@ -404,7 +404,8 @@
 
 .input-container input[type="text"],
 .input-container input[type="number"],
-.input-container input[type="url"] {
+.input-container input[type="url"],
+.input-container select {
     font-size: 25px;
     width: 100%;
     border: none;
@@ -430,7 +431,9 @@
 .input-container input[type="number"]:focus ~ .label,
 .input-container input[type="number"]:valid ~ .label,
 .input-container input[type="url"]:focus ~ .label,
-.input-container input[type="url"]:valid ~ .label {
+.input-container input[type="url"]:valid ~ .label,
+.input-container select:focus ~ .label,
+.input-container select:valid ~ .label {
     top: -20px;
     font-size: 20px;
     color: #3468c0;
@@ -452,7 +455,9 @@
 .input-container input[type="number"]:focus ~ .underline,
 .input-container input[type="number"]:valid ~ .underline,
 .input-container input[type="url"]:focus ~ .underline,
-.input-container input[type="url"]:valid ~ .underline {
+.input-container input[type="url"]:valid ~ .underline,
+.input-container select:focus ~ .underline,
+.input-container select:valid ~ .underline {
     transform: scaleX(1);
 }
 

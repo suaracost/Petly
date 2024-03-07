@@ -10,7 +10,7 @@
       content="Hermann Hernández, Nicolás Rincón, Alejandro Suárez"
     />
     <meta name="keywords" content="petly, veterinary, vet, pet, dog" />
-    <link rel="stylesheet" href="/css/onePet.css" />
+    <link rel="stylesheet" href="/css/mostrarCliente.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -100,7 +100,7 @@
             <div class = "info">
                 
                 <div class="card-user-container">
-                    <i class='bx bxs-user' style='color:#898989'></i>
+                    <i class='bx bxs-user' style='color:#898989;padding-top: 13px;'></i>
                 </div> 
 
                 <div class = info-texto>
@@ -123,10 +123,10 @@
         <div class = "right-side">
             <div class = "search">
                 <h1>Mascotas</h1>
-            <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
+            <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar " title="Type in a name">
             </div>
             
-            <table class="tablita">
+            <table id="myTable" class="tablita">
                 <thead>
                     <tr>
                         <th>Foto</th>
@@ -171,6 +171,26 @@
     sidebar.addEventListener('mouseleave', function() {
         sidebar.classList.remove("active");
     });
+
+    function filterTable() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1]; 
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) { 
+                tr[i].style.display = ""; 
+            } else {
+                tr[i].style.display = "none";
+            }
+        }       
+    }
+}
 </script>
 
 </html>
