@@ -282,6 +282,8 @@
     align-items: center;
     justify-content: center;
     font-size: 25em;
+    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
+        -4px -4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .bxs-user {
@@ -317,10 +319,31 @@
 .lista {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
-    font-size: 35px;
-    padding-top: 20px;
+    font-size: 30px;
+    padding-left: 15px;
+}
+
+.lista ul {
+    list-style-type: none;
+    padding-left: 30px; /* Para asegurarse de que no haya espacio adicional a la izquierda */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.lista li {
+    flex-grow: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .card-des {
@@ -350,9 +373,10 @@
     width: 50%;
     height: 40px;
     border-radius: 50px;
-    border: 2px solid #000000;
+    border: 2px solid #898989;
     padding-left: 30px;
     padding-right: 30px;
+    outline: none;
 }
 
 table.tablita {

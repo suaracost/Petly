@@ -92,10 +92,10 @@
         <div class = "right-side">
             <div class = "search">
                 <h1>Mascotas</h1>
-            <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
+            <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar mascota por nombre" title="Type in a name">
             </div>
             
-            <table class="tablita">
+            <table id="myTable" class="tablita">
                 <thead>
                     <tr>
                         <th>Foto</th>
@@ -140,6 +140,26 @@
     sidebar.addEventListener('mouseleave', function() {
         sidebar.classList.remove("active");
     });
+
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1]; 
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) { 
+                    tr[i].style.display = ""; 
+                } else {
+                    tr[i].style.display = "none"; /* esto pasa cuando no hay coincidencias*/
+                }
+            }       
+        }
+    }
 </script>
 
 </html>
