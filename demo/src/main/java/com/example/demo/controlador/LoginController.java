@@ -29,12 +29,7 @@ public class LoginController {
     @PostMapping("/cliente")
     public String loginClient(@RequestParam("cedula") String cedula) {
         
-        //Preguntar al profe cual de los dos es mejor
-        //1 Usar el repositorio directamente (Aqui el metodo findByCedula se genera automaticamente por Spring Data JPA)
-        Cliente client = repo.findByCedula(cedula);
-
-        //2 Usar el servicio
-        //Cliente client = clienteService.SearchByCedula(cedula);
+        Cliente client = clienteService.SearchByCedula(cedula);
 
         if(client != null) {
             return "redirect:/clientes/perfil/" + client.getId(); // Redirigir a la página del cliente

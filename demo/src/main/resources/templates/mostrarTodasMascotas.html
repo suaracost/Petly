@@ -109,6 +109,7 @@
                         <th>Edad</th>
                         <th>Peso</th>
                         <th>Enfermedad</th>
+                        <th>Estado</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>
@@ -120,6 +121,7 @@
                         <td th:text="${mascota.edad}"></td>
                         <td th:text="${mascota.peso}"></td>
                         <td th:text="${mascota.enfermedad}"></td>
+                        <td th:text="${mascota.estado}"></td>
                         <td class="opciones">
                             <a class="links informa" th:href="@{/mascotas/find/{id}(id=${mascota.id})}">
                                 <i class='bx bx-info-circle'></i>

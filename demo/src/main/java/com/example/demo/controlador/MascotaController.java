@@ -78,7 +78,7 @@ public class MascotaController {
 
     @GetMapping("/delete/{id}")
     public String deletePet(@PathVariable("id") Long identificacion) {
-        mascotaService.deleteById(identificacion);
+        mascotaService.updateState(identificacion);
         return "redirect:/mascotas/all";
     }
     
