@@ -276,8 +276,6 @@
     align-items: center;
     justify-content: center;
     font-size: 25em;
-    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
-        -4px -4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .info img {
@@ -305,6 +303,7 @@
 
 .info-dog h2 {
     padding-top: 20px;
+    padding-bottom: 30px;
 }
 
 .lista {
@@ -333,8 +332,9 @@
     width: 100%;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 32px;
 }
 
 .search {

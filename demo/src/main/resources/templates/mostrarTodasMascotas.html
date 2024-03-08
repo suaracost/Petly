@@ -96,6 +96,23 @@
     <div class = "main-content">
         <div class="search">
             <h1>Mascotas de Petly</h1>
+
+            <div class="radio-input">
+                <label>
+                    <input value="Disponible" name="value-radio" id="value-1" type="radio" onchange="filterTableByState()">
+                    <span>Disponibles</span>
+                </label>
+                <label>
+                  <input value="Inactivo" name="value-radio" id="value-2" type="radio" onchange="filterTableByState()">
+                <span>Inactivas</span>
+                </label>
+                <label>
+                  <input value="Todas" name="value-radio" id="value-3" type="radio" checked="" onchange="filterTableByState()">
+                <span>Todas</span>
+                </label>
+                <span class="selection"></span>
+            </div>
+
             <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar mascota por nombre" title="Type in a name">
         </div>
         
@@ -172,6 +189,29 @@
             }
         });
     }
+        function filterTableByState() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.querySelector('input[name="value-radio"]:checked').value;
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[6]; 
+            if (input === "Todas") {
+                tr[i].style.display = "";
+            } else {
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase() === input.toUpperCase()) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    }
+
 
     function filterTable() {
         var input, filter, table, tr, td, i, txtValue;
@@ -179,12 +219,16 @@
         filter = input.value.toUpperCase();
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
-        
+        var estado = document.querySelector('input[name="value-radio"]:checked').value;
+
         for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1]; 
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) { 
+            td_nombre = tr[i].getElementsByTagName("td")[1]; 
+            td_estado = tr[i].getElementsByTagName("td")[6]; 
+            if (td_nombre && td_estado) {
+                txtValue_nombre = td_nombre.textContent || td_nombre.innerText;
+                txtValue_estado = td_estado.textContent || td_estado.innerText;
+                if ((estado === "Todas" || txtValue_estado.toUpperCase() === estado.toUpperCase()) &&
+                    (txtValue_nombre.toUpperCase().indexOf(filter) > -1)) { 
                     tr[i].style.display = ""; 
                 } else {
                     tr[i].style.display = "none"; /* esto pasa cuando no hay coincidencias*/
@@ -192,6 +236,17 @@
             }       
         }
     }
+
+    // Event listener para los botones de radio
+    var radioInputs = document.querySelectorAll('input[name="value-radio"]');
+    radioInputs.forEach(function(input) {
+        input.addEventListener('change', function() {
+            filterTable();
+        });
+    });
+
+
+
 </script>
 
 

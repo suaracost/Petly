@@ -79,37 +79,39 @@
     height: 17%;
 }
 
-.user img {
-    position: absolute;    
-    height: 8%;
-    border-radius: 50%;
-    left: 50%;
-    line-height: 50px;
-    transform: translateX(-50%);
-    transition: all 0.5s ease;
-    z-index: 100;
-    border: 2px solid white;
+.user i {
+    padding-left: 0px !important;
+    position: absolute !important;    
+    height: 8% !important;
+    left: 50% !important;
+    line-height: 85% !important;
+    transform: translateX(-50%) !important;
+    transition: all 0.5s ease !important;
+    z-index: 100 !important;
+    font-size: 500% !important;
+    color: white !important;
 }
 
 .user p {
-    padding-left: 100px;
+    padding-left: 10px;
     margin-bottom: 0;
     font-size: 0em;
     color: white;
     opacity: 0;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 .sidebar.active .user p {
     opacity: 1;
     padding-left: 100px;
     font-size: 1.25em;
-    transition: all 0.8s ease;
+    transition: all 0.5s ease;
 }
 
-.sidebar.active .user img{
-    transform: translateX(-130%);
+.sidebar.active .user i{
+    transform: translateX(-130%) !important;
 }
+
 
 .sidebar .nav {
     display: flex;
@@ -151,6 +153,10 @@
     background-color: #83a7fc;
     color: #ffdd95;
 
+}
+
+.sidebar .especial {
+    cursor: default;
 }
 
 .sidebar i {
@@ -202,28 +208,20 @@
     padding-right: 50px;
     
     display: flex;
-    flex-direction: row;
-}
-
-.left-side {
-    width: 30%;
-    height: 100%;
-    display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right: 25px;
-
+    height: 100%;
 }
 
-.right-side {
-    width: 70%;
+/* .right-side {
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-left: 25px;
 
-}
+} */
 
 .cabeza {
     display: flex;
@@ -282,8 +280,6 @@
     align-items: center;
     justify-content: center;
     font-size: 25em;
-    box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
-        -4px -4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .bxs-user {
