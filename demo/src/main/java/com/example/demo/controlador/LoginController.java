@@ -32,7 +32,7 @@ public class LoginController {
         Cliente client = clienteService.SearchByCedula(cedula);
 
         if(client != null) {
-            return "redirect:/clientes/perfil/" + client.getId(); // Redirigir a la página del cliente
+            return "redirect:/usuario/" + client.getId(); // Redirigir a la página del cliente
         } else{
             throw new CedulaNotFoundException(cedula);
         }

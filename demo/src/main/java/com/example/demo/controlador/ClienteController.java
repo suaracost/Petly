@@ -13,21 +13,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 
-@RequestMapping("/clientes")
+@RequestMapping("veterinario/clientes")
 @Controller
 public class ClienteController {
 
     @Autowired
     ClienteService clienteService;
 
-    //http://localhost:8090/clientes/all
+    //http://localhost:8090/veterinario/clientes/all
     @GetMapping("/all")
     public String showAllClients(Model model) {
         model.addAttribute("clientes", clienteService.SearchAll());
         return "mostrarTodosClientes"; //Esto retornara al HTML que se debe mostrar
     }
 
-    //http://localhost:8090/clientes/find/1
+    //http://localhost:8090/veterinario/clientes/find/1
     @GetMapping("/find/{id}")
     public String showClient(Model model, @PathVariable("id") Long identificacion) {
         Cliente cliente = clienteService.SearchById(identificacion);
@@ -41,21 +41,7 @@ public class ClienteController {
         return "mostrarCliente"; //Esto retornara al HTML que se debe mostrar
     }
 
-    //http://localhost:8090/clientes/find/1
-    @GetMapping("/perfil/{id}")
-    public String mostrarPerfil(Model model, @PathVariable("id") Long identificacion) {
-        Cliente cliente = clienteService.SearchById(identificacion);
-
-        if(cliente!=null){
-            model.addAttribute("cliente", clienteService.SearchById(identificacion));
-        } else{
-            throw new NotFoundException(identificacion);
-        }
-
-        return "perfilCliente"; //Esto retornara al HTML que se debe mostrar
-    }
-
-    //http://localhost:8090/clientes/add
+    //http://localhost:8090/veterinario/clientes/add
     @GetMapping("/add")
     public String mostrarFormularioCreaString(Model model) {
 
@@ -66,17 +52,16 @@ public class ClienteController {
         return "registroCliente";
     }
 
-    //Metodo que recibe el POST del formulario para agregar cliente de (/clientes/add)
     @PostMapping("/agregar")
     public String agregarCliente(@ModelAttribute("cliente") Cliente cliente) {
         clienteService.add(cliente);
-        return "redirect:/clientes/all";
+        return "redirect:/veterinario/clientes/all";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteClient(@PathVariable("id") Long identificacion) {
         clienteService.deleteById(identificacion);
-        return "redirect:/clientes/all";
+        return "redirect:/veterinario/clientes/all";
     }
     
     @GetMapping("/update/{id}")
@@ -88,7 +73,7 @@ public class ClienteController {
     @PostMapping("/update/{id}")
     public String updateClient(@PathVariable("id") int identificacion, @ModelAttribute("cliente") Cliente cliente) {
         clienteService.update(cliente);
-        return "redirect:/clientes/all";
+        return "redirect:/veterinario/clientes/all";
     }
     
     

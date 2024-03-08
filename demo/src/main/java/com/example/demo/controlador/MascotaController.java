@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 
-@RequestMapping("/mascotas")
+@RequestMapping("veterinario/mascotas")
 @Controller
 public class MascotaController {
 
@@ -27,14 +27,14 @@ public class MascotaController {
     @Autowired
     ClienteService clienteService;
 
-    //http://localhost:8090/mascotas/all
+    //http://localhost:8090/veterinario/mascotas/all
     @GetMapping("/all")
     public String showAllPets(Model model) {
         model.addAttribute("mascotas", mascotaService.SearchAll());
         return "mostrarTodasMascotas"; //Esto retornara al HTML que se debe mostrar
     }
 
-    //http://localhost:8090/mascotas/find/1
+    //http://localhost:8090/veterinario/mascotas/find/1
     @GetMapping("/find/{id}")
     public String showPet(Model model, @PathVariable("id") Long identificacion) {
         Mascota mascota = mascotaService.SearchById(identificacion);
@@ -48,7 +48,7 @@ public class MascotaController {
         return "mostrarMascota"; //Esto retornara al HTML que se debe mostrar
     }
 
-    //http://localhost:8090/mascotas/add
+    //http://localhost:8090/veterinario/mascotas/add
     @GetMapping("/add")
     public String mostrarFormularioCreaString(Model model) {
 
@@ -59,7 +59,6 @@ public class MascotaController {
         return "registroMascota";
     }
 
-    //Metodo que recibe el POST del formulario para agregar mascota de (/mascotas/add)
     @PostMapping("/agregar")
     public String agregarMascota(@ModelAttribute("mascota") Mascota mascota, @RequestParam("cedulaDueno") String cedula) {
         
@@ -73,13 +72,13 @@ public class MascotaController {
             throw new CedulaNotFoundException(cedula);
         }
 
-        return "redirect:/mascotas/all";
+        return "redirect:/veterinario/mascotas/all";
     }
 
     @GetMapping("/delete/{id}")
     public String deletePet(@PathVariable("id") Long identificacion) {
         mascotaService.updateState(identificacion);
-        return "redirect:/mascotas/all";
+        return "redirect:/veterinario/mascotas/all";
     }
     
     @GetMapping("/update/{id}")
@@ -93,7 +92,7 @@ public class MascotaController {
         Mascota aux = mascotaService.SearchById(identificacion);
         mascota.setCliente(aux.getCliente());
         mascotaService.update(mascota);
-        return "redirect:/mascotas/all";
+        return "redirect:/veterinario/mascotas/all";
     }
     
     

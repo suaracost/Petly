@@ -110,7 +110,7 @@
                     <td th:text="${mascota.peso}"></td>
                     <td th:text="${mascota.enfermedad}"></td>
                     <td class="opciones">
-                        <a class="links icono" th:href="@{/mascotas/find/{id}(id=${mascota.id})}">
+                        <a class="links icono" th:href="@{/usuario/{cliente}/mascota/{id}(cliente=${cliente.id}, id=${mascota.id})}">
                             <i class='bx bx-info-circle'></i>
                         </a>
                     </td>

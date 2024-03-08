@@ -10,7 +10,7 @@
       content="Hermann Hernández, Nicolás Rincón, Alejandro Suárez"
     />
     <meta name="keywords" content="petly, veterinary, vet, pet, dog" />
-    <link rel="stylesheet" href="/css/onePet.css" />
+    <link rel="stylesheet" href="/css/onePetCliente.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,52 +31,44 @@
         </div>
 
         <div class = "user">
-            <img src="/images/vet1.jpg" alt="Veterinario" class="user-img"/>
-            <p>Dr. Alexander García</p>           
+            <!-- <img src="/images/vet1.jpg" alt="Veterinario" class="user-img"/> -->
+            <i class="bx bxs-user-circle" id="raro"></i>
+            <p><span th:text="${cliente.nombre} + ' ' + ${cliente.apellido}"></span></p>
         </div>
         
         <div class = "nav">
             <ul>
                 <li>
-                    <a th:href="@{/veterinario/mascotas/all}">
-                        <i class="bx bx-table"></i>
-                        <span class="nav-item">Ver mascotas</span>
+                    <a>
+                    <i class="bx bx-id-card"></i>
+                    <span th:text="${cliente.cedula}" class="nav-item especial"></span>
                     </a>
                 </li>
 
                 <li>
-                    <a th:href="@{/veterinario/mascotas/add}">
-                        <i class="bx bxs-dog"></i>
-                        <span class="nav-item">Registrar mascota</span>
+                    <a>
+                        <i class="bx bxs-phone"></i>
+                        <span th:text="${cliente.celular}" class="nav-item especial"></span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="">
-                        <i class="bx bx-capsule"></i>
-                        <span class="nav-item">Ver tratamientos</span>
+                    <a>
+                        <i class="bx bx-envelope"></i>
+                        <span th:text="${cliente.correo}" class="nav-item especial"></span>
                     </a>
+                </li>
+                
+                <li>
+                    
+                </li>
+                
+                <li>
+                    
                 </li>
 
                 <li>
-                    <a href="">
-                        <i class="bx bx-plus-medical"></i>
-                        <span class="nav-item">Atención medica</span>
-                    </a>
-                </li>
 
-                <li>
-                    <a th:href="@{/veterinario/clientes/all}">
-                        <i class="bx bx-group"></i>
-                        <span class="nav-item">Ver clientes</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a th:href="@{/veterinario/clientes/add}">
-                        <i class="bx bx-user-plus"></i>
-                        <span class="nav-item">Registrar cliente</span>
-                    </a>
                 </li>
 
                 <li id="logout">

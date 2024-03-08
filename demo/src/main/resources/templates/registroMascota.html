@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
-    <form th:object="${mascota}" th:action="@{/mascotas/agregar}" method="post" class="card">
+    <form th:object="${mascota}" th:action="@{/veterinario/mascotas/agregar}" method="post" class="card">
         <div class="card-top">
             <img src="/images/logo.png" alt="logo"/>          
             <h1>Registrar nueva mascota</h1>
@@ -83,7 +83,7 @@
             </div>
             
             <div class="form-div">
-                <button class="btn-secondary" onclick="window.location.href='/mascotas/all'">Volver</button>
+                <button class="btn-secondary" onclick="window.location.href='/veterinario/mascotas/all'">Volver</button>
                 <button type="submit" class="btn-primary">Registrar</button>
             </div>
         </div>

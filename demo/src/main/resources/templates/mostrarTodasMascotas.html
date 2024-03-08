@@ -42,14 +42,14 @@
         <div class = "nav">
             <ul>
                 <li>
-                    <a th:href="@{/mascotas/all}">
+                    <a th:href="@{/veterinario/mascotas/all}">
                         <i class="bx bx-table"></i>
                         <span class="nav-item">Ver mascotas</span>
                     </a>
                 </li>
 
                 <li>
-                    <a th:href="@{/mascotas/add}">
+                    <a th:href="@{/veterinario/mascotas/add}">
                         <i class="bx bxs-dog"></i>
                         <span class="nav-item">Registrar mascota</span>
                     </a>
@@ -70,14 +70,14 @@
                 </li>
 
                 <li>
-                    <a th:href="@{/clientes/all}">
+                    <a th:href="@{/veterinario/clientes/all}">
                         <i class="bx bx-group"></i>
                         <span class="nav-item">Ver clientes</span>
                     </a>
                 </li>
 
                 <li>
-                    <a th:href="@{/clientes/add}">
+                    <a th:href="@{/veterinario/clientes/add}">
                         <i class="bx bx-user-plus"></i>
                         <span class="nav-item">Registrar cliente</span>
                     </a>
@@ -140,10 +140,10 @@
                         <td th:text="${mascota.enfermedad}"></td>
                         <td th:text="${mascota.estado}"></td>
                         <td class="opciones">
-                            <a class="links informa" th:href="@{/mascotas/find/{id}(id=${mascota.id})}">
+                            <a class="links informa" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
                                 <i class='bx bx-info-circle'></i>
                             </a>
-                            <a class="links edit" th:href="@{/mascotas/update/{id}(id=${mascota.id})}">
+                            <a class="links edit" th:href="@{/veterinario/mascotas/update/{id}(id=${mascota.id})}">
                                 <i class='bx bxs-edit'></i>
                             </a>
                             <a th:id="${mascota.id}" class="links delete" onclick="mostrarAlerta(id)">
@@ -185,7 +185,7 @@
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = "/mascotas/delete/" + idMascota;
+                window.location.href = "/veterinario/mascotas/delete/" + idMascota;
             }
         });
     }

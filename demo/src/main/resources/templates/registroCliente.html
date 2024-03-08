@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/css/registroCliente.css" />
 </head>
 <body>
-    <form th:object="${cliente}" th:action="@{/clientes/agregar}" method="post" class="card">
+    <form th:object="${cliente}" th:action="@{/veterinario/clientes/agregar}" method="post" class="card">
         
         <div class="card-top">
             <img src="/images/logo.png" alt="logo"/>            
@@ -67,7 +67,7 @@
             </div>
     
             <div class="form-div">
-                <button class="btn-secondary" onclick="window.location.href='/clientes/all'">Volver</button>
+                <button class="btn-secondary" onclick="window.location.href='/veterinario/clientes/all'">Volver</button>
                 <button type="submit" class="btn-primary">Registrar</button>
             </div>
 

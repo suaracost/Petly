@@ -42,14 +42,14 @@
         <div class = "nav">
             <ul>
                 <li>
-                    <a th:href="@{/mascotas/all}">
+                    <a th:href="@{/veterinario/mascotas/all}">
                         <i class="bx bx-table"></i>
                         <span class="nav-item">Ver mascotas</span>
                     </a>
                 </li>
 
                 <li>
-                    <a th:href="@{/mascotas/add}">
+                    <a th:href="@{/veterinario/mascotas/add}">
                         <i class="bx bxs-dog"></i>
                         <span class="nav-item">Registrar mascota</span>
                     </a>
@@ -70,14 +70,14 @@
                 </li>
 
                 <li>
-                    <a th:href="@{/clientes/all}">
+                    <a th:href="@{/veterinario/clientes/all}">
                         <i class="bx bx-group"></i>
                         <span class="nav-item">Ver clientes</span>
                     </a>
                 </li>
 
                 <li>
-                    <a th:href="@{/clientes/add}">
+                    <a th:href="@{/veterinario/clientes/add}">
                         <i class="bx bx-user-plus"></i>
                         <span class="nav-item">Registrar cliente</span>
                     </a>
@@ -119,13 +119,13 @@
                         <td th:text="${cliente.correo}"></td>
                         <td th:text="${cliente.celular}"></td>
                         <td class="opciones">
-                            <a class="links informa" th:href="@{/clientes/find/{id}(id=${cliente.id})}">
+                            <a class="links informa" th:href="@{/veterinario/clientes/find/{id}(id=${cliente.id})}">
                                 <i class='bx bx-info-circle'></i>
                             </a>
-                            <a class="links edit" th:href="@{/clientes/update/{id}(id=${cliente.id})}">
+                            <a class="links edit" th:href="@{/veterinario/clientes/update/{id}(id=${cliente.id})}">
                                 <i class='bx bxs-edit'></i>
                             </a>
-                            <a class="links delete" th:href="@{/clientes/delete/{id}(id=${cliente.id})}">
+                            <a class="links delete" th:href="@{/veterinario/clientes/delete/{id}(id=${cliente.id})}">
                                 <i class='bx bxs-trash'></i>
                             </a>
                         </td>

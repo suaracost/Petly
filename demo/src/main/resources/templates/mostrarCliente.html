@@ -38,14 +38,14 @@
         <div class = "nav">
             <ul>
                 <li>
-                    <a th:href="@{/mascotas/all}">
+                    <a th:href="@{/veterinario/mascotas/all}">
                         <i class="bx bx-table"></i>
                         <span class="nav-item">Ver mascotas</span>
                     </a>
                 </li>
 
                 <li>
-                    <a th:href="@{/mascotas/add}">
+                    <a th:href="@{/veterinario/mascotas/add}">
                         <i class="bx bxs-dog"></i>
                         <span class="nav-item">Registrar mascota</span>
                     </a>
@@ -66,14 +66,14 @@
                 </li>
 
                 <li>
-                    <a th:href="@{/clientes/all}">
+                    <a th:href="@{/veterinario/clientes/all}">
                         <i class="bx bx-group"></i>
                         <span class="nav-item">Ver clientes</span>
                     </a>
                 </li>
 
                 <li>
-                    <a th:href="@{/clientes/add}">
+                    <a th:href="@{/veterinario/clientes/add}">
                         <i class="bx bx-user-plus"></i>
                         <span class="nav-item">Registrar cliente</span>
                     </a>
@@ -147,7 +147,7 @@
                         <td th:text="${mascota.peso}"></td>
                         <td th:text="${mascota.enfermedad}"></td>
                         <td class="opciones">
-                            <a class="links icono" th:href="@{/mascotas/find/{id}(id=${mascota.id})}">
+                            <a class="links icono" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
                                 <i class='bx bx-info-circle'></i>
                             </a>
                         </td>
