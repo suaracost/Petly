@@ -1,9 +1,13 @@
 package com.example.demo.entidad;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Mascota {
@@ -22,6 +26,9 @@ public class Mascota {
     //Relacion con la tabla cliente para representar el dueño de la mascota
     @ManyToOne
     private Cliente cliente;
+
+    @OneToMany (mappedBy = "mascotaT")
+    private List<Tratamiento> tratamientos = new ArrayList<>();
 
     public Mascota(Long id, String nombre, String raza, int edad, float peso, String enfermedad, String foto, String estado) {
         this.id = id;
@@ -119,8 +126,13 @@ public class Mascota {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+     
+    public List<Tratamiento> getTratamientos() {
+        return tratamientos;
+    }
 
-    
-
+    public void setTratamientos(List<Tratamiento> tratamientos) {
+        this.tratamientos = tratamientos;
+    }
 
 }
