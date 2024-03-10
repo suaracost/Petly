@@ -52,24 +52,28 @@ public class ClienteController {
         return "registroCliente";
     }
 
+    //http://localhost:8090/veterinario/clientes/agregar
     @PostMapping("/agregar")
     public String agregarCliente(@ModelAttribute("cliente") Cliente cliente) {
         clienteService.add(cliente);
         return "redirect:/veterinario/clientes/all";
     }
 
+    //http://localhost:8090/veterinario/clientes/delete/1
     @GetMapping("/delete/{id}")
     public String deleteClient(@PathVariable("id") Long identificacion) {
         clienteService.deleteById(identificacion);
         return "redirect:/veterinario/clientes/all";
     }
     
+    //http://localhost:8090/veterinario/clientes/update/1
     @GetMapping("/update/{id}")
     public String mostrarFormularioUpdate(@PathVariable("id") Long identificacion, Model model) {
         model.addAttribute("cliente", clienteService.SearchById(identificacion));
         return "actualizarCliente";
     }
 
+    //http://localhost:8090/veterinario/clientes/update/1
     @PostMapping("/update/{id}")
     public String updateClient(@PathVariable("id") int identificacion, @ModelAttribute("cliente") Cliente cliente) {
         clienteService.update(cliente);

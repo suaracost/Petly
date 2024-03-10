@@ -16,11 +16,11 @@ public class Droga {
     private int precioVenta;
     private int unidadesDisponibles;
     private int unidadesVendidas;
-    
     @Id
     @GeneratedValue
     private Long id;
 
+    //Relacion con la tabla tratamiento para representar los tratamientos que tienen la droga
     @OneToMany (mappedBy = "drogaT")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 

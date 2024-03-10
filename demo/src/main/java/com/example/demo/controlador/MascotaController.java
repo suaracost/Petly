@@ -59,6 +59,7 @@ public class MascotaController {
         return "registroMascota";
     }
 
+    //http://localhost:8090/veterinario/mascotas/agregar
     @PostMapping("/agregar")
     public String agregarMascota(@ModelAttribute("mascota") Mascota mascota, @RequestParam("cedulaDueno") String cedula) {
         
@@ -75,18 +76,21 @@ public class MascotaController {
         return "redirect:/veterinario/mascotas/all";
     }
 
+    //http://localhost:8090/veterinario/mascotas/delete/1
     @GetMapping("/delete/{id}")
     public String deletePet(@PathVariable("id") Long identificacion) {
         mascotaService.updateState(identificacion);
         return "redirect:/veterinario/mascotas/all";
     }
     
+    //http://localhost:8090/veterinario/mascotas/update/1
     @GetMapping("/update/{id}")
     public String mostrarFormularioUpdate(@PathVariable("id") Long identificacion, Model model) {
         model.addAttribute("mascota", mascotaService.SearchById(identificacion));
         return "actualizarMascota";
     }
 
+    //http://localhost:8090/veterinario/mascotas/update/1
     @PostMapping("/update/{id}")
     public String updatePet(@PathVariable("id") Long identificacion, @ModelAttribute("mascota") Mascota mascota) {
         Mascota aux = mascotaService.SearchById(identificacion);

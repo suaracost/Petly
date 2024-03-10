@@ -20,12 +20,13 @@ public class LoginController {
     @Autowired
     ClienteRepository repo;
 
+    //http://localhost:8090/login/cliente
     @RequestMapping("/cliente")
     public String loginClient() {
         return "loginCliente";
     }
 
-    
+    //http://localhost:8090/login/cliente
     @PostMapping("/cliente")
     public String loginClient(@RequestParam("cedula") String cedula) {
         
@@ -38,7 +39,7 @@ public class LoginController {
         }
     }
     
-
+    //http://localhost:8090/login/vet
     @RequestMapping("/vet")
     public String loginVet() {
         return "loginVeterinario";

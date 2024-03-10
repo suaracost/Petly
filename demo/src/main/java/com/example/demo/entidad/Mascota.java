@@ -27,6 +27,7 @@ public class Mascota {
     @ManyToOne
     private Cliente cliente;
 
+    //Relacion con la tabla tratamiento para representar los tratamientos que tiene la mascota
     @OneToMany (mappedBy = "mascotaT")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 

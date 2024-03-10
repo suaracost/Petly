@@ -7,20 +7,23 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Tratamiento {
+
     private String fecha;
-
-    @ManyToOne
-    private Mascota mascotaT;
-
-    @ManyToOne
-    private Veterinario veterinarioT;
-
-    @ManyToOne
-    private Droga drogaT;
-
     @Id
     @GeneratedValue
     private Long id;
+
+    //Relacion con la tabla mascota para representar la mascota que tiene el tratamiento
+    @ManyToOne
+    private Mascota mascotaT;
+
+    //Relacion con la tabla veterinario para representar el veterinario que tiene el tratamiento
+    @ManyToOne
+    private Veterinario veterinarioT;
+
+    //Relacion con la tabla droga para representar la droga que tiene el tratamiento
+    @ManyToOne
+    private Droga drogaT;
 
     public String getFecha() {
         return fecha;

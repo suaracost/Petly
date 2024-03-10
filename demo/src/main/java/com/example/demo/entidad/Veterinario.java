@@ -10,6 +10,7 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Veterinario {
+
     private String cedula;
     private String nombre;
     private String apellido;
@@ -17,11 +18,11 @@ public class Veterinario {
     private String foto;
     private String especialidad;
     private int numAtenciones;
-    
     @Id
     @GeneratedValue
     private Long id;
 
+    //Relacion con la tabla tratamiento para representar los tratamientos que ha hecho el veterinario
     @OneToMany (mappedBy = "veterinarioT")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 

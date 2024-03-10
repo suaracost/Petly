@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ErrorController {
 
+    //Metodo para manejar la excepcion NotFoundException
     @ExceptionHandler(NotFoundException.class)
     public String error(Model model, NotFoundException e){
 
@@ -15,6 +16,7 @@ public class ErrorController {
         return "paginaErrorMascota";
     }
 
+    //Metodo para manejar la excepcion CedulaNotFoundException
     @ExceptionHandler(CedulaNotFoundException.class)
     public String errorLogin(Model model, CedulaNotFoundException e){
 
@@ -23,6 +25,7 @@ public class ErrorController {
         return "paginaErrorCliente";
     }
 
+    //Metodo para manejar la excepcion IdClienteNotFoundException
     @ExceptionHandler(IdClienteNotFoundException.class)
     public String errorCliente(Model model, IdClienteNotFoundException e){
 
