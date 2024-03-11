@@ -40,13 +40,18 @@ public class UsuarioController {
     @GetMapping("/{usuario}/mascota/{id}")
     public String showPet(Model model, @PathVariable("usuario") Long usuario, @PathVariable("id") Long identificacion) {
         Mascota mascota = mascotaService.SearchById(identificacion);
+        Cliente cliente = clienteService.SearchById(usuario);
 
-        if(mascota!=null){
-            model.addAttribute("mascota", mascotaService.SearchById(identificacion));
-            model.addAttribute("cliente", clienteService.SearchById(usuario));
-        } else{
+        if(mascota == null){
             throw new NotFoundException(identificacion);
         }
+
+        if(cliente == null){
+            throw new IdClienteNotFoundException(usuario);
+        }
+
+        model.addAttribute("mascota", mascota);
+        model.addAttribute("cliente", cliente);
 
         return "mostrarMascotaCliente"; //Esto retornara al HTML que se debe mostrar
     }
