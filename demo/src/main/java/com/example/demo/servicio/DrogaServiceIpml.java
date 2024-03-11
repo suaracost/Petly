@@ -1,6 +1,7 @@
 package com.example.demo.servicio;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ public class DrogaServiceIpml implements DrogaService{
     DrogaRepository repo;
 
     public Droga SearchById(Long id) {
-        return repo.findById(id).get();
+        Optional<Droga> optionalDroga = repo.findById(id);
+        return optionalDroga.orElse(null);
     };
 
     public Collection<Droga> SearchAll() {

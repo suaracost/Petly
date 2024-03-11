@@ -1,6 +1,7 @@
 package com.example.demo.servicio;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,8 @@ public class MascotaServiceImpl implements MascotaService{
 
     @Override
     public Mascota SearchById(Long id) {
-        return repo.findById(id).get();
+        Optional<Mascota> optionalMascota = repo.findById(id);
+        return optionalMascota.orElse(null);
     }
 
     @Override

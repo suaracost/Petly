@@ -25,10 +25,15 @@
       <img src="/images/perroError.jpg" alt="logo" id="btn" />
 
       <div class="cabeza">
-        <button class="botonVolver" onclick="window.location.href='/veterinario/clientes/all'">
+        <button class="botonVolver" onclick="goBack()">
           <h3 id="volver">Volver</h3>
         </button>
       </div>
     </div>
   </body>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </html>

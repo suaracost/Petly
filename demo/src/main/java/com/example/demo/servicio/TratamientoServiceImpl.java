@@ -1,6 +1,8 @@
 package com.example.demo.servicio;
 
 import java.util.Collection;
+import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,8 @@ public class TratamientoServiceImpl implements TratamientoService{
     TratamientoRepository repo;
 
     public Tratamiento SearchById(Long id) {
-        return repo.findById(id).get();
+        Optional<Tratamiento> optionalTratamiento = repo.findById(id);
+        return optionalTratamiento.orElse(null);
     };
 
     public Collection<Tratamiento> SearchAll() {

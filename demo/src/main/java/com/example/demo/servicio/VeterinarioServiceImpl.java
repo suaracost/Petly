@@ -1,6 +1,7 @@
 package com.example.demo.servicio;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,8 @@ public class VeterinarioServiceImpl implements VeterinarioService{
     VeterinarioRepository repo;
 
     public Veterinario SearchById(Long id) {
-        return repo.findById(id).get();
+        Optional<Veterinario> optionalVeterinario = repo.findById(id);
+        return optionalVeterinario.orElse(null);
     };
 
     public Collection<Veterinario> SearchAll() {
