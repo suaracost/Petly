@@ -13,7 +13,7 @@ public class ErrorController {
 
         model.addAttribute("id", e.getId());
 
-        return "paginaErrorMascota";
+        return "paginaErrorId";
     }
 
     //Metodo para manejar la excepcion CedulaNotFoundException
@@ -31,7 +31,7 @@ public class ErrorController {
 
         model.addAttribute("id", e.getid());
 
-        return "paginaErrorClienteId";
+        return "paginaErrorId";
     }
     
 }

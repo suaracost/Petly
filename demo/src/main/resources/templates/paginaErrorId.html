@@ -18,11 +18,21 @@
     />
   </head>
   <body>
-    <div class="contenido">
-      <h1>El usuario que buscas no existe bro</h1>
-      <h3 th:text="'id buscado = ' + ${id}"></h3>
 
-      <img src="/images/perroError.jpg" alt="logo" id="btn" />
+    <div class="foto">
+      <img src="/images/fotoError.png" alt="logo"/>
+    </div>
+    
+    <div class="contenido">
+      <div class="cajaTexto">
+        <h1>404</h1>
+      </div>
+
+      <h3>
+        El id
+        <span th:text="${id}" class="valor"></span>
+        no existe
+      </h3>
 
       <div class="cabeza">
         <button class="botonVolver" onclick="goBack()">
@@ -32,7 +42,7 @@
     </div>
   </body>
   <script>
-    /* funcion para volver a la pagina anterior */
+    /* Funcion para volver a la pagina anterior */
     function goBack() {
       window.history.back(); /* permite volver a la pagina anterior */
     }
