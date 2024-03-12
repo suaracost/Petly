@@ -22,7 +22,10 @@
 </head>
 <body>
 
+    <!-- Sidebar del Veterinario-->
     <div class = "sidebar">
+
+        <!-- Parte superior del sidebar para el logo -->
         <div class = "top">
             <img src="/images/dog.png" alt="logo" id="btn"/>
             <div class = "logo">
@@ -30,13 +33,16 @@
             </div>
         </div>
 
+        <!-- Apartado para Foq y Nombre del veterinario -->
         <div class = "user">
             <img src="/images/vet1.jpg" alt="Veterinario" class="user-img"/>
             <p>Dr. Alexander García</p>           
         </div>
         
+        <!-- Apartado para las opciones de navegación del veterinario -->
         <div class = "nav">
             <ul>
+                <!-- opcion para ver todas las mascotas -->
                 <li>
                     <a th:href="@{/veterinario/mascotas/all}">
                         <i class="bx bx-table"></i>
@@ -44,6 +50,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para registrar una nueva mascota -->
                 <li>
                     <a th:href="@{/veterinario/mascotas/add}">
                         <i class="bx bxs-dog"></i>
@@ -51,6 +58,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para ver todos los tratamientos -->
                 <li>
                     <a href="">
                         <i class="bx bx-capsule"></i>
@@ -58,6 +66,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para ver todas las atenciones medicas -->
                 <li>
                     <a href="">
                         <i class="bx bx-plus-medical"></i>
@@ -65,6 +74,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para ver todos los clientes -->
                 <li>
                     <a th:href="@{/veterinario/clientes/all}">
                         <i class="bx bx-group"></i>
@@ -72,6 +82,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para registrar un nuevo cliente -->
                 <li>
                     <a th:href="@{/veterinario/clientes/add}">
                         <i class="bx bx-user-plus"></i>
@@ -79,6 +90,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para cerrar sesión -->
                 <li id="logout">
                     <a href="/">
                         <i class="bx bx-log-out"></i>
@@ -88,21 +100,31 @@
             </ul>
         </div>
     </div>
+    <!-- Termino del sidebar del veterinario -->
 
+    <!-- Contenido principal -->
     <div class = "main-content">
 
+        <!-- Apartado (izquierdo) para presentar la información de la mascota -->
         <div class = "left-side">
+
+            <!-- Nombre de la mascota -->
             <div class = "cabeza">
                 <h1> <span th:text=${mascota.nombre}></span></h1>
             </div>
-                
+            
+            <!-- Card para presentar la información de la mascota -->
             <div class = "info">
                 
+                <!-- Imagen de la mascota -->
                 <div class="card-image-container">
                     <img th:src="${mascota.foto}" alt="fotoPerro"/>
                 </div> 
 
+                <!-- informacion de la card -->
                 <div class = info-texto>
+
+                    <!-- Informacion de la mascota -->
                     <div class = info-dog>
                         <h2>Información Mascota</h2>
                         <div class="lista">
@@ -116,6 +138,8 @@
                         </div>
                         
                     </div>
+
+                    <!-- Informacion del dueño de la mascota -->
                     <div class = info-dueño>
                         <h2>Información Dueño</h2>
                         <div class="lista">
@@ -131,14 +155,19 @@
                 </div>                     
                 
             </div>
-        </div>        
+        </div> 
+        <!-- Fin del apartado (izquierdo) -->
 
+        <!-- Apartado (derecho) para mostrar los tratamientos de la mascota -->
         <div class = "right-side">
+
+            <!-- Apartado para la barra de busqueda para filtrar los tratamientos -->
             <div class = "search">
                 <h1>Tratamientos </h1>
             <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
             </div>
             
+            <!-- Tabla con los tratamientos de la mascota -->
             <table class="tablita">
                 <thead>
                     <tr>
@@ -147,7 +176,9 @@
                         <th>Veterinario</th>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
                 <tbody>
+                    <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
                     <tr th:each="tratamiento : ${tratamientos}">
                         <td th:text="${tratamiento.droga}"></td>
                         <td th:text="${tratamiento.fecha}"></td>
@@ -156,20 +187,21 @@
                 </tbody>
             </table>
         </div>
-
+        <!-- Fin del apartado (derecho) -->
 
     </div>
+    <!-- Fin del contenido principal -->
 </body>
 
 <script>
-    let sidebar = document.querySelector('.sidebar');
+    let sidebar = document.querySelector('.sidebar'); // Obtiene el elemento sidebar
 
-    sidebar.addEventListener('mouseover', function() {
-        sidebar.classList.add("active");
+    sidebar.addEventListener('mouseover', function() { // Agrega el evento de mouseover al sidebar
+        sidebar.classList.add("active"); // Agrega la clase active al sidebar
     });
 
-    sidebar.addEventListener('mouseleave', function() {
-        sidebar.classList.remove("active");
+    sidebar.addEventListener('mouseleave', function() { // Agrega el evento de mouseleave al sidebar
+        sidebar.classList.remove("active"); // Quita la clase active al sidebar
     });
 </script>
 

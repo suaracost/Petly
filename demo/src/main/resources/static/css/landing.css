@@ -355,7 +355,7 @@ section {
 .carrusel-control {
   color: #ffffff; /* Color de las flechas */
   border: none;
-  padding: 5px 5px; /* Ajusta este valor según necesites para el tamaño de las flechas */
+  padding: 5px 5px; 
   z-index: 2;
   outline: none; /* Elimina el borde al hacer clic */
   
@@ -377,11 +377,11 @@ section {
 }
 
 .carrusel-control.izquierda {
-  left: 25px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
+  left: 25px; 
 }
 
 .carrusel-control.derecha {
-  right: 25px; /* Ajusta según sea necesario para posicionar fuera del carrusel */
+  right: 25px; 
 }
 
 /* Seccion veterinarios */

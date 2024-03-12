@@ -20,13 +20,20 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
+
+    <!-- Formulario para registrar nueva mascota (presentado en card) -->
     <form th:object="${mascota}" th:action="@{/veterinario/mascotas/agregar}" method="post" class="card">
+        
+        <!-- Parte siperior de la card para el logo y el titulo -->
         <div class="card-top">
             <img src="/images/logo.png" alt="logo"/>          
             <h1>Registrar nueva mascota</h1>
         </div>
+
+        <!-- Cuerpo de la card, contiene el formulario -->
         <div class="formulario">
 
+            <!-- division superior del formulario para nombre y raza -->
             <div class="form-div">
 
                 <div class="form-group input-container">
@@ -43,6 +50,7 @@
 
             </div>
 
+            <!-- division central 1 del formulario para edad y peso -->
             <div class="form-div">
 
                 <div class="form-group input-container">
@@ -59,6 +67,7 @@
 
             </div>
 
+            <!-- division central 2 del formulario para la enfermedad y la foto -->
             <div class="form-div">
 
                 <div class="form-group input-container">
@@ -75,25 +84,29 @@
 
             </div>   
     
-            <!-- Revisar esta parte para que el registro funcione -->
+            <!-- division inferior del formulario para la cedula del duenho -->
             <div class="form-group input-container form-div">
                 <input type="text" id="cedulaDueno" name="cedulaDueno" required>
                 <label class="label" for="cedulaDueno">Cedula Dueño</label>
                 <div class="underline"></div>
             </div>
             
+            <!-- Botones para enviar el formulario y volver -->
             <div class="form-div">
                 <button class="btn-secondary" onclick="window.location.href='/veterinario/mascotas/all'">Volver</button>
                 <button type="submit" class="btn-primary">Registrar</button>
             </div>
+
         </div>
     </form>
 </body>
 
 <script>
-    window.onload = function() {
-        document.getElementById('edad').value = '';
-        document.getElementById('peso').value = '';
+
+    // Funcion para limpiar los campos
+    window.onload = function() { 
+        document.getElementById('edad').value = ''; // para limpiar el campo de edad
+        document.getElementById('peso').value = ''; // para limpiar el campo de peso
     };
 </script>
 

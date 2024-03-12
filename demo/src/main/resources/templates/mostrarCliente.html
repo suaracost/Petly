@@ -22,7 +22,10 @@
 </head>
 <body>
 
+    <!-- Sidebar del veterinario -->
     <div class = "sidebar">
+
+        <!-- Parte superior del sidebar para el logo -->
         <div class = "top">
             <img src="/images/dog.png" alt="logo" id="btn"/>
             <div class = "logo">
@@ -30,13 +33,16 @@
             </div>
         </div>
 
+        <!-- Apartado para Foto y Nombre del veterinario -->
         <div class = "user">
             <img src="/images/vet1.jpg" alt="Veterinario" class="user-img"/>
             <p>Dr. Alexander García</p>           
         </div>
         
+        <!-- Apartado para las opciones de navegación del veterinario -->
         <div class = "nav">
             <ul>
+                <!-- opcion para ver todas las mascotas -->
                 <li>
                     <a th:href="@{/veterinario/mascotas/all}">
                         <i class="bx bx-table"></i>
@@ -44,6 +50,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para registrar una nueva mascota -->
                 <li>
                     <a th:href="@{/veterinario/mascotas/add}">
                         <i class="bx bxs-dog"></i>
@@ -51,6 +58,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para ver todos los tratamientos -->
                 <li>
                     <a href="">
                         <i class="bx bx-capsule"></i>
@@ -58,6 +66,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para ver todas las atenciones medicas -->
                 <li>
                     <a href="">
                         <i class="bx bx-plus-medical"></i>
@@ -65,6 +74,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para ver todos los clientes -->
                 <li>
                     <a th:href="@{/veterinario/clientes/all}">
                         <i class="bx bx-group"></i>
@@ -72,6 +82,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para registrar un nuevo cliente -->
                 <li>
                     <a th:href="@{/veterinario/clientes/add}">
                         <i class="bx bx-user-plus"></i>
@@ -79,6 +90,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para cerrar sesión -->
                 <li id="logout">
                     <a href="/">
                         <i class="bx bx-log-out"></i>
@@ -87,27 +99,37 @@
                 </li>
             </ul>
         </div>
-    </div> 
+    </div>
+     <!-- Termina sidebar del veterinario  -->
 
-
+     <!-- Contenido principal -->
     <div class = "main-content">
 
+        <!-- Apartado (izquierdo) para mostrar la informacion del cliente -->
         <div class = "left-side">
+
+            <!-- nombre y apellido del cliente -->
             <div class = "cabeza">
                 <h1> <span th:text="${cliente.nombre + ' ' + cliente.apellido}"></span></h1>
             </div>
-                
+            
+            <!-- Para mostrar la informacion del cliente -->
             <div class = "info">
                 
+                <!-- Imagen del cliente -->
                 <div class="card-user-container">
                     <i class='bx bxs-user' style='color:#898989;padding-top: 30px;'></i>
                 </div> 
 
+                <!-- Informacion de la card -->
                 <div class = info-texto>
+
+                    <!-- Informacion del cliente -->
                     <div class = info-dog>
                         <h2>Información Cliente</h2>
                         <div class="lista">
                             <ul class="card-des">
+                                <!-- Se muestra la informacion del cliente (de la base de datos) -->
                                 <li>Cedula: <span th:text="${cliente.cedula}"></span></li>
                                 <li>Nombre: <span th:text="${cliente.nombre}"></span></li>
                                 <li>Apellido: <span th:text="${cliente.apellido}"></span></li>
@@ -118,14 +140,20 @@
                     </div>
                 </div>                     
             </div>
-        </div>        
+            <!-- Termina la card -->
+        </div>  
+        <!-- Termina el apartado (izquierdo) -->
 
+        <!-- Apartado (derecho) para mostrar las mascotas del cliente -->
         <div class = "right-side">
+
+            <!-- Apara la barra de busqueda para filtrar las mascotas por nombre -->
             <div class = "search">
                 <h1>Mascotas</h1>
             <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar " title="Type in a name">
             </div>
             
+            <!-- Tabla con las mascotas del cliente -->
             <table id="myTable" class="tablita">
                 <thead>
                     <tr>
@@ -138,7 +166,9 @@
                         <th>Opciones</th>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla con las mascotas del cliente -->
                 <tbody>
+                    <!-- por cada mascota del cliente se crea una fila de la tabla con sus datos -->
                     <tr th:each="mascota : ${cliente.mascotas}">
                         <td><img class="fotoPerro" th:src="${mascota.foto}" alt="Foto Mascota"/></td>
                         <td th:text="${mascota.nombre}"></td>
@@ -146,6 +176,7 @@
                         <td th:text="${mascota.edad}"></td>
                         <td th:text="${mascota.peso}"></td>
                         <td th:text="${mascota.enfermedad}"></td>
+                        <!-- Boton para ver la informacion de la mascota -->
                         <td class="opciones">
                             <a class="links icono" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
                                 <i class='bx bx-info-circle'></i>
@@ -154,24 +185,26 @@
                     </tr>
                 </tbody>
             </table>
+            <!-- Termina la tabla -->
         </div>
-
+        <!-- Termina el apartado (derecho) -->
 
     </div>
     
 </body>
 
 <script>
-    let sidebar = document.querySelector('.sidebar');
+    let sidebar = document.querySelector('.sidebar'); // Obtiene el elemento sidebar
 
-    sidebar.addEventListener('mouseover', function() {
-        sidebar.classList.add("active");
+    sidebar.addEventListener('mouseover', function() { // Agrega el evento de mouseover al sidebar
+        sidebar.classList.add("active"); // Agrega la clase active al sidebar
     });
 
-    sidebar.addEventListener('mouseleave', function() {
-        sidebar.classList.remove("active");
+    sidebar.addEventListener('mouseleave', function() { // Agrega el evento de mouseleave al sidebar
+        sidebar.classList.remove("active"); // Quita la clase active al sidebar
     });
 
+    // Funcion para filtrar la tabla
     function filterTable() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
@@ -179,13 +212,14 @@
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
     
+    // por cada fila de la tabla se verifica si la celda del nombre coincide con el filtro
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[1]; 
         if (td) {
             txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) { 
+            if (txtValue.toUpperCase().indexOf(filter) > -1) { // si coincide se muestra(n) la(s) fila(s)
                 tr[i].style.display = ""; 
-            } else {
+            } else { // si no coincide se ocultan todas las filas
                 tr[i].style.display = "none";
             }
         }       

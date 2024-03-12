@@ -9,7 +9,6 @@ body {
     background: url(/images/registroMascota.jpeg);
     background-size: cover;
     background-position: 0% 40%;
-    /*background-position: 0% 80%;*/
     display: flex;
     flex-direction: row;
     justify-content: flex-start; 
@@ -24,7 +23,6 @@ body {
     background:  #ffffff;
     position: relative;
     padding: 1.8rem;
-    /*border: 5px solid #3468c0;*/
     transition: 0.5s ease-out;
     overflow: visible;
     margin-left: 125px;

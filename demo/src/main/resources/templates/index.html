@@ -18,17 +18,20 @@
       rel="stylesheet"
     />
 
-    <script src="/js/script.js"></script>
+    <script src="/js/landing.js"></script>
 
   </head>
   <body>
+
     <!-- Header -->
     <header class="header" id="header">
+      <!-- División izquierda del header con el logo -->
       <div class="izq">
         <img src="/images/dog.png" alt="logo" class="headerLogo" />
         <h1 class="tituloHeader">Petly</h1>
       </div>
 
+      <!-- División central del header con los botones de navegación -->
       <div class="container">
         <button class="btn espacioDer">
           <a class="linkHeader" href="#info">Información</a>
@@ -47,14 +50,17 @@
         </button>
       </div>
 
+      <!-- División derecha del header con botone de inicio de sesión -->
       <div class="der">
         <button class="loginButton btn">
           <a th:href="@{/login/cliente}">Iniciar sesión</a>
         </button>
       </div>
     </header>
+    <!-- termina el Header -->
 
-    <!-- Contenido -->
+    <!-- Contenido principal del landing -->
+    <!-- 1ra sección del landing: presentacion del slogan -->
     <section class="tituloPrincipal">
       <div class="image-container">
         <img src="/images/Dog-Group2.png" alt="Imagen Grupo Perros" />
@@ -78,7 +84,9 @@
         </svg>
       </div>
     </section>
+    <!-- termina la 1ra sección del landing -->
 
+    <!-- 2da sección del landing: información general -->
     <section class="infoGeneral naranja" id="info">
       <div class="txtInfoGeneral">
         <h1>¡Bienvenido a <u style="text-decoration-color: white;">Petly!</u></h1>        
@@ -115,12 +123,13 @@
         </svg>
       </div>
     </section>
+    <!-- termina la 2da sección del landing -->
 
+    <!-- 3ra sección del landing: Servicios -->
     <section class="servicios azulClaro" id="servi">
       <h1>Servicios</h1>
       
       <div class="contenedorServ">
-
         
         <div class="carruselServ">
           <article class="card">
@@ -202,15 +211,14 @@
               Cuida la sonrisa de tu perro con nuestros tratamientos dentales especializados para evitar el sarro y la gingivitis.
             </p>
           </article>
-        </div>
-        
+        </div>        
         
       </div>
       
-      <!-- Botón izquierdo para desplazar hacia la izquierda -->
+      <!-- Botón izquierdo para desplazar hacia la izquierda en el carrusel de servicios -->
       <button class="carrusel-control carrusel-servicios-control izquierda" id="btn-left-serv" aria-label="Anterior">&lt;</button>
       
-      <!-- Botón derecho para desplazar hacia la derecha -->
+      <!-- Botón derecho para desplazar hacia la derecha en el carrusel de servicios -->
       <button class="carrusel-control carrusel-servicios-control derecha" id="btn-right-serv" aria-label="Siguiente">&gt;</button>
 
       <div class="curvaServicios-Ubicacion">
@@ -227,7 +235,9 @@
         </svg>
       </div>
     </section>
+    <!-- termina la 3ra sección del landing -->
 
+    <!-- 4ta sección del landing: Veterinarios -->
     <section class="veterinarios azulOscuro" id="vets">
       <h1>Veterinarios</h1>
       
@@ -340,7 +350,9 @@
         </svg>
       </div>
     </section>
+    <!-- Termina la 4ta sección del landing -->
 
+    <!-- 5ta sección del landing: ubicación, horarios y contacto -->
     <section class="ubicacion" id="ubi">
       <div class="txtUbicacion">
         <h1>¡Como encontrarnos!</h1>
@@ -391,6 +403,7 @@
         </div>
       </div>
     </section>
+    <!-- Termina la 5ta sección del landing -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -406,5 +419,7 @@
         </a>
       </div>
     </footer>
+    <!-- Termina el footer -->
+    
   </body>
 </html>

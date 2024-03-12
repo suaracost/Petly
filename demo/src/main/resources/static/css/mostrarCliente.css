@@ -311,12 +311,12 @@
     flex-direction: column;
     width: 100%;
     font-size: 30px;
-    padding-left: 15px; /* Para asegurarse de que no haya espacio adicional a la izquierda */
+    padding-left: 15px; 
 }
 
 .lista ul {
     list-style-type: none;
-    padding-left: 30px; /* Para asegurarse de que no haya espacio adicional a la izquierda */
+    padding-left: 30px; 
     margin: 0;
     padding: 0;
     width: 100%;

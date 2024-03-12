@@ -213,16 +213,6 @@
     height: 100%;
 }
 
-/* .right-side {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 25px;
-
-} */
-
 .cabeza {
     display: flex;
     flex-direction: row;
@@ -322,7 +312,7 @@
 
 .lista ul {
     list-style-type: none;
-    padding-left: 30px; /* Para asegurarse de que no haya espacio adicional a la izquierda */
+    padding-left: 30px; 
     margin: 0;
     padding: 0;
     width: 100%;
@@ -344,7 +334,7 @@
 
 .card-des {
     list-style: none;
-    padding-left: 30px; /* Para asegurarse de que no haya espacio adicional a la izquierda */
+    padding-left: 30px;
 }
 
 .search {

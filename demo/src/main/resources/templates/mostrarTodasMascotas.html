@@ -25,8 +25,10 @@
     
 </head>
 <body>
-
+    <!-- Sidebar del veterinario -->
     <div class = "sidebar">
+
+        <!-- Parte superior del sidebar para el logo -->
         <div class = "top">
             <img src="/images/dog.png" alt="logo" id="btn"/>
             <div class = "logo">
@@ -34,13 +36,16 @@
             </div>
         </div>
 
+        <!-- Apartado para Foto y Nombre del veterinario -->
         <div class = "user">
             <img src="/images/vet1.jpg" alt="Veterinario" class="user-img"/>
             <p>Dr. Alexander García</p>           
         </div>
         
+        <!-- Apartado para las opciones de navegación del veterinario -->
         <div class = "nav">
             <ul>
+                <!-- opcion para ver todas las mascotas -->
                 <li>
                     <a th:href="@{/veterinario/mascotas/all}">
                         <i class="bx bx-table"></i>
@@ -48,6 +53,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para registrar una nueva mascota -->
                 <li>
                     <a th:href="@{/veterinario/mascotas/add}">
                         <i class="bx bxs-dog"></i>
@@ -55,13 +61,15 @@
                     </a>
                 </li>
 
+                <!-- opcion para ver todos los tratamientos -->
                 <li>
                     <a href="">
                         <i class="bx bx-capsule"></i>
                         <span class="nav-item">Ver tratamientos</span>
                     </a>
                 </li>
-
+            
+                <!-- opcion para ver todas las atenciones medicas -->
                 <li>
                     <a href="">
                         <i class="bx bx-plus-medical"></i>
@@ -69,6 +77,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para ver todos los clientes -->
                 <li>
                     <a th:href="@{/veterinario/clientes/all}">
                         <i class="bx bx-group"></i>
@@ -76,6 +85,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para registrar un nuevo cliente -->
                 <li>
                     <a th:href="@{/veterinario/clientes/add}">
                         <i class="bx bx-user-plus"></i>
@@ -83,6 +93,7 @@
                     </a>
                 </li>
 
+                <!-- opcion para cerrar sesión -->
                 <li id="logout">
                     <a href="/">
                         <i class="bx bx-log-out"></i>
@@ -91,12 +102,17 @@
                 </li>
             </ul>
         </div>
-    </div>  
+    </div> 
+    <!-- Termina sidebar del veterinario  -->
     
+    <!-- Contenido principal -->
     <div class = "main-content">
+
+        <!-- Apartado para la barra de busqueda para filtrar las mascotas por estado y nombre -->
         <div class="search">
             <h1>Mascotas de Petly</h1>
 
+            <!-- Radio buttons para filtrar las mascotas por estado -->
             <div class="radio-input">
                 <label>
                     <input value="Disponible" name="value-radio" id="value-1" type="radio" onchange="filterTableByState()">
@@ -113,9 +129,11 @@
                 <span class="selection"></span>
             </div>
 
+            <!-- input de busqueda para filtrar las mascotas por nombre -->
             <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar mascota por nombre" title="Type in a name">
         </div>
         
+        <!-- Tabla con todas las mascotas de la base de datos (cambia con los filtros) -->
         <div>
             <table id="myTable" class="tablita">
                 <thead>
@@ -130,7 +148,9 @@
                         <th>Opciones</th>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla con las mascotas de la base de datos -->
                 <tbody>
+                    <!-- por cada mascota de la base de datos se crea una fila de la tabla con sus datos -->
                     <tr th:each="mascota : ${mascotas}">
                         <td><img cLass="fotoPerro" th:src="${mascota.foto}"/></td>
                         <td th:text="${mascota.nombre}"></td>
@@ -139,13 +159,17 @@
                         <td th:text="${mascota.peso}"></td>
                         <td th:text="${mascota.enfermedad}"></td>
                         <td th:text="${mascota.estado}"></td>
+                        <!-- opciones CRUD de cada mascota -->
                         <td class="opciones">
+                            <!-- enlace para ver la informacion de la mascota -->
                             <a class="links informa" th:href="@{/veterinario/mascotas/find/{id}(id=${mascota.id})}">
                                 <i class='bx bx-info-circle'></i>
                             </a>
+                            <!-- enlace para editar la informacion de la mascota -->
                             <a class="links edit" th:href="@{/veterinario/mascotas/update/{id}(id=${mascota.id})}">
                                 <i class='bx bxs-edit'></i>
                             </a>
+                            <!-- enlace para cambiar el estado de la mascota (popup de alerta para confirmar) -->
                             <a th:id="${mascota.id}" class="links delete" onclick="mostrarAlerta(id)">
                                 <i class='bx bx-transfer'></i>
                             </a>
@@ -153,22 +177,26 @@
                     </tr>
             </table>
         </div>
+        <!-- Fin de la tabla -->
     </div>
+    <!-- Fin de contenido principal -->
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    let sidebar = document.querySelector('.sidebar');
+    let sidebar = document.querySelector('.sidebar'); // Obtiene el elemento sidebar
 
-    sidebar.addEventListener('mouseover', function() {
-        sidebar.classList.add("active");
+    sidebar.addEventListener('mouseover', function() { // Agrega el evento de mouseover al sidebar
+        sidebar.classList.add("active"); // Agrega la clase active al sidebar
     });
 
-    sidebar.addEventListener('mouseleave', function() {
-        sidebar.classList.remove("active");
+    sidebar.addEventListener('mouseleave', function() { // Agrega el evento de mouseleave al sidebar
+        sidebar.classList.remove("active"); // Quita la clase active al sidebar
     });
 
+    // Funcion para cambiar el estado de la mascota
     function mostrarAlerta(idMascota) {
+        // Popup de alerta
         Swal.fire({
             title: '<span style="color: #000000;">Cambiar estado de la mascota<span>',
             textColor: '#000000',
@@ -183,28 +211,31 @@
             confirmButtonColor: '#3468c0',
             confirmButtonText: 'Cambiar estado',
             reverseButtons: true
-        }).then((result) => {
+        }).then((result) => { // Resultado de la alerta
             if (result.isConfirmed) {
                 window.location.href = "/veterinario/mascotas/delete/" + idMascota;
             }
         });
     }
+
+    // Funcion para filtrar por estado
         function filterTableByState() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.querySelector('input[name="value-radio"]:checked').value;
         table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
 
+        // por cada fila de la tabla se verifica si la celda del estado coincide con el filtro
         for (i = 0; i < tr.length; i++) {
             td = tr[i].getElementsByTagName("td")[6]; 
-            if (input === "Todas") {
+            if (input === "Todas") { // si el filtro es "Todas" se muestran todas las filas
                 tr[i].style.display = "";
             } else {
-                if (td) {
+                if (td) { // si el filtro no es "Todas" se verifica si la celda del estado coincide con el filtro
                     txtValue = td.textContent || td.innerText;
                     if (txtValue.toUpperCase() === input.toUpperCase()) {
                         tr[i].style.display = "";
-                    } else {
+                    } else { // si no coincide se ocultan todas las filas
                         tr[i].style.display = "none";
                     }
                 }
@@ -212,7 +243,7 @@
         }
     }
 
-
+    // Funcion para filtrar por nombre
     function filterTable() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");
@@ -221,33 +252,30 @@
         tr = table.getElementsByTagName("tr");
         var estado = document.querySelector('input[name="value-radio"]:checked').value;
 
+        // por cada fila de la tabla se verifica si la celda del nombre coincide con el filtro
         for (i = 0; i < tr.length; i++) {
             td_nombre = tr[i].getElementsByTagName("td")[1]; 
             td_estado = tr[i].getElementsByTagName("td")[6]; 
-            if (td_nombre && td_estado) {
+            if (td_nombre && td_estado) { // si el filtro no es "Todas" se verifica si la celda del estado coincide con el filtro
                 txtValue_nombre = td_nombre.textContent || td_nombre.innerText;
                 txtValue_estado = td_estado.textContent || td_estado.innerText;
                 if ((estado === "Todas" || txtValue_estado.toUpperCase() === estado.toUpperCase()) &&
-                    (txtValue_nombre.toUpperCase().indexOf(filter) > -1)) { 
+                    (txtValue_nombre.toUpperCase().indexOf(filter) > -1)) {  // si coincide se muestra(n) la(s) fila(s)
                     tr[i].style.display = ""; 
-                } else {
-                    tr[i].style.display = "none"; /* esto pasa cuando no hay coincidencias*/
+                } else { // si no coincide se ocultan todas las filas
+                    tr[i].style.display = "none"; 
                 }
             }       
         }
     }
 
     // Event listener para los botones de radio
-    var radioInputs = document.querySelectorAll('input[name="value-radio"]');
-    radioInputs.forEach(function(input) {
-        input.addEventListener('change', function() {
-            filterTable();
+    var radioInputs = document.querySelectorAll('input[name="value-radio"]'); // Obtiene todos los botones de radio
+    radioInputs.forEach(function(input) { // Por cada boton de radio
+        input.addEventListener('change', function() { // Agrega el evento de cambio de valor
+            filterTable(); // Filtra la tabla
         });
     });
-
-
-
 </script>
-
 
 </html>

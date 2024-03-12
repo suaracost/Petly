@@ -22,7 +22,10 @@
 </head>
 <body>
 
+    <!-- Sidebar del Cliente con sus datos -->
     <div class = "sidebar">
+
+        <!-- Parte superior del sidebar para el logo -->
         <div class = "top">
             <img src="/images/dog.png" alt="logo" id="btn"/>
             <div class = "logo">
@@ -30,12 +33,13 @@
             </div>
         </div>
 
+        <!-- Apartado para Icono y Nombre del usuario -->
         <div class = "user">
-            <!-- <img src="/images/vet1.jpg" alt="Veterinario" class="user-img"/> -->
             <i class="bx bxs-user-circle" id="raro"></i>
             <p><span th:text="${cliente.nombre} + ' ' + ${cliente.apellido}"></span></p>
         </div>
         
+        <!-- Apartado para presentar los datos del usuario -->
         <div class = "nav">
             <ul>
                 <li>
@@ -71,6 +75,7 @@
 
                 </li>
 
+                <!-- Redireccionamiento a la pagina principal (cerrar sesión) -->
                 <li id="logout">
                     <a href="/">
                         <i class="bx bx-log-out"></i>
@@ -80,25 +85,36 @@
             </ul>
         </div>
     </div>
+    <!-- Fin Sidebar -->
 
+    <!-- Contenido principal -->
     <div class = "main-content">
 
+        <!-- Apartado (izquierdo) para presentar la información de la mascota -->
         <div class = "left-side">
+
+            <!-- nombre de la mascota -->
             <div class = "cabeza">
                 <h1> <span th:text=${mascota.nombre}></span></h1>
             </div>
-                
+            
+            <!-- Card para presentar la información de la mascota -->
             <div class = "info">
                 
+                <!-- imagen de la mascota -->
                 <div class="card-image-container">
                     <img th:src="${mascota.foto}" alt="fotoPerro"/>
                 </div> 
 
+                <!-- informacion de la card -->
                 <div class = info-texto>
+
+                    <!-- Informacion de la mascota -->
                     <div class = info-dog>
                         <h2>Información Mascota</h2>
                         <div class="lista">
                             <ul class="card-des">
+                                <!-- Se muestra la información de la mascota (de la base de datos) -->
                                 <li>Raza: <span th:text="${mascota.raza}"></span></li>
                                 <li>Edad: <span th:text="${mascota.edad}"></span></li>
                                 <li>Peso: <span th:text="${mascota.peso}"></span></li>
@@ -108,6 +124,8 @@
                         </div>
                         
                     </div>
+
+                    <!-- Informacion del dueño de la mascota -->
                     <div class = info-dueño>
                         <h2>Información Dueño</h2>
                         <div class="lista">
@@ -123,14 +141,19 @@
                 </div>                     
                 
             </div>
-        </div>        
+        </div>
+        <!-- Fin Apartado (izquierdo) -->
 
+        <!-- Apartado (derecho) para mostrar los tratamientos de la mascota -->
         <div class = "right-side">
+
+            <!-- Apartado para la barra de busqueda para filtrar los tratamientos -->
             <div class = "search">
                 <h1>Tratamientos </h1>
             <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Buscar " title="Type in a name">
             </div>
             
+            <!-- Tabla con los tratamientos de la mascota -->
             <table class="tablita">
                 <thead>
                     <tr>
@@ -139,7 +162,9 @@
                         <th>Veterinario</th>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla con los tratamientos de la mascota -->
                 <tbody>
+                    <!-- por cada tratamiento de la mascota se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
                     <tr th:each="tratamiento : ${tratamientos}">
                         <td th:text="${tratamiento.droga}"></td>
                         <td th:text="${tratamiento.fecha}"></td>
@@ -147,21 +172,23 @@
                     </tr>
                 </tbody>
             </table>
+            
         </div>
-
+        <!-- Fin Apartado (derecho) -->
 
     </div>
+    <!-- Fin Contenido principal -->
 </body>
 
 <script>
-    let sidebar = document.querySelector('.sidebar');
+    let sidebar = document.querySelector('.sidebar'); // Obtiene el elemento sidebar
 
-    sidebar.addEventListener('mouseover', function() {
-        sidebar.classList.add("active");
+    sidebar.addEventListener('mouseover', function() { // Agrega el evento de mouseover al sidebar
+        sidebar.classList.add("active"); // Agrega la clase active al sidebar
     });
 
-    sidebar.addEventListener('mouseleave', function() {
-        sidebar.classList.remove("active");
+    sidebar.addEventListener('mouseleave', function() { // Agrega el evento de mouseleave al sidebar
+        sidebar.classList.remove("active"); // Quita la clase active al sidebar
     });
 </script>
 

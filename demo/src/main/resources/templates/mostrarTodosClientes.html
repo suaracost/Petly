@@ -25,8 +25,10 @@
     
 </head>
 <body>
-
+    <!-- Sidebar del veterinario -->
     <div class = "sidebar">
+
+        <!-- Parte superior del sidebar para el logo -->
         <div class = "top">
             <img src="/images/dog.png" alt="logo" id="btn"/>
             <div class = "logo">
@@ -34,13 +36,16 @@
             </div>
         </div>
 
+        <!-- Apartado para Foto y Nombre del veterinario -->
         <div class = "user">
             <img src="/images/vet1.jpg" alt="Veterinario" class="user-img"/>
             <p>Dr. Alexander García</p>           
         </div>
         
+        <!-- Apartado para las opciones de navegación del veterinario -->
         <div class = "nav">
             <ul>
+                <!-- Opcion para ver todas las mascotas -->
                 <li>
                     <a th:href="@{/veterinario/mascotas/all}">
                         <i class="bx bx-table"></i>
@@ -48,6 +53,7 @@
                     </a>
                 </li>
 
+                <!-- Opcion para registrar una nueva mascota -->
                 <li>
                     <a th:href="@{/veterinario/mascotas/add}">
                         <i class="bx bxs-dog"></i>
@@ -55,6 +61,7 @@
                     </a>
                 </li>
 
+                <!-- Opcion para ver todos los tratamientos -->
                 <li>
                     <a href="">
                         <i class="bx bx-capsule"></i>
@@ -62,6 +69,7 @@
                     </a>
                 </li>
 
+                <!-- Opcion para ver todas las atenciones medicas -->
                 <li>
                     <a href="">
                         <i class="bx bx-plus-medical"></i>
@@ -69,6 +77,7 @@
                     </a>
                 </li>
 
+                <!-- Opcion para ver todos los clientes -->
                 <li>
                     <a th:href="@{/veterinario/clientes/all}">
                         <i class="bx bx-group"></i>
@@ -76,6 +85,7 @@
                     </a>
                 </li>
 
+                <!-- Opcion para registrar un nuevo cliente -->
                 <li>
                     <a th:href="@{/veterinario/clientes/add}">
                         <i class="bx bx-user-plus"></i>
@@ -83,6 +93,7 @@
                     </a>
                 </li>
 
+                <!-- Opcion para cerrar sesión -->
                 <li id="logout">
                     <a href="/">
                         <i class="bx bx-log-out"></i>
@@ -92,13 +103,18 @@
             </ul>
         </div>
     </div>
+    <!-- Termina sidebar del veterinario -->
     
+    <!-- Contenido principal -->
     <div class = "main-content">
+
+        <!-- Apartado para la barra de busqueda para filtrar los clientes por cedula -->
         <div class="search">
             <h1>Clientes de Petly</h1>
             <input type="search" id="myInput" onkeyup="filterTable()" placeholder="Buscar cliente por cedula" title="Type in a name">
         </div>
         
+        <!-- Tabla con todos los clientes registrados en la base de datos (cambia con el filtro) -->
         <div>
             <table id="myTable" class="tablita">
                 <thead>
@@ -111,20 +127,26 @@
                         <th>Opciones</th>
                     </tr>
                 </thead>
+                <!-- Cuerpo de la tabla con todos los clientes registrados en la base de datos -->
                 <tbody>
+                    <!-- por cada cliente de la base de datos se crea una fila de la tabla con sus datos (los datos de la base de datos) -->
                     <tr th:each="cliente : ${clientes}">
                         <td th:text="${cliente.cedula}"></td>
                         <td th:text="${cliente.nombre}"></td>
                         <td th:text="${cliente.apellido}"></td>
                         <td th:text="${cliente.correo}"></td>
                         <td th:text="${cliente.celular}"></td>
+                        <!-- opciones CRUD de cada cliente -->
                         <td class="opciones">
+                            <!-- enlace para ver la informacion del cliente -->
                             <a class="links informa" th:href="@{/veterinario/clientes/find/{id}(id=${cliente.id})}">
                                 <i class='bx bx-info-circle'></i>
                             </a>
+                            <!-- enlace para editar la informacion del cliente -->
                             <a class="links edit" th:href="@{/veterinario/clientes/update/{id}(id=${cliente.id})}">
                                 <i class='bx bxs-edit'></i>
                             </a>
+                            <!-- enlace para eliminar el cliente -->
                             <a class="links delete" th:href="@{/veterinario/clientes/delete/{id}(id=${cliente.id})}">
                                 <i class='bx bxs-trash'></i>
                             </a>
@@ -132,20 +154,23 @@
                     </tr>
             </table>
         </div>
+        <!-- Fin de la tabla -->
     </div>
+    <!-- Fin del contenido principal -->
 </body>
 
 <script>
-    let sidebar = document.querySelector('.sidebar');
+    let sidebar = document.querySelector('.sidebar'); // Obtiene el elemento sidebar
 
-    sidebar.addEventListener('mouseover', function() {
-        sidebar.classList.add("active");
+    sidebar.addEventListener('mouseover', function() { // Agrega el evento de mouseover al sidebar
+        sidebar.classList.add("active"); // Agrega la clase active al sidebar
     });
 
-    sidebar.addEventListener('mouseleave', function() {
-        sidebar.classList.remove("active");
+    sidebar.addEventListener('mouseleave', function() { // Agrega el evento de mouseleave al sidebar
+        sidebar.classList.remove("active"); // Quita la clase active al sidebar
     });
 
+    // Funcion para filtrar la tabla con la barra de busqueda por cedula
     function filterTable() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
@@ -153,13 +178,14 @@
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
     
+    // por cada fila de la tabla se verifica si la celda de la cedula coincide con el filtro
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[0]; 
         if (td) {
             txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) { 
+            if (txtValue.toUpperCase().indexOf(filter) > -1) { // si coincide se muestra(n) la(s) fila(s)
                 tr[i].style.display = ""; 
-            } else {
+            } else { // si no coincide se ocultan todas las filas
                 tr[i].style.display = "none"; /* esto pasa cuando no hay coincidencias*/
             }
         }       
