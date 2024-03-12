@@ -110,7 +110,7 @@
             <h1> Informacion Modificada </h1>
 
             <!-- Formulario para modificar la informacion del cliente -->
-            <form th:object="${cliente}" th:action="@{/veterinarios/update/{id}(id=${cliente.id})}" method="post">
+            <form th:object="${cliente}" th:action="@{/veterinario/clientes/update/{id}(id=${cliente.id})}" method="post">
                 
                 <!-- Campos para modificar la informacion del cliente -->
                 <div class="formulario">
