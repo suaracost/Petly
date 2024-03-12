@@ -18,6 +18,7 @@ public class Veterinario {
     private String foto;
     private String especialidad;
     private int numAtenciones;
+    private String estado;
     @Id
     @GeneratedValue
     private Long id;
@@ -80,6 +81,14 @@ public class Veterinario {
 
     public void setNumAtenciones(int numAtenciones) {
         this.numAtenciones = numAtenciones;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public Long getId() {

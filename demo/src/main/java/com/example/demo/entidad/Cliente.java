@@ -3,6 +3,7 @@ package com.example.demo.entidad;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -21,7 +22,7 @@ public class Cliente {
     private Long id;
 
     //Relacion con la tabla mascota para representar las mascotas que tiene el cliente
-    @OneToMany(mappedBy = "cliente")
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Mascota> mascotas = new ArrayList<>();
 
     public Cliente(Long id, String cedula, String nombre, String apellido, String correo, String celular) {
