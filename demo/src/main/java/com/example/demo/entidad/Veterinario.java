@@ -27,6 +27,33 @@ public class Veterinario {
     @OneToMany (mappedBy = "veterinarioT")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
+    public Veterinario(Long id, String cedula, String nombre, String apellido, String contrasena, String foto, String especialidad, int numAtenciones, String estado) {
+        this.id = id;
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.contrasena = contrasena;
+        this.foto = foto;
+        this.especialidad = especialidad;
+        this.numAtenciones = numAtenciones;
+        this.estado = estado;
+    }
+
+    public Veterinario() {
+        
+    }
+
+    public Veterinario(String cedula, String nombre, String apellido, String contrasena, String foto, String especialidad, int numAtenciones, String estado) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.contrasena = contrasena;
+        this.foto = foto;
+        this.especialidad = especialidad;
+        this.numAtenciones = numAtenciones;
+        this.estado = estado;
+    }
+
     public String getCedula() {
         return cedula;
     }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.example.demo.repositorio.ClienteRepository;
 import com.example.demo.repositorio.MascotaRepository;
+import com.example.demo.repositorio.VeterinarioRepository;
 
 @Controller
 public class Databaseinit implements ApplicationRunner{
@@ -16,6 +17,9 @@ public class Databaseinit implements ApplicationRunner{
 
     @Autowired
     ClienteRepository clienteRepository;
+
+    @Autowired
+    VeterinarioRepository veterinarioRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -133,7 +137,16 @@ public class Databaseinit implements ApplicationRunner{
                 mascota.setCliente(clienteRepository.findById((long) i).get());
                 mascotaRepository.save(mascota);
             }
-        }        
+        } 
+        
+        veterinarioRepository.save(new Veterinario("1000000051", "Alexander", "García", "Petly123", "https://universidadeuropea.com/resources/media/images/medicina-veterinaria-1200x630.original.jpg", "Veterinario General", 0, "activo"));
+        veterinarioRepository.save(new Veterinario("1000000052", "Isabella", "Martínez", "Petly123", "https://bensvet.com.br/wp-content/uploads/2020/03/blog-5-passos-para-se-tornar-o-melhor-m%C3%A9dico-veterin%C3%A1rio.jpg", "Veterinario Quirurgico", 0, "activo"));
+        veterinarioRepository.save(new Veterinario("1000000053", "Sebastián", "Rojas", "Petly456", "https://cdn979857.fac.mil.co/sites/default/files/2022-05/caman.jpg", "Veterinario Intensivista", 0, "activo"));
+        veterinarioRepository.save(new Veterinario("1000000054", "Valentina", "López", "Petly456", "https://papelmatic.com/wp-content/uploads/2019/09/papelmatic-higiene-profesional-limpieza-desinfeccion-clinicas-veterinarias.jpg", "Veterinario de Medicina Interna", 0, "activo"));
+        veterinarioRepository.save(new Veterinario("1000000055", "Sofia", "Herrera", "Petly789", "https://t1.ea.ltmcdn.com/es/posts/3/6/3/cuando_llevar_a_mi_cachorro_al_veterinario_por_primera_vez_23363_600_square.jpg", "Veterinario - Dermatologo", 0, "activo"));
+        veterinarioRepository.save(new Veterinario("1000000056", "Mateo", "González", "Petly789", "https://media.mercola.com/ImageServer/Public/2016/July/hipotiroidismo-en-perros.jpg", "Veterinario Quirurgico", 0, "activo"));
+        veterinarioRepository.save(new Veterinario("1000000057", "Natalia", "Silva", "Petly101", "https://www.himalayacentroamericana.com/sites/default/files/consultaveterinaria.jpg", "Veterinario de Medicina Interna", 0, "activo"));        
+        veterinarioRepository.save(new Veterinario("1000000058", "Leonardo", "Pérez", "Petly101", "https://eduka.occidente.co/wp-content/uploads/2022/04/Donde-estudiar-Medicina-Veterinaria.jpg", "Veterinario - Odontologo", 0, "activo"));
     }
     
 }
