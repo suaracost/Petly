@@ -14,8 +14,8 @@ import jakarta.persistence.OneToMany;
 public class Droga {
 
     private String nombre;
-    private int precioCompra;
-    private int precioVenta;
+    private float precioCompra;
+    private float precioVenta;
     private int unidadesDisponibles;
     private int unidadesVendidas;
     @Id
@@ -35,19 +35,19 @@ public class Droga {
         this.nombre = nombre;
     }
 
-    public int getPrecioCompra() {
+    public float getPrecioCompra() {
         return precioCompra;
     }
 
-    public void setPrecioCompra(int precioCompra) {
+    public void setPrecioCompra(float precioCompra) {
         this.precioCompra = precioCompra;
     }
 
-    public int getPrecioVenta() {
+    public float getPrecioVenta() {
         return precioVenta;
     }
 
-    public void setPrecioVenta(int precioVenta) {
+    public void setPrecioVenta(float precioVenta) {
         this.precioVenta = precioVenta;
     }
 

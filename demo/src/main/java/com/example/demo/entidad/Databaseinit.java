@@ -1,5 +1,8 @@
 package com.example.demo.entidad;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -8,6 +11,10 @@ import org.springframework.stereotype.Controller;
 import com.example.demo.repositorio.ClienteRepository;
 import com.example.demo.repositorio.MascotaRepository;
 import com.example.demo.repositorio.VeterinarioRepository;
+import com.example.demo.repositorio.DrogaRepository;
+
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 @Controller
 public class Databaseinit implements ApplicationRunner{
@@ -20,6 +27,9 @@ public class Databaseinit implements ApplicationRunner{
 
     @Autowired
     VeterinarioRepository veterinarioRepository;
+
+    @Autowired
+    DrogaRepository drogaRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -147,6 +157,36 @@ public class Databaseinit implements ApplicationRunner{
         veterinarioRepository.save(new Veterinario("1000000056", "Mateo", "González", "Petly789", "https://media.mercola.com/ImageServer/Public/2016/July/hipotiroidismo-en-perros.jpg", "Veterinario Quirurgico", 0, "activo"));
         veterinarioRepository.save(new Veterinario("1000000057", "Natalia", "Silva", "Petly101", "https://www.himalayacentroamericana.com/sites/default/files/consultaveterinaria.jpg", "Veterinario de Medicina Interna", 0, "activo"));        
         veterinarioRepository.save(new Veterinario("1000000058", "Leonardo", "Pérez", "Petly101", "https://eduka.occidente.co/wp-content/uploads/2022/04/Donde-estudiar-Medicina-Veterinaria.jpg", "Veterinario - Odontologo", 0, "activo"));
+
+        
+        try {
+            InputStream file = getClass().getClassLoader().getResourceAsStream("MEDICAMENTOS_VETERINARIA.xlsx"); 
+            
+            Workbook workbook = new XSSFWorkbook(file);
+            Sheet sheet = workbook.getSheet("MEDICAMENTOS BD FINAL");
+            for(int rowIndex =1; rowIndex <= sheet.getLastRowNum(); rowIndex++){
+                Row row = sheet.getRow(rowIndex);
+                if(row != null){
+                    Droga drug = new Droga();
+                    drug.setNombre(row.getCell(0).getStringCellValue());
+                    drug.setPrecioVenta((float) row.getCell(1).getNumericCellValue());
+                    drug.setPrecioCompra((float) row.getCell(2).getNumericCellValue());
+                    drug.setUnidadesDisponibles((int) row.getCell(3).getNumericCellValue());
+                    drug.setUnidadesVendidas((int) row.getCell(4).getNumericCellValue());
+                    drogaRepository.save(drug);
+                }
+            }
+
+            if(workbook != null){
+                workbook.close();
+            }
+            file.close();
+        } catch (IOException e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }   
+        
+
     }
     
 }
