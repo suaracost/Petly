@@ -1,6 +1,7 @@
 package com.example.demo.servicio;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class MascotaServiceImpl implements MascotaService{
     }
 
     @Override
-    public Collection<Mascota> SearchAll(){
+    public List<Mascota> SearchAll(){
         return repo.findAll();
     }
 
@@ -52,6 +53,11 @@ public class MascotaServiceImpl implements MascotaService{
             mascota.setEstado("Disponible");
 
         repo.save(mascota);
+    }
+
+    @Override
+    public Mascota searchByUsuarioId(long id) {
+        return repo.findByClienteId(id);
     }
 
     

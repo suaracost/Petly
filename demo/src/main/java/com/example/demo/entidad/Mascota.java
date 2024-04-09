@@ -3,6 +3,8 @@ package com.example.demo.entidad;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -24,10 +26,12 @@ public class Mascota {
     private Long id;
 
     //Relacion con la tabla cliente para representar el dueño de la mascota
+    @JsonIgnore //Evita la recursividad
     @ManyToOne
     private Cliente cliente;
 
     //Relacion con la tabla tratamiento para representar los tratamientos que tiene la mascota
+    @JsonIgnore //Evita la recursividad
     @OneToMany (mappedBy = "mascotaT")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 

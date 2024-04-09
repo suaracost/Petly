@@ -1,24 +1,34 @@
 package com.example.demo.controlador;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidad.Cliente;
 import com.example.demo.entidad.Mascota;
 import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.MascotaService;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 
+@RestController
 @RequestMapping("veterinario/mascotas")
-@Controller
+@CrossOrigin(origins = "http://localhost:4200")
 public class MascotaController {
 
     @Autowired
@@ -29,58 +39,32 @@ public class MascotaController {
 
     //http://localhost:8090/veterinario/mascotas/all
     @GetMapping("/all")
-    public String showAllPets(Model model) {
-        model.addAttribute("mascotas", mascotaService.SearchAll());
-        return "mostrarTodasMascotas"; //Esto retornara al HTML que se debe mostrar
+    public List<Mascota> showAllPets(Model model) {
+
+        return mascotaService.SearchAll();
+
     }
 
     //http://localhost:8090/veterinario/mascotas/find/1
+    //TODO: Preguntar al profe, falta que traiga la info del dueño de la mascota
     @GetMapping("/find/{id}")
-    public String showPet(Model model, @PathVariable("id") Long identificacion) {
+    public Mascota showPet(@PathVariable("id") Long identificacion) {
         Mascota mascota = mascotaService.SearchById(identificacion);
 
-        if(mascota!=null){
-            model.addAttribute("mascota", mascotaService.SearchById(identificacion));
-        } else{
-            throw new NotFoundException(identificacion);
-        }
-
-        return "mostrarMascota"; //Esto retornara al HTML que se debe mostrar
-    }
-
-    //http://localhost:8090/veterinario/mascotas/add
-    @GetMapping("/add")
-    public String mostrarFormularioCreaString(Model model) {
-
-        Mascota mascota = new Mascota("", "", 0, 0, "", "", "");
-
-        model.addAttribute("mascota", mascota);
-
-        return "registroMascota";
+        return mascota;
     }
 
     //http://localhost:8090/veterinario/mascotas/agregar
     @PostMapping("/agregar")
-    public String agregarMascota(@ModelAttribute("mascota") Mascota mascota, @RequestParam("cedulaDueno") String cedula) {
-        
-        Cliente cliente = clienteService.SearchByCedula(cedula);
+    public void agregarMascota(@RequestBody Mascota mascota) {
 
-        if(cliente!=null){
-            mascota.setCliente(cliente);
-            mascota.setEstado("Disponible");
-            mascotaService.add(mascota);
-        } else {
-            throw new CedulaNotFoundException(cedula);
-        }
-
-        return "redirect:/veterinario/mascotas/all";
+        mascotaService.add(mascota);
     }
 
     //http://localhost:8090/veterinario/mascotas/delete/1
-    @GetMapping("/delete/{id}")
-    public String deletePet(@PathVariable("id") Long identificacion) {
+    @DeleteMapping("/delete/{id}")
+    public void deletePet(@PathVariable("id") Long identificacion) {
         mascotaService.updateState(identificacion);
-        return "redirect:/veterinario/mascotas/all";
     }
     
     //http://localhost:8090/veterinario/mascotas/update/1
@@ -91,12 +75,12 @@ public class MascotaController {
     }
 
     //http://localhost:8090/veterinario/mascotas/update/1
-    @PostMapping("/update/{id}")
-    public String updatePet(@PathVariable("id") Long identificacion, @ModelAttribute("mascota") Mascota mascota) {
+    @PutMapping("/update/{id}")
+    public void updatePet(@RequestBody Mascota mascota, @PathVariable("id") Long identificacion){
+        //Esta parte es para que se mantenga el cliente al que pertenece la mascota
         Mascota aux = mascotaService.SearchById(identificacion);
         mascota.setCliente(aux.getCliente());
         mascotaService.update(mascota);
-        return "redirect:/veterinario/mascotas/all";
     }
     
     

@@ -3,6 +3,8 @@ package com.example.demo.entidad;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,6 +24,7 @@ public class Cliente {
     private Long id;
 
     //Relacion con la tabla mascota para representar las mascotas que tiene el cliente
+    //@JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Mascota> mascotas = new ArrayList<>();
 

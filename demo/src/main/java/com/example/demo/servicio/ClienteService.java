@@ -1,6 +1,7 @@
 package com.example.demo.servicio;
 
 import java.util.Collection;
+import java.util.List;
 
 import com.example.demo.entidad.Cliente;
 
@@ -10,12 +11,11 @@ public interface ClienteService {
 
     public Cliente SearchByCedula(String cedula);
 
-    public Collection<Cliente> SearchAll();
+    public List<Cliente> SearchAll();
 
     public void deleteById(Long id);
 
     public void update(Cliente cliente);
 
-    public void add(Cliente cliente);
-    
+    public void add(Cliente cliente);    
 }

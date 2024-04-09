@@ -9,4 +9,7 @@ import com.example.demo.entidad.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Long>{
     
     Cliente findByCedula(String cedula);
+
+    //Metodo para buscar al cliente asociado a la mascota
+    Cliente findByMascotasId(long id);
 }
