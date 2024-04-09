@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entidad.Cliente;
 import com.example.demo.servicio.ClienteService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

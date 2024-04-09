@@ -14,8 +14,7 @@ import com.example.demo.entidad.Mascota;
 import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.MascotaService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
-
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
