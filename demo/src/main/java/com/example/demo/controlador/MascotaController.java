@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,7 +35,7 @@ public class MascotaController {
 
     //http://localhost:8090/veterinario/mascotas/all
     @GetMapping("/all")
-    public List<Mascota> showAllPets(Model model) {
+    public List<Mascota> showAllPets() {
 
         return mascotaService.SearchAll();
 
@@ -63,7 +62,7 @@ public class MascotaController {
 
     //http://localhost:8090/veterinario/mascotas/agregar/12345
     @PostMapping("/agregar/{cedula}")
-    //TODO: que reciba la cedula del cliente
+    //TODO: Validar que la cedula exista, si no, retornar error.
     public void agregarMascota(@RequestBody Mascota mascota, @PathVariable("cedula") String cedula) {
         Cliente cliente = clienteService.SearchByCedula(cedula);
         mascota.setCliente(cliente);
@@ -76,15 +75,9 @@ public class MascotaController {
     public void deletePet(@PathVariable("id") Long identificacion) {
         mascotaService.updateState(identificacion);
     }
-    
-    //http://localhost:8090/veterinario/mascotas/update/1
-    @GetMapping("/update/{id}")
-    public String mostrarFormularioUpdate(@PathVariable("id") Long identificacion, Model model) {
-        model.addAttribute("mascota", mascotaService.SearchById(identificacion));
-        return "actualizarMascota";
-    }
 
     //http://localhost:8090/veterinario/mascotas/update/1
+    //TODO: Validar que la cedula exista, si no, retornar error.
     @PutMapping("/update/{id}")
     public void updatePet(@RequestBody Mascota mascota, @PathVariable("id") Long identificacion){
         //Esta parte es para que se mantenga el cliente al que pertenece la mascota

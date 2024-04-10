@@ -1,4 +1,4 @@
-package com.example.demo.controlador;
+package com.example.demo.errorHandling;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;

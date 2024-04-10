@@ -8,7 +8,6 @@ import com.example.demo.servicio.MascotaService;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,7 +37,7 @@ public class UsuarioController {
     //http://localhost:8090/usuario/1/mascota/1
     //Esta funcion trae los datos de la mascota asociada al usuario.
     @GetMapping("/{usuario}/mascota/{id}")
-    public Cliente showPet(Model model, @PathVariable("usuario") Long usuario, @PathVariable("id") Long identificacion) {
+    public Cliente showPet(@PathVariable("usuario") Long usuario, @PathVariable("id") Long identificacion) {
         
         Cliente cliente = clienteService.SearchById(usuario);
 
@@ -51,7 +50,6 @@ public class UsuarioController {
 
         };
         
-
         return cliente;
 
     }

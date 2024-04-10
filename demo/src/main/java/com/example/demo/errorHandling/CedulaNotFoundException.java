@@ -1,4 +1,4 @@
-package com.example.demo.controlador;
+package com.example.demo.errorHandling;
 
 public class CedulaNotFoundException extends RuntimeException{
     private String cedula;

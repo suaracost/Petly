@@ -37,7 +37,7 @@ public class ClienteController {
 
     //http://localhost:8090/veterinario/clientes/find/1
     @GetMapping("/find/{id}")
-    public Cliente showClient(Model model, @PathVariable("id") Long identificacion) {
+    public Cliente showClient(@PathVariable("id") Long identificacion) {
         Cliente cliente = clienteService.SearchById(identificacion);
 
         return cliente;
