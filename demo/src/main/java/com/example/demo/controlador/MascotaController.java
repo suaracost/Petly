@@ -61,10 +61,13 @@ public class MascotaController {
         return mascotaService.SearchById(identificacion);
     }
 
-    //http://localhost:8090/veterinario/mascotas/agregar
-    @PostMapping("/agregar")
+    //http://localhost:8090/veterinario/mascotas/agregar/12345
+    @PostMapping("/agregar/{cedula}")
     //TODO: que reciba la cedula del cliente
-    public void agregarMascota(@RequestBody Mascota mascota) {
+    public void agregarMascota(@RequestBody Mascota mascota, @PathVariable("cedula") String cedula) {
+        Cliente cliente = clienteService.SearchByCedula(cedula);
+        mascota.setCliente(cliente);
+
         mascotaService.add(mascota);
     }
 
