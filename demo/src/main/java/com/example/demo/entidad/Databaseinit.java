@@ -182,7 +182,6 @@ public class Databaseinit implements ApplicationRunner{
             }
             file.close();
         } catch (IOException e) {
-            // TODO: handle exception
             e.printStackTrace();
         }   
         

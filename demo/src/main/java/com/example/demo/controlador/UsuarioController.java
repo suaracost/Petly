@@ -6,7 +6,6 @@ import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.MascotaService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -38,7 +37,6 @@ public class UsuarioController {
 
     //http://localhost:8090/usuario/1/mascota/1
     //Esta funcion trae los datos de la mascota asociada al usuario.
-    //TODO: Preguntar al profe, como se hace para traer la mascota con tal id. YA
     @GetMapping("/{usuario}/mascota/{id}")
     public Cliente showPet(Model model, @PathVariable("usuario") Long usuario, @PathVariable("id") Long identificacion) {
         
