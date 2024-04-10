@@ -1,9 +1,7 @@
 package com.example.demo.controlador;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -45,25 +43,28 @@ public class MascotaController {
     }
 
     //http://localhost:8090/veterinario/mascotas/find/1
-    //TODO: Preguntar al profe, falta que traiga la info del dueño de la mascota
+    //? Preguntar al profe, falta que traiga la info del dueño de la mascota
     @GetMapping("/find/{id}")
-    public Map<String, Object> showPet(@PathVariable("id") Long identificacion) {
+    public Cliente showPet(@PathVariable("id") Long identificacion) {
         Mascota mascota = mascotaService.SearchById(identificacion);
         Cliente cliente = mascota.getCliente();
 
         cliente.setMascotas(new ArrayList<>());
+        
+        cliente.getMascotas().add(mascota);
     
-        Map<String, Object> mascotaYCliente = new HashMap<>();
-        mascotaYCliente.put("mascota", mascota);
-        mascotaYCliente.put("cliente", cliente);
-    
-        return mascotaYCliente;
+        return cliente;
+    }
+
+    @GetMapping("/buscar/{id}")
+    public Mascota buscarMascota(@PathVariable("id") Long identificacion) {
+        return mascotaService.SearchById(identificacion);
     }
 
     //http://localhost:8090/veterinario/mascotas/agregar
     @PostMapping("/agregar")
+    //TODO: que reciba la cedula del cliente
     public void agregarMascota(@RequestBody Mascota mascota) {
-
         mascotaService.add(mascota);
     }
 
