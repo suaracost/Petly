@@ -60,7 +60,13 @@ public class ClienteController {
     //http://localhost:8090/veterinario/clientes/update/1
     @PutMapping("/update/{id}")
     public void updateClient(@RequestBody Cliente cliente) {
-        clienteService.update(cliente);
+        Cliente aux = clienteService.SearchById(cliente.getId());
+        aux.setCedula(cliente.getCedula());
+        aux.setNombre(cliente.getNombre());
+        aux.setApellido(cliente.getApellido());
+        aux.setCelular(cliente.getCelular());
+        aux.setCorreo(cliente.getCorreo());
+        clienteService.update(aux);
     }
     
     
