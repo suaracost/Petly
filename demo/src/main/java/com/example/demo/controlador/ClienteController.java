@@ -43,6 +43,14 @@ public class ClienteController {
         return cliente;
     }
 
+    //http://localhost:8090/veterinario/clientes/buscar/123
+    @GetMapping("/buscar/{cedula}")
+    public Cliente showClientByCedula(@PathVariable("cedula") String cedula) {
+        Cliente cliente = clienteService.SearchByCedula(cedula);
+
+        return cliente;
+    }
+
     //http://localhost:8090/veterinario/clientes/agregar
     @PostMapping("/agregar")
     public void agregarCliente(@RequestBody Cliente cliente) {
