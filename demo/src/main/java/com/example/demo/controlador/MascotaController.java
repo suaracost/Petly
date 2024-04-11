@@ -46,6 +46,8 @@ public class MascotaController {
     @GetMapping("/find/{id}")
     public Cliente showPet(@PathVariable("id") Long identificacion) {
         Mascota mascota = mascotaService.SearchById(identificacion);
+
+        if(mascota != null) {
         Cliente cliente = mascota.getCliente();
 
         cliente.setMascotas(new ArrayList<>());
@@ -53,6 +55,8 @@ public class MascotaController {
         cliente.getMascotas().add(mascota);
     
         return cliente;
+        } else 
+            return null;
     }
 
     @GetMapping("/buscar/{id}")
