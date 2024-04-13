@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@RequestMapping("veterinario/mascotas")
+@RequestMapping("mascota")
 @CrossOrigin(origins = "http://localhost:4200")
 public class MascotaController {
 
@@ -67,7 +67,6 @@ public class MascotaController {
 
     //http://localhost:8090/veterinario/mascotas/agregar/12345
     @PostMapping("/agregar/{cedula}")
-    //TODO: Validar que la cedula exista, si no, retornar error.
     public void agregarMascota(@RequestBody Mascota mascota, @PathVariable("cedula") String cedula) {
         Cliente cliente = clienteService.SearchByCedula(cedula);
         mascota.setCliente(cliente);
@@ -81,12 +80,11 @@ public class MascotaController {
         mascotaService.updateState(identificacion);
     }
 
-    //http://localhost:8090/veterinario/mascotas/update/1
-    //TODO: Validar que la cedula exista, si no, retornar error.
-    @PutMapping("/update/{id}")
-    public void updatePet(@RequestBody Mascota mascota, @PathVariable("id") Long identificacion){
+    //http://localhost:8090/veterinario/mascotas/update
+    @PutMapping("/update")
+    public void updatePet(@RequestBody Mascota mascota){
         //Esta parte es para que se mantenga el cliente al que pertenece la mascota
-        Mascota aux = mascotaService.SearchById(identificacion);
+        Mascota aux = mascotaService.SearchById(mascota.getId());
         mascota.setCliente(aux.getCliente());
         mascotaService.update(mascota);
     }
