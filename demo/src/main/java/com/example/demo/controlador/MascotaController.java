@@ -48,15 +48,16 @@ public class MascotaController {
         Mascota mascota = mascotaService.SearchById(identificacion);
 
         if(mascota != null) {
-        Cliente cliente = mascota.getCliente();
+            Cliente cliente = mascota.getCliente();
 
-        cliente.setMascotas(new ArrayList<>());
+            cliente.setMascotas(new ArrayList<>());
+            
+            cliente.getMascotas().add(mascota);
         
-        cliente.getMascotas().add(mascota);
-    
-        return cliente;
-        } else 
+            return cliente;
+        } else {
             return null;
+        }
     }
 
     @GetMapping("/buscar/{id}")
