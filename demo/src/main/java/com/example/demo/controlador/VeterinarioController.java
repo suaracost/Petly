@@ -48,7 +48,7 @@ public class VeterinarioController {
         veterinarioService.deleteById(id);
     }
 
-    //http://localhost:8090/veterinario/update/1
+    //http://localhost:8090/veterinario/update
     @PutMapping("/update")
     public void updateVet(@RequestBody Veterinario veterinario){
         veterinarioService.update(veterinario);

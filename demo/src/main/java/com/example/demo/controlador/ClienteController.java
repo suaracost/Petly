@@ -71,8 +71,8 @@ public class ClienteController {
         clienteService.deleteById(identificacion);
     }
 
-    //http://localhost:8090/cliente/update/1
-    @PutMapping("/update/{id}")
+    //http://localhost:8090/cliente/update
+    @PutMapping("/update")
     public void updateClient(@RequestBody Cliente cliente) {
         Cliente aux = clienteService.SearchById(cliente.getId());
         aux.setCedula(cliente.getCedula());
