@@ -1,6 +1,6 @@
 package com.example.demo.servicio;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.example.demo.entidad.Tratamiento;
 
@@ -8,7 +8,7 @@ public interface TratamientoService {
     
     public Tratamiento SearchById(Long id);
 
-    public Collection<Tratamiento> SearchAll();
+    public List<Tratamiento> SearchAll();
 
     public void deleteById(Long id);
 

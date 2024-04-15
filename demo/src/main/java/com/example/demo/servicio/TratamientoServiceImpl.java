@@ -1,6 +1,6 @@
 package com.example.demo.servicio;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -16,23 +16,28 @@ public class TratamientoServiceImpl implements TratamientoService{
     @Autowired
     TratamientoRepository repo;
 
+    @Override
     public Tratamiento SearchById(Long id) {
         Optional<Tratamiento> optionalTratamiento = repo.findById(id);
         return optionalTratamiento.orElse(null);
     };
 
-    public Collection<Tratamiento> SearchAll() {
+    @Override
+    public List<Tratamiento> SearchAll() {
         return repo.findAll();
     };
 
+    @Override
     public void deleteById(Long id) {
         repo.deleteById(id);
     };
 
+    @Override
     public void update(Tratamiento tratamiento) {
         repo.save(tratamiento);
     };
 
+    @Override
     public void add(Tratamiento tratamiento) {
         repo.save(tratamiento);
     };
