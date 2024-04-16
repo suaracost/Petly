@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 
 import com.example.demo.repositorio.ClienteRepository;
 import com.example.demo.repositorio.MascotaRepository;
+import com.example.demo.repositorio.TratamientoRepository;
 import com.example.demo.repositorio.VeterinarioRepository;
 import com.example.demo.repositorio.DrogaRepository;
 
@@ -30,6 +31,9 @@ public class Databaseinit implements ApplicationRunner{
 
     @Autowired
     DrogaRepository drogaRepository;
+
+    @Autowired
+    TratamientoRepository tratamientoRepository;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -183,9 +187,27 @@ public class Databaseinit implements ApplicationRunner{
             file.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }   
-        
+        }
 
+        for (int i = 1; i <= 100; i++) {
+            for (int j = 0; j < 3; j++) {
+                int idVeterinario = (int) (Math.random() * 8) + 1;
+                int idDroga = (int) (Math.random() * 523) + 1;
+                int mes = (int) (Math.random() * 12) + 1;
+                int dia = (int) (Math.random() * 30) + 1;
+                String fecha = dia + "-" + mes + "-2024"; // Cambia la fecha según sea necesario
+                Tratamiento tratamiento = new Tratamiento();
+                tratamiento.setMascotaT(mascotaRepository.findById((long) i).get());
+                tratamiento.setVeterinarioT(veterinarioRepository.findById((long) idVeterinario).get());
+                tratamiento.setDrogaT(drogaRepository.findById((long) idDroga).get());
+                tratamiento.setFecha(fecha);
+
+                tratamientoRepository.save(tratamiento);
+            }
+        }
+        
+        
+        
     }
     
 }

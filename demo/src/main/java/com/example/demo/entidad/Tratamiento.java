@@ -33,6 +33,16 @@ public class Tratamiento {
     @Nonnull
     private Droga drogaT;
 
+    public Tratamiento() {
+    }
+
+    public Tratamiento(String fecha, Mascota mascotaT, Veterinario veterinarioT, Droga drogaT) {
+        this.fecha = fecha;
+        this.mascotaT = mascotaT;
+        this.veterinarioT = veterinarioT;
+        this.drogaT = drogaT;
+    }
+
     public String getFecha() {
         return fecha;
     }
