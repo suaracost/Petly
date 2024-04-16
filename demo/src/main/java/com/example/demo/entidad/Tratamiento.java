@@ -1,6 +1,5 @@
 package com.example.demo.entidad;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
@@ -17,19 +16,19 @@ public class Tratamiento {
     private Long id;
 
     //Relacion con la tabla mascota para representar la mascota que tiene el tratamiento
-    @JsonIgnore
+    // @JsonIgnore
     @ManyToOne
     @Nonnull
     private Mascota mascotaT;
 
     //Relacion con la tabla veterinario para representar el veterinario que tiene el tratamiento
-    @JsonIgnore
+    // @JsonIgnore
     @ManyToOne
     @Nonnull
     private Veterinario veterinarioT;
 
     //Relacion con la tabla droga para representar la droga que tiene el tratamiento
-    @JsonIgnore
+    // @JsonIgnore
     @ManyToOne
     @Nonnull
     private Droga drogaT;
