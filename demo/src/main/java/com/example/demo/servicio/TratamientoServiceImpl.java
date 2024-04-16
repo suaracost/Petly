@@ -40,5 +40,15 @@ public class TratamientoServiceImpl implements TratamientoService{
     @Override
     public void add(Tratamiento tratamiento) {
         repo.save(tratamiento);
+    }
+
+    @Override
+    public List<Tratamiento> findByMascotaTId(Long id) {
+        return repo.findByMascotaTId(id);
+    }
+
+    @Override
+    public List<Tratamiento> findByVeterinarioTId(Long id) {
+        return repo.findByVeterinarioTId(id);
     };
 }

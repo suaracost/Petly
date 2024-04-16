@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entidad.Tratamiento;
 import com.example.demo.servicio.TratamientoService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("tratamiento")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -28,10 +30,19 @@ public class TratamientoController {
         return tratamientoService.SearchAll();
     }
 
-    //http://localhost:8090/tratamiento/find/1
-    @GetMapping("/find/{id}")
-    public Tratamiento showTratamiento(@PathVariable Long id) {
-        return tratamientoService.SearchById(id);
+    //http://localhost:8090/tratamiento/find/mascota/1
+    //Encontrar los tratamientos de una mascota dada su id
+    @GetMapping("/find/mascota/{id_mascota}")
+    public List<Tratamiento> showTratamientoMascota(@PathVariable Long id_mascota) {
+        return tratamientoService.findByMascotaTId(id_mascota);
+    }
+
+    //http://localhost:8090/tratamiento/find/veterinario/1
+    //Encontrar los tratamientos de un veterinario dada su id
+    @GetMapping("/find/veterinario/{id_veterinario}")
+    @Operation(summary = "Encontrar los tratamientos de un veterinario dada su id")
+    public List<Tratamiento> showTratamientoVeterinario(@PathVariable Long id_veterinario) {
+        return tratamientoService.findByVeterinarioTId(id_veterinario);
     }
 
     //http://localhost:8090/tratamiento/add
