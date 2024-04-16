@@ -45,7 +45,7 @@ public class VeterinarioController {
     //http://localhost:8090/veterinario/delete/1
     @DeleteMapping("/delete/{id}")
     public void deleteVet(@PathVariable Long id){
-        veterinarioService.deleteById(id);
+        veterinarioService.updateState(id);
     }
 
     //http://localhost:8090/veterinario/update
