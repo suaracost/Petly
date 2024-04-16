@@ -12,6 +12,8 @@ import com.example.demo.entidad.Mascota;
 import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.MascotaService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +37,7 @@ public class MascotaController {
 
     //http://localhost:8090/veterinario/mascotas/all
     @GetMapping("/all")
+    @Operation(summary = "Mostrar todas las mascotas")
     public List<Mascota> showAllPets() {
 
         return mascotaService.SearchAll();
@@ -44,6 +47,7 @@ public class MascotaController {
     //http://localhost:8090/veterinario/mascotas/find/1
     //? Preguntar al profe, falta que traiga la info del dueño de la mascota
     @GetMapping("/find/{id}")
+    @Operation(summary = "Encontrar una mascota con informacion de su dueño dado el id de la mascota")
     public Cliente showPet(@PathVariable("id") Long identificacion) {
         Mascota mascota = mascotaService.SearchById(identificacion);
 
@@ -61,12 +65,14 @@ public class MascotaController {
     }
 
     @GetMapping("/buscar/{id}")
+    @Operation(summary = "Buscar una mascota dado su id, solo trae información mascota")
     public Mascota buscarMascota(@PathVariable("id") Long identificacion) {
         return mascotaService.SearchById(identificacion);
     }
 
     //http://localhost:8090/veterinario/mascotas/agregar/12345
     @PostMapping("/agregar/{cedula}")
+    @Operation(summary = "Agregar una mascota a un cliente dado su cedula")
     public void agregarMascota(@RequestBody Mascota mascota, @PathVariable("cedula") String cedula) {
         Cliente cliente = clienteService.SearchByCedula(cedula);
         mascota.setCliente(cliente);
@@ -76,12 +82,14 @@ public class MascotaController {
 
     //http://localhost:8090/veterinario/mascotas/delete/1
     @DeleteMapping("/delete/{id}")
+    @Operation(summary = "Eliminar una mascota dado su id")
     public void deletePet(@PathVariable("id") Long identificacion) {
         mascotaService.updateState(identificacion);
     }
 
     //http://localhost:8090/veterinario/mascotas/update
     @PutMapping("/update")
+    @Operation(summary = "Actualizar una mascota")
     public void updatePet(@RequestBody Mascota mascota){
         //Esta parte es para que se mantenga el cliente al que pertenece la mascota
         Mascota aux = mascotaService.SearchById(mascota.getId());

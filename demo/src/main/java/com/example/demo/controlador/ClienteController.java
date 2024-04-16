@@ -13,6 +13,8 @@ import com.example.demo.entidad.Mascota;
 import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.MascotaService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +37,7 @@ public class ClienteController {
 
     //http://localhost:8090/cliente/all
     @GetMapping("/all")
+    @Operation(summary = "Mostrar todos los clientes")
     public List<Cliente> showAllClients(Model model) {
 
         return clienteService.SearchAll();
@@ -43,6 +46,7 @@ public class ClienteController {
 
     //http://localhost:8090/cliente/find/1
     @GetMapping("/find/{id}")
+    @Operation(summary = "Encontrar un cliente dado su id")
     public Cliente showClient(@PathVariable("id") Long identificacion) {
         Cliente cliente = clienteService.SearchById(identificacion);
 
@@ -51,6 +55,7 @@ public class ClienteController {
 
     //http://localhost:8090/cliente/buscar/123
     @GetMapping("/buscar/{cedula}")
+    @Operation(summary = "Encontrar un cliente dado su cedula")
     public Cliente showClientByCedula(@PathVariable("cedula") String cedula) {
         Cliente cliente = clienteService.SearchByCedula(cedula);
 
@@ -59,6 +64,7 @@ public class ClienteController {
 
     //http://localhost:8090/cliente/agregar
     @PostMapping("/agregar")
+    @Operation(summary = "Agregar un cliente")
     public void agregarCliente(@RequestBody Cliente cliente) {
 
         clienteService.add(cliente);
@@ -67,12 +73,14 @@ public class ClienteController {
 
     //http://localhost:8090/cliente/delete/1
     @DeleteMapping("/delete/{id}")
+    @Operation(summary = "Eliminar un cliente dado su id")
     public void deleteClient(@PathVariable("id") Long identificacion) {
         clienteService.deleteById(identificacion);
     }
 
     //http://localhost:8090/cliente/update
     @PutMapping("/update")
+    @Operation(summary = "Actualizar un cliente")
     public void updateClient(@RequestBody Cliente cliente) {
         Cliente aux = clienteService.SearchById(cliente.getId());
         aux.setCedula(cliente.getCedula());
@@ -86,6 +94,7 @@ public class ClienteController {
     //http://localhost:8090/usuario/1/mascota/1
     //Esta funcion trae los datos de la mascota asociada al usuario.
     @GetMapping("/{usuario}/mascota/{id}")
+    @Operation(summary = "Encontrar una mascota con informacion de su dueño dado el id de la mascota")
     public Cliente showPet(@PathVariable("usuario") Long usuario, @PathVariable("id") Long identificacion) {
         
         Cliente cliente = clienteService.SearchById(usuario);
