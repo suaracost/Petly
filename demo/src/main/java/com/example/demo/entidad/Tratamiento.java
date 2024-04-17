@@ -19,28 +19,28 @@ public class Tratamiento {
     // @JsonIgnore
     @ManyToOne
     @Nonnull
-    private Mascota mascotaT;
+    private Mascota mascota;
 
     //Relacion con la tabla veterinario para representar el veterinario que tiene el tratamiento
     // @JsonIgnore
     @ManyToOne
     @Nonnull
-    private Veterinario veterinarioT;
+    private Veterinario veterinario;
 
     //Relacion con la tabla droga para representar la droga que tiene el tratamiento
     // @JsonIgnore
     @ManyToOne
     @Nonnull
-    private Droga drogaT;
+    private Droga droga;
 
     public Tratamiento() {
     }
 
-    public Tratamiento(String fecha, Mascota mascotaT, Veterinario veterinarioT, Droga drogaT) {
+    public Tratamiento(String fecha, Mascota mascota, Veterinario veterinario, Droga droga) {
         this.fecha = fecha;
-        this.mascotaT = mascotaT;
-        this.veterinarioT = veterinarioT;
-        this.drogaT = drogaT;
+        this.mascota = mascota;
+        this.veterinario = veterinario;
+        this.droga = droga;
     }
 
     public String getFecha() {
@@ -51,28 +51,28 @@ public class Tratamiento {
         this.fecha = fecha;
     }
 
-    public Mascota getMascotaT() {
-        return mascotaT;
+    public Mascota getmascota() {
+        return mascota;
     }
 
-    public void setMascotaT(Mascota mascotaT) {
-        this.mascotaT = mascotaT;
+    public void setmascota(Mascota mascota) {
+        this.mascota = mascota;
     }
 
-    public Veterinario getVeterinarioT() {
-        return veterinarioT;
+    public Veterinario getveterinario() {
+        return veterinario;
     }
 
-    public void setVeterinarioT(Veterinario veterinarioT) {
-        this.veterinarioT = veterinarioT;
+    public void setveterinario(Veterinario veterinario) {
+        this.veterinario = veterinario;
     }
 
-    public Droga getDrogaT() {
-        return drogaT;
+    public Droga getdroga() {
+        return droga;
     }
 
-    public void setDrogaT(Droga drogaT) {
-        this.drogaT = drogaT;
+    public void setdroga(Droga droga) {
+        this.droga = droga;
     }
 
     public Long getId() {

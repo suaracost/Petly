@@ -11,7 +11,7 @@ import com.example.demo.entidad.Tratamiento;
 public interface TratamientoRepository extends JpaRepository<Tratamiento, Long>{
     
     //TODO: Preguntar al profe si esto sirve
-    List<Tratamiento> findByMascotaTId(Long id);
+    List<Tratamiento> findBymascotaId(Long id);
     
-    List<Tratamiento> findByVeterinarioTId(Long id);
+    List<Tratamiento> findByveterinarioId(Long id);
 }

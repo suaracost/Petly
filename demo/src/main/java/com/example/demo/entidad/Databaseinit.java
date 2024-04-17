@@ -197,9 +197,9 @@ public class Databaseinit implements ApplicationRunner{
                 int dia = (int) (Math.random() * 30) + 1;
                 String fecha = dia + "-" + mes + "-2024"; // Cambia la fecha según sea necesario
                 Tratamiento tratamiento = new Tratamiento();
-                tratamiento.setMascotaT(mascotaRepository.findById((long) i).get());
-                tratamiento.setVeterinarioT(veterinarioRepository.findById((long) idVeterinario).get());
-                tratamiento.setDrogaT(drogaRepository.findById((long) idDroga).get());
+                tratamiento.setmascota(mascotaRepository.findById((long) i).get());
+                tratamiento.setveterinario(veterinarioRepository.findById((long) idVeterinario).get());
+                tratamiento.setdroga(drogaRepository.findById((long) idDroga).get());
                 tratamiento.setFecha(fecha);
 
                 tratamientoRepository.save(tratamiento);

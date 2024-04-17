@@ -24,7 +24,7 @@ public class Droga {
 
     //Relacion con la tabla tratamiento para representar los tratamientos que tienen la droga
     @JsonIgnore
-    @OneToMany (mappedBy = "drogaT")
+    @OneToMany (mappedBy = "droga")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
     public String getNombre() {

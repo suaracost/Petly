@@ -16,7 +16,7 @@ public interface TratamientoService {
 
     public void add(Tratamiento tratamiento);
 
-    public List<Tratamiento> findByMascotaTId(Long id);
+    public List<Tratamiento> findBymascotaId(Long id);
 
-    public List<Tratamiento> findByVeterinarioTId(Long id);
+    public List<Tratamiento> findByveterinarioId(Long id);
 }

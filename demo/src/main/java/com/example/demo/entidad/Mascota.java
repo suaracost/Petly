@@ -32,7 +32,7 @@ public class Mascota {
 
     //Relacion con la tabla tratamiento para representar los tratamientos que tiene la mascota
     @JsonIgnore //Evita la recursividad
-    @OneToMany (mappedBy = "mascotaT")
+    @OneToMany (mappedBy = "mascota")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
     public Mascota(Long id, String nombre, String raza, int edad, float peso, String enfermedad, String foto, String estado) {

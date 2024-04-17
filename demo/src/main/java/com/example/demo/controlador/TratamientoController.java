@@ -36,7 +36,7 @@ public class TratamientoController {
     @GetMapping("/find/mascota/{id_mascota}")
     @Operation(summary = "Encontrar los tratamientos de una mascota dado su id")
     public List<Tratamiento> showTratamientoMascota(@PathVariable Long id_mascota) {
-        return tratamientoService.findByMascotaTId(id_mascota);
+        return tratamientoService.findBymascotaId(id_mascota);
     }
 
     //http://localhost:8090/tratamiento/find/veterinario/1
@@ -44,7 +44,7 @@ public class TratamientoController {
     @GetMapping("/find/veterinario/{id_veterinario}")
     @Operation(summary = "Encontrar los tratamientos de un veterinario dado su id")
     public List<Tratamiento> showTratamientoVeterinario(@PathVariable Long id_veterinario) {
-        return tratamientoService.findByVeterinarioTId(id_veterinario);
+        return tratamientoService.findByveterinarioId(id_veterinario);
     }
 
     //http://localhost:8090/tratamiento/add

@@ -27,7 +27,7 @@ public class Veterinario {
 
     //Relacion con la tabla tratamiento para representar los tratamientos que ha hecho el veterinario
     @JsonIgnore
-    @OneToMany (mappedBy = "veterinarioT")
+    @OneToMany (mappedBy = "veterinario")
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
     public Veterinario(Long id, String cedula, String nombre, String apellido, String contrasena, String foto, String especialidad, int numAtenciones, String estado) {
