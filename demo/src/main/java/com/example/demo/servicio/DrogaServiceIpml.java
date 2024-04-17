@@ -38,5 +38,15 @@ public class DrogaServiceIpml implements DrogaService{
 
     public void add(Droga droga) {
         repo.save(droga);
+    }
+
+    @Override
+    public Float totalVentasDrogas() {
+        return repo.totalVentasDrogas();
+    }
+
+    @Override
+    public Float totalGananciasDrogas() {
+        return repo.totalGananciasDrogas();
     };
 }

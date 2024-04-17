@@ -17,4 +17,10 @@ public interface VeterinarioService {
     public void add(Veterinario veterinario);
 
     public void updateState(Long id);
+
+    //Dashboard - 3
+    public Long countVeterinarios();
+
+    //Dashboard - 4
+    public Long countVeterinariosInactivos();
 }

@@ -59,5 +59,15 @@ public class MascotaServiceImpl implements MascotaService{
         return repo.findByClienteId(id);
     }
 
+    @Override
+    public Long countMascotas() {
+        return repo.countMascotas();
+    }
+
+    @Override
+    public Long countMascotasActivas() {
+        return repo.countMascotasActivas();
+    }
+
     
 }

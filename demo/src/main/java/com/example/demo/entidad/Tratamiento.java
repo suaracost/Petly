@@ -10,6 +10,7 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Tratamiento {
 
+    //! Creo que se deberia cambiar a tipo LocalDate
     private String fecha;
     @Id
     @GeneratedValue

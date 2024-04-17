@@ -35,7 +35,7 @@ public class MascotaController {
     @Autowired
     ClienteService clienteService;
 
-    //http://localhost:8090/veterinario/mascotas/all
+    //http://localhost:8090/mascotas/all
     @GetMapping("/all")
     @Operation(summary = "Mostrar todas las mascotas")
     public List<Mascota> showAllPets() {
@@ -44,7 +44,7 @@ public class MascotaController {
 
     }
 
-    //http://localhost:8090/veterinario/mascotas/find/1
+    //http://localhost:8090/mascotas/find/1
     //? Preguntar al profe, falta que traiga la info del dueño de la mascota
     @GetMapping("/find/{id}")
     @Operation(summary = "Encontrar una mascota con informacion de su dueño dado el id de la mascota")
@@ -70,7 +70,7 @@ public class MascotaController {
         return mascotaService.SearchById(identificacion);
     }
 
-    //http://localhost:8090/veterinario/mascotas/agregar/12345
+    //http://localhost:8090/mascotas/agregar/12345
     @PostMapping("/agregar/{cedula}")
     @Operation(summary = "Agregar una mascota a un cliente dado su cedula")
     public void agregarMascota(@RequestBody Mascota mascota, @PathVariable("cedula") String cedula) {
@@ -80,14 +80,14 @@ public class MascotaController {
         mascotaService.add(mascota);
     }
 
-    //http://localhost:8090/veterinario/mascotas/delete/1
+    //http://localhost:8090/mascotas/delete/1
     @DeleteMapping("/delete/{id}")
     @Operation(summary = "Eliminar una mascota dado su id")
     public void deletePet(@PathVariable("id") Long identificacion) {
         mascotaService.updateState(identificacion);
     }
 
-    //http://localhost:8090/veterinario/mascotas/update
+    //http://localhost:8090/mascotas/update
     @PutMapping("/update")
     @Operation(summary = "Actualizar una mascota")
     public void updatePet(@RequestBody Mascota mascota){

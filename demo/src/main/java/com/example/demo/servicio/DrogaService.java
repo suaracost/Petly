@@ -17,4 +17,10 @@ public interface DrogaService {
     public void update(Droga droga);
 
     public void add(Droga droga);
+
+    //Dashboard - 7
+    public Float totalVentasDrogas();
+
+    //Dashboard - 8
+    public Float totalGananciasDrogas();
 }

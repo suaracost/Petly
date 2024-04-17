@@ -19,5 +19,11 @@ public interface MascotaService {
     public void updateState(Long id);
 
     public Mascota searchByUsuarioId(long id);
+
+    //Dashboard - 5
+    public Long countMascotas();
+
+    //Dashboard - 6
+    public Long countMascotasActivas();
     
 }
