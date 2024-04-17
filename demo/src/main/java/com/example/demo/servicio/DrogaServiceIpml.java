@@ -1,6 +1,6 @@
 package com.example.demo.servicio;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,11 @@ public class DrogaServiceIpml implements DrogaService{
         return optionalDroga.orElse(null);
     };
 
-    public Collection<Droga> SearchAll() {
+    public Droga SearchByNombre(String nombre) {
+        return repo.findByNombre(nombre);
+    };
+
+    public List<Droga> SearchAll() {
         return repo.findAll();
     };
 

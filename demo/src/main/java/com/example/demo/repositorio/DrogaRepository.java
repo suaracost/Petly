@@ -8,4 +8,5 @@ import com.example.demo.entidad.Droga;
 @Repository
 public interface DrogaRepository extends JpaRepository<Droga, Long>{
 
+    Droga findByNombre(String nombre);
 }

@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidad.Tratamiento;
 import com.example.demo.servicio.TratamientoService;
+import com.example.demo.entidad.Veterinario;
+import com.example.demo.servicio.VeterinarioService;
+import com.example.demo.entidad.Mascota;
+import com.example.demo.servicio.MascotaService;
+import com.example.demo.entidad.Droga;
+import com.example.demo.servicio.DrogaService;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -23,6 +29,15 @@ public class TratamientoController {
 
     @Autowired
     TratamientoService tratamientoService;
+
+    @Autowired
+    VeterinarioService veterinarioService;
+
+    @Autowired
+    MascotaService mascotaService;
+
+    @Autowired
+    DrogaService drogaService;
 
     //http://localhost:8090/tratamiento/all
     @GetMapping("/all")
@@ -48,10 +63,22 @@ public class TratamientoController {
     }
 
     //http://localhost:8090/tratamiento/add
-    //TODO: Preguntarle al profesor como asociarle el idDroga, idVeterinario y idMascota
-    @PostMapping("/add")
+    @PostMapping("/add/{id_vet}/{id_pet}")
     @Operation(summary = "Agregar un tratamiento")
-    public void addTratamiento(@RequestBody Tratamiento tratamiento){
+    public void addTratamiento(@PathVariable("id_vet") Long id_veterinario, @PathVariable("id_pet") Long id_pet, @RequestBody String nombre){
+        Tratamiento tratamiento = new Tratamiento();
+
+        tratamiento.setFecha("16-04-2024");
+
+        Veterinario vet = veterinarioService.SearchById(id_veterinario);
+        tratamiento.setveterinario(vet);
+
+        Mascota pet = mascotaService.SearchById(id_pet);
+        tratamiento.setmascota(pet);
+        
+        Droga drug = drogaService.SearchByNombre(nombre);
+        tratamiento.setdroga(drug);
+
         tratamientoService.add(tratamiento);
     }
     
