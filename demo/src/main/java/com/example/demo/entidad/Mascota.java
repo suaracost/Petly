@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -32,7 +33,7 @@ public class Mascota {
 
     //Relacion con la tabla tratamiento para representar los tratamientos que tiene la mascota
     @JsonIgnore //Evita la recursividad
-    @OneToMany (mappedBy = "mascota")
+    @OneToMany (mappedBy = "mascota", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Tratamiento> tratamientos = new ArrayList<>();
 
     public Mascota(Long id, String nombre, String raza, int edad, float peso, String enfermedad, String foto, String estado) {
