@@ -70,10 +70,8 @@ public class TratamientoController {
     public void addTratamiento(@PathVariable("id_vet") Long id_veterinario, @PathVariable("id_pet") Long id_pet, @RequestBody String nombre){
         Tratamiento tratamiento = new Tratamiento();
 
-        String fecha = "16-4-2024";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
-        LocalDate fechaLocalDate = LocalDate.parse(fecha, formatter);
-        tratamiento.setFecha(fechaLocalDate);
+        LocalDate fecha = LocalDate.now();
+        tratamiento.setFecha(fecha);
 
         Veterinario vet = veterinarioService.SearchById(id_veterinario);
         tratamiento.setveterinario(vet);
@@ -82,6 +80,12 @@ public class TratamientoController {
         tratamiento.setmascota(pet);
         
         Droga drug = drogaService.SearchByNombre(nombre);
+
+        //Actualizar unidades disponibles y vendidas
+        drug.setUnidadesDisponibles(drug.getUnidadesDisponibles()-1);
+        drug.setUnidadesVendidas(drug.getUnidadesVendidas()+1);
+        drogaService.add(drug);
+
         tratamiento.setdroga(drug);
 
         tratamientoService.add(tratamiento);
