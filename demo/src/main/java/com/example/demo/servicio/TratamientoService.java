@@ -19,4 +19,10 @@ public interface TratamientoService {
     public List<Tratamiento> findBymascotaId(Long id);
 
     public List<Tratamiento> findByveterinarioId(Long id);
+
+    //Dashboard - 1
+    public Long countTratamientosMes();
+
+    //Dashboard - 2
+    public List<Object[]> countTratamientosPorDroga();
 }

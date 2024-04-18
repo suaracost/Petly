@@ -1,6 +1,8 @@
 package com.example.demo.entidad;
 
 
+import java.time.LocalDate;
+
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +13,7 @@ import jakarta.persistence.ManyToOne;
 public class Tratamiento {
 
     //! Creo que se deberia cambiar a tipo LocalDate
-    private String fecha;
+    private LocalDate fecha;
     @Id
     @GeneratedValue
     private Long id;
@@ -37,18 +39,18 @@ public class Tratamiento {
     public Tratamiento() {
     }
 
-    public Tratamiento(String fecha, Mascota mascota, Veterinario veterinario, Droga droga) {
+    public Tratamiento(LocalDate fecha, Mascota mascota, Veterinario veterinario, Droga droga) {
         this.fecha = fecha;
         this.mascota = mascota;
         this.veterinario = veterinario;
         this.droga = droga;
     }
 
-    public String getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 

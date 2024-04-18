@@ -50,5 +50,15 @@ public class TratamientoServiceImpl implements TratamientoService{
     @Override
     public List<Tratamiento> findByveterinarioId(Long id) {
         return repo.findByveterinarioId(id);
-    };
+    }
+
+    @Override
+    public Long countTratamientosMes() {
+        return repo.countTratamientosMes();
+    }
+
+    @Override
+    public List<Object[]> countTratamientosPorDroga() {
+        return repo.countTratamientosPorDroga();
+    }
 }

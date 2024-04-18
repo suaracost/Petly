@@ -1,5 +1,7 @@
 package com.example.demo.controlador;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.DrogaService;
 import com.example.demo.servicio.MascotaService;
+import com.example.demo.servicio.TratamientoService;
 import com.example.demo.servicio.VeterinarioService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,11 +33,22 @@ public class DashboardController {
     @Autowired
     VeterinarioService veterinarioService;
 
+    @Autowired
+    TratamientoService tratamientoService;
+
     //http://localhost:8090/dashboard/tratamientos/administrados
-    //TODO: Implementar
+    @GetMapping("/tratamientos/administrados")
+    @Operation(summary = "Mostrar el conteo de la cantidad de tratamientos administrados en el ultimo mes en la veterinaria.")
+    public Long showTotalTratamientos() {
+        return tratamientoService.countTratamientosMes();
+    }
 
     //http://localhost:8090/dashboard/tratamientos/cantidad_tipo
-    //TODO: Implementar
+    @GetMapping("/tratamientos/cantidad_tipo")
+    @Operation(summary = "Cantidad de tratamientos por tipo de medicamento administrado en el ultimo mes(tabla medicamento-cantidad)")
+    public List<Object[]> showTotalTratamientosPorDroga() {
+        return tratamientoService.countTratamientosPorDroga();
+    }
 
     //http://localhost:8090/dashboard/veterinarios/total
     @GetMapping("/veterinarios/total")

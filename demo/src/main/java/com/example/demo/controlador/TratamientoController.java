@@ -1,5 +1,7 @@
 package com.example.demo.controlador;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +70,10 @@ public class TratamientoController {
     public void addTratamiento(@PathVariable("id_vet") Long id_veterinario, @PathVariable("id_pet") Long id_pet, @RequestBody String nombre){
         Tratamiento tratamiento = new Tratamiento();
 
-        tratamiento.setFecha("16-04-2024");
+        String fecha = "16-4-2024";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
+        LocalDate fechaLocalDate = LocalDate.parse(fecha, formatter);
+        tratamiento.setFecha(fechaLocalDate);
 
         Veterinario vet = veterinarioService.SearchById(id_veterinario);
         tratamiento.setveterinario(vet);

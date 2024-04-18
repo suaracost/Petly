@@ -2,6 +2,8 @@ package com.example.demo.entidad;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -200,7 +202,9 @@ public class Databaseinit implements ApplicationRunner{
                 tratamiento.setmascota(mascotaRepository.findById((long) i).get());
                 tratamiento.setveterinario(veterinarioRepository.findById((long) idVeterinario).get());
                 tratamiento.setdroga(drogaRepository.findById((long) idDroga).get());
-                tratamiento.setFecha(fecha);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
+                LocalDate fechaLocalDate = LocalDate.parse(fecha, formatter);
+                tratamiento.setFecha(fechaLocalDate);
 
                 tratamientoRepository.save(tratamiento);
             }
