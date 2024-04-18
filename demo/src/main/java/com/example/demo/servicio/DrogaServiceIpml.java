@@ -48,5 +48,10 @@ public class DrogaServiceIpml implements DrogaService{
     @Override
     public Float totalGananciasDrogas() {
         return repo.totalGananciasDrogas();
+    }
+
+    @Override
+    public List<Droga> findByUnidadesDisponiblesGreaterThan(Integer cantidad) {
+        return repo.findByUnidadesDisponiblesGreaterThan(cantidad);
     };
 }

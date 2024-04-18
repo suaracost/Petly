@@ -1,5 +1,7 @@
 package com.example.demo.repositorio;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,6 +12,8 @@ import com.example.demo.entidad.Droga;
 public interface DrogaRepository extends JpaRepository<Droga, Long>{
 
     Droga findByNombre(String nombre);
+
+    List<Droga> findByUnidadesDisponiblesGreaterThan(Integer cantidad);
 
     //Dashboard - 7: Ventas totales de drogas en la veterinaria
     @Query("SELECT SUM(d.precioVenta * d.unidadesVendidas) FROM Droga d")

@@ -18,6 +18,8 @@ public interface DrogaService {
 
     public void add(Droga droga);
 
+    public List<Droga> findByUnidadesDisponiblesGreaterThan(Integer cantidad);
+
     //Dashboard - 7
     public Float totalVentasDrogas();
 

@@ -27,4 +27,12 @@ public class DrogaController {
     public List<Droga> showAllTratamientos() {
         return drogaService.SearchAll();
     }
+
+    //http://localhost:8090/drogas/disponibles
+    @GetMapping("/disponibles")
+    @Operation(summary = "Mostrar todas las drogas disponibles")
+    public List<Droga> showDrogasDisponibles() {
+        //Buscar en el repositorio todas las drogas con unidades disponibles mayores a 0
+        return drogaService.findByUnidadesDisponiblesGreaterThan(0);
+    }
 }
