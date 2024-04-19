@@ -84,8 +84,13 @@ public class Databaseinit implements ApplicationRunner{
             if (numFoto == 6) {
                 numFoto = 0;
             }
-
-            mascotaRepository.save(new Mascota(nombre, raza, edad, peso, enfermedad, foto, "Disponible"));
+        
+            String estado = "Disponible";
+            if (i % 10 == 0) {
+                estado = "Inactivo";
+            }
+        
+            mascotaRepository.save(new Mascota(nombre, raza, edad, peso, enfermedad, foto, estado));
         }
         
         clienteRepository.save(new Cliente("1000000001", "Pedro", "Duran", "pedro@gmail.com", "12345671"));
