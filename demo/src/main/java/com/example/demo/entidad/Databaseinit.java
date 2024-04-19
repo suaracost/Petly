@@ -162,12 +162,12 @@ public class Databaseinit implements ApplicationRunner{
         
         veterinarioRepository.save(new Veterinario("1000000051", "Alexander", "García", "Petly123", "https://universidadeuropea.com/resources/media/images/medicina-veterinaria-1200x630.original.jpg", "General", 0, "Disponible"));
         veterinarioRepository.save(new Veterinario("1000000052", "Isabella", "Martínez", "Petly123", "https://bensvet.com.br/wp-content/uploads/2020/03/blog-5-passos-para-se-tornar-o-melhor-m%C3%A9dico-veterin%C3%A1rio.jpg", "Quirurgico", 0, "Disponible"));
-        veterinarioRepository.save(new Veterinario("1000000053", "Sebastián", "Rojas", "Petly456", "https://cdn979857.fac.mil.co/sites/default/files/2022-05/caman.jpg", "Intensivista", 0, "Disponible"));
-        veterinarioRepository.save(new Veterinario("1000000054", "Valentina", "López", "Petly456", "https://papelmatic.com/wp-content/uploads/2019/09/papelmatic-higiene-profesional-limpieza-desinfeccion-clinicas-veterinarias.jpg", "Medicina Interna", 0, "Disponible"));
-        veterinarioRepository.save(new Veterinario("1000000055", "Sofia", "Herrera", "Petly789", "https://t1.ea.ltmcdn.com/es/posts/3/6/3/cuando_llevar_a_mi_cachorro_al_veterinario_por_primera_vez_23363_600_square.jpg", "Dermatologo", 0, "Disponible"));
-        veterinarioRepository.save(new Veterinario("1000000056", "Mateo", "González", "Petly789", "https://media.mercola.com/ImageServer/Public/2016/July/hipotiroidismo-en-perros.jpg", "Quirurgico", 0, "Disponible"));
-        veterinarioRepository.save(new Veterinario("1000000057", "Natalia", "Silva", "Petly101", "https://www.himalayacentroamericana.com/sites/default/files/consultaveterinaria.jpg", "Medicina Interna", 0, "Disponible"));        
-        veterinarioRepository.save(new Veterinario("1000000058", "Leonardo", "Pérez", "Petly101", "https://eduka.occidente.co/wp-content/uploads/2022/04/Donde-estudiar-Medicina-Veterinaria.jpg", "Odontologo", 0, "Disponible"));
+        veterinarioRepository.save(new Veterinario("1000000053", "Sebastián", "Rojas", "Petly123", "https://cdn979857.fac.mil.co/sites/default/files/2022-05/caman.jpg", "Intensivista", 0, "Disponible"));
+        veterinarioRepository.save(new Veterinario("1000000054", "Valentina", "López", "Petly123", "https://papelmatic.com/wp-content/uploads/2019/09/papelmatic-higiene-profesional-limpieza-desinfeccion-clinicas-veterinarias.jpg", "Medicina Interna", 0, "Disponible"));
+        veterinarioRepository.save(new Veterinario("1000000055", "Sofia", "Herrera", "Petly123", "https://t1.ea.ltmcdn.com/es/posts/3/6/3/cuando_llevar_a_mi_cachorro_al_veterinario_por_primera_vez_23363_600_square.jpg", "Dermatologo", 0, "Disponible"));
+        veterinarioRepository.save(new Veterinario("1000000056", "Mateo", "González", "Petly123", "https://media.mercola.com/ImageServer/Public/2016/July/hipotiroidismo-en-perros.jpg", "Quirurgico", 0, "Disponible"));
+        veterinarioRepository.save(new Veterinario("1000000057", "Natalia", "Silva", "Petly123", "https://www.himalayacentroamericana.com/sites/default/files/consultaveterinaria.jpg", "Medicina Interna", 0, "Disponible"));        
+        veterinarioRepository.save(new Veterinario("1000000058", "Leonardo", "Pérez", "Petly123", "https://eduka.occidente.co/wp-content/uploads/2022/04/Donde-estudiar-Medicina-Veterinaria.jpg", "Odontologo", 0, "Inactivo"));
 
         
         try {
@@ -206,12 +206,29 @@ public class Databaseinit implements ApplicationRunner{
                 Tratamiento tratamiento = new Tratamiento();
                 tratamiento.setmascota(mascotaRepository.findById((long) i).get());
                 tratamiento.setveterinario(veterinarioRepository.findById((long) idVeterinario).get());
-                tratamiento.setdroga(drogaRepository.findById((long) idDroga).get());
+
+                //Crear tratamientos con drogas que tengan unidades disponibles
+                boolean flag = false;
+                while(flag == false){
+                    if(drogaRepository.findById((long) idDroga).get().getUnidadesDisponibles() != 0) {
+                        tratamiento.setdroga(drogaRepository.findById((long) idDroga).get());
+                        flag = true;
+                    }
+                    else
+                        idDroga = (int) (Math.random() * 523) + 1;
+                }
+                
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
                 LocalDate fechaLocalDate = LocalDate.parse(fecha, formatter);
                 tratamiento.setFecha(fechaLocalDate);
 
                 tratamientoRepository.save(tratamiento);
+
+                //Despues que se agrega la droga se hace la modificación en la base de datos
+                Droga droga = drogaRepository.findById((long) idDroga).get();
+                droga.setUnidadesDisponibles(droga.getUnidadesDisponibles() - 1);
+                droga.setUnidadesVendidas(droga.getUnidadesVendidas() + 1);
+                drogaRepository.save(droga);
             }
         }
         
