@@ -31,7 +31,7 @@ public class LoginController {
     public ResponseEntity<?> loginVeterinario(@RequestBody LoginDTO loginDTO){
         Veterinario vet = veterinarioService.SearchByCedula(loginDTO.getCedula());
         if(vet == null){
-            return ResponseEntity.badRequest().body("Cedula incorrecta");
+            return ResponseEntity.badRequest().body("Cedula ingresada no existe");
         }
         if(vet.getContrasena().equals(loginDTO.getContrasena())){
             return ResponseEntity.ok().body(vet.getId());
@@ -44,7 +44,7 @@ public class LoginController {
     public ResponseEntity<?> loginCliente(@RequestBody LoginDTO loginDTO){
         Cliente cliente = clienteService.SearchByCedula(loginDTO.getCedula());
         if(cliente == null){
-            return ResponseEntity.badRequest().body("Cedula incorrecta");
+            return ResponseEntity.badRequest().body("Cedula ingresada no existe");
         }
         return ResponseEntity.ok().body(cliente.getId());
     }
