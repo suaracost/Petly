@@ -90,6 +90,12 @@ public class DashboardController {
     @Operation(summary = "Mostrar el total de ventas de las drogas")
     public Float showTotalVentasDrogas() {
         return drogaService.totalVentasDrogas();
+    }    
+
+    //http://localhost:8090/dashboard/droga/top
+    @GetMapping("/droga/top")
+    @Operation(summary = "Mostrar el top tres de drogas vendidas")
+    public List<Object[]> showTopTresDrogasVendidas() {
+        return drogaService.topTresDrogasVendidas();
     }
-    
 }

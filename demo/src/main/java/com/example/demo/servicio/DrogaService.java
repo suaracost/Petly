@@ -25,4 +25,7 @@ public interface DrogaService {
 
     //Dashboard - 8
     public Float totalGananciasDrogas();
+
+    //Dashboard - 9
+    public List<Object[]> topTresDrogasVendidas();
 }
