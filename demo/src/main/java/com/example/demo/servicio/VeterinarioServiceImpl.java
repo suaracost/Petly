@@ -63,4 +63,9 @@ public class VeterinarioServiceImpl implements VeterinarioService{
     public Long countVeterinariosInactivos() {
         return repo.countVeterinariosInactivos();
     }
+
+    @Override
+    public Veterinario SearchByCedula(String cedula) {
+        return repo.findByCedula(cedula);
+    }
 }

@@ -9,6 +9,8 @@ import com.example.demo.entidad.Veterinario;
 @Repository
 public interface VeterinarioRepository extends JpaRepository<Veterinario, Long>{
 
+    Veterinario findByCedula(String cedula);
+
     //Dashboard - 3: Cantidad de veterinarios activos en la plataforma
     @Query("SELECT COUNT(v) FROM Veterinario v WHERE v.estado = 'Disponible'")
     Long countVeterinarios();

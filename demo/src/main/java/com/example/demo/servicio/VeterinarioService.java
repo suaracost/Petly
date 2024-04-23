@@ -5,6 +5,8 @@ import java.util.List;
 import com.example.demo.entidad.Veterinario;
 
 public interface VeterinarioService {
+
+    public Veterinario SearchByCedula(String cedula);
     
     public Veterinario SearchById(Long id);
 
