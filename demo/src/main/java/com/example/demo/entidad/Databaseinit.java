@@ -40,6 +40,7 @@ public class Databaseinit implements ApplicationRunner{
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+        //Creación de mascotas
         String[] nombresPerros = {
             "Max", "Bella", "Charlie", "Lucy", "Cooper", "Daisy", "Buddy", "Luna", "Rocky", "Lola",
             "Bailey", "Sadie", "Toby", "Molly", "Bear", "Maggie", "Duke", "Sophie", "Jake", "Chloe",
@@ -93,6 +94,7 @@ public class Databaseinit implements ApplicationRunner{
             mascotaRepository.save(new Mascota(nombre, raza, edad, peso, enfermedad, foto, estado));
         }
         
+        //Creacion de clientes
         clienteRepository.save(new Cliente("1000000001", "Pedro", "Duran", "pedro@gmail.com", "12345671"));
         clienteRepository.save(new Cliente("1000000002", "Juan", "Sanchez", "juan@gmail.com", "12345672"));
         clienteRepository.save(new Cliente("1000000003", "Maria", "Perez", "maria@gmail.com", "12345673"));
@@ -160,6 +162,8 @@ public class Databaseinit implements ApplicationRunner{
             }
         } 
         
+        //Creacion de veterinarios y el admin
+        veterinarioRepository.save(new Veterinario("1000000000", "Administrador", "Petly", "Admin", "", "Administrador", 0, "Admin"));
         veterinarioRepository.save(new Veterinario("1000000051", "Alexander", "García", "Petly123", "https://universidadeuropea.com/resources/media/images/medicina-veterinaria-1200x630.original.jpg", "General", 0, "Disponible"));
         veterinarioRepository.save(new Veterinario("1000000052", "Isabella", "Martínez", "Petly123", "https://bensvet.com.br/wp-content/uploads/2020/03/blog-5-passos-para-se-tornar-o-melhor-m%C3%A9dico-veterin%C3%A1rio.jpg", "Quirurgico", 0, "Disponible"));
         veterinarioRepository.save(new Veterinario("1000000053", "Sebastián", "Rojas", "Petly123", "https://cdn979857.fac.mil.co/sites/default/files/2022-05/caman.jpg", "Intensivista", 0, "Disponible"));
@@ -169,7 +173,7 @@ public class Databaseinit implements ApplicationRunner{
         veterinarioRepository.save(new Veterinario("1000000057", "Natalia", "Silva", "Petly123", "https://www.himalayacentroamericana.com/sites/default/files/consultaveterinaria.jpg", "Medicina Interna", 0, "Disponible"));        
         veterinarioRepository.save(new Veterinario("1000000058", "Leonardo", "Pérez", "Petly123", "https://eduka.occidente.co/wp-content/uploads/2022/04/Donde-estudiar-Medicina-Veterinaria.jpg", "Odontologo", 0, "Inactivo"));
 
-        
+        //Leer los tratamientos del archivo excel y guardarlos en la base de datos
         try {
             InputStream file = getClass().getClassLoader().getResourceAsStream("MEDICAMENTOS_VETERINARIA.xlsx"); 
             
@@ -196,9 +200,10 @@ public class Databaseinit implements ApplicationRunner{
             e.printStackTrace();
         }
 
+        //Creacion de tratamientos
         for (int i = 1; i <= 100; i++) {
             for (int j = 0; j < 3; j++) {
-                int idVeterinario = (int) (Math.random() * 8) + 1;
+                int idVeterinario = (int) (Math.random() * 8) + 2;
                 int idDroga = (int) (Math.random() * 523) + 1;
                 int mes = (int) (Math.random() * 12) + 1;
                 int dia = (int) (Math.random() * 30) + 1;
@@ -206,6 +211,11 @@ public class Databaseinit implements ApplicationRunner{
                 Tratamiento tratamiento = new Tratamiento();
                 tratamiento.setmascota(mascotaRepository.findById((long) i).get());
                 tratamiento.setveterinario(veterinarioRepository.findById((long) idVeterinario).get());
+
+                //Sumarle un numero de atención al veterinario
+                Veterinario vet = veterinarioRepository.findById((long) idVeterinario).get();
+                vet.setNumAtenciones(vet.getNumAtenciones() + 1);
+                veterinarioRepository.save(vet);
 
                 //Crear tratamientos con drogas que tengan unidades disponibles
                 boolean flag = false;
@@ -218,6 +228,7 @@ public class Databaseinit implements ApplicationRunner{
                         idDroga = (int) (Math.random() * 523) + 1;
                 }
                 
+                //Asignar la fecha de hoy
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");
                 LocalDate fechaLocalDate = LocalDate.parse(fecha, formatter);
                 tratamiento.setFecha(fechaLocalDate);
@@ -230,10 +241,6 @@ public class Databaseinit implements ApplicationRunner{
                 droga.setUnidadesVendidas(droga.getUnidadesVendidas() + 1);
                 drogaRepository.save(droga);
             }
-        }
-        
-        
-        
+        }   
     }
-    
 }

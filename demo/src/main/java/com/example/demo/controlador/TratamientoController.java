@@ -73,18 +73,19 @@ public class TratamientoController {
         tratamiento.setFecha(fecha);
 
         Veterinario vet = veterinarioService.SearchById(id_veterinario);
+        //Agregar una atencion al veterinario
+        vet.setNumAtenciones(vet.getNumAtenciones()+1);
+        veterinarioService.add(vet);
         tratamiento.setveterinario(vet);
 
         Mascota pet = mascotaService.SearchById(id_pet);
         tratamiento.setmascota(pet);
         
         Droga drug = drogaService.SearchByNombre(nombre);
-
         //Actualizar unidades disponibles y vendidas
         drug.setUnidadesDisponibles(drug.getUnidadesDisponibles()-1);
         drug.setUnidadesVendidas(drug.getUnidadesVendidas()+1);
         drogaService.add(drug);
-
         tratamiento.setdroga(drug);
 
         tratamientoService.add(tratamiento);

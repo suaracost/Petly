@@ -30,7 +30,11 @@ public class VeterinarioController {
     @GetMapping("/all")
     @Operation(summary = "Mostrar todos los veterinarios")
     public List<Veterinario> showAllVets() {
-        return veterinarioService.SearchAll();
+
+        List<Veterinario> veterinarios = veterinarioService.SearchAll();
+        veterinarios.remove(0);
+        
+        return veterinarios;
     }
 
     //http://localhost:8090/veterinario/find/1
