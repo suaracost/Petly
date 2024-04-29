@@ -8,18 +8,24 @@ import java.time.format.DateTimeFormatter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 
 import com.example.demo.repositorio.ClienteRepository;
 import com.example.demo.repositorio.MascotaRepository;
 import com.example.demo.repositorio.TratamientoRepository;
 import com.example.demo.repositorio.VeterinarioRepository;
+
+import jakarta.transaction.Transactional;
+
 import com.example.demo.repositorio.DrogaRepository;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 @Controller
+@Transactional
+@Profile("default")
 public class Databaseinit implements ApplicationRunner{
 
     @Autowired
@@ -173,7 +179,7 @@ public class Databaseinit implements ApplicationRunner{
         veterinarioRepository.save(new Veterinario("1000000057", "Natalia", "Silva", "Petly123", "https://www.himalayacentroamericana.com/sites/default/files/consultaveterinaria.jpg", "Medicina Interna", 0, "Disponible"));        
         veterinarioRepository.save(new Veterinario("1000000058", "Leonardo", "Pérez", "Petly123", "https://eduka.occidente.co/wp-content/uploads/2022/04/Donde-estudiar-Medicina-Veterinaria.jpg", "Odontologo", 0, "Inactivo"));
 
-        //Leer los tratamientos del archivo excel y guardarlos en la base de datos
+        //Leer las drogas del archivo excel y guardarlos en la base de datos
         try {
             InputStream file = getClass().getClassLoader().getResourceAsStream("MEDICAMENTOS_VETERINARIA.xlsx"); 
             
