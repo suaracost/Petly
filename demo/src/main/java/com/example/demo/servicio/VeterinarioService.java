@@ -14,11 +14,11 @@ public interface VeterinarioService {
 
     public void deleteById(Long id);
 
-    public void update(Veterinario veterinario);
+    public Veterinario update(Veterinario veterinario);
 
-    public void add(Veterinario veterinario);
+    public Veterinario add(Veterinario veterinario);
 
-    public void updateState(Long id);
+    public Veterinario updateState(Long id);
 
     //Dashboard - 3
     public Long countVeterinarios();

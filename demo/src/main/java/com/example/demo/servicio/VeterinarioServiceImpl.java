@@ -32,17 +32,17 @@ public class VeterinarioServiceImpl implements VeterinarioService{
     };
 
     @Override
-    public void update(Veterinario veterinario) {
-        repo.save(veterinario);
+    public Veterinario update(Veterinario veterinario) {
+        return repo.save(veterinario);
     };
 
     @Override
-    public void add(Veterinario veterinario) {
-        repo.save(veterinario);
+    public Veterinario add(Veterinario veterinario) {
+        return repo.save(veterinario);
     };
 
     @Override
-    public void updateState(Long id) {
+    public Veterinario updateState(Long id) {
         //Hacer un update de la mascota con el id que se recibe y cambiar el estado, de disponible a inactivo o viceversa
         Veterinario vet = repo.findById(id).get();
 
@@ -51,7 +51,7 @@ public class VeterinarioServiceImpl implements VeterinarioService{
         else
         vet.setEstado("Disponible");
 
-        repo.save(vet);
+        return repo.save(vet);
     }
 
     @Override

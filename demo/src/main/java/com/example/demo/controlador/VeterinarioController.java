@@ -3,6 +3,8 @@ package com.example.demo.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,40 +31,71 @@ public class VeterinarioController {
     //http://localhost:8090/veterinario/all
     @GetMapping("/all")
     @Operation(summary = "Mostrar todos los veterinarios")
-    public List<Veterinario> showAllVets() {
+    public ResponseEntity<List<Veterinario>> showAllVets() {
 
         List<Veterinario> veterinarios = veterinarioService.SearchAll();
         veterinarios.remove(0);
+
+        //Se envia el codigo de respuesta y la lista de veterinarios encontrada
+        ResponseEntity<List<Veterinario>> response = new ResponseEntity<List<Veterinario>>(veterinarios, HttpStatus.OK);
         
-        return veterinarios;
+        return response;
     }
 
     //http://localhost:8090/veterinario/find/1
     @GetMapping("/find/{id}")
     @Operation(summary = "Encontrar un veterinario dado su id")
-    public Veterinario showVet(@PathVariable Long id) {
-        return veterinarioService.SearchById(id);
+    public ResponseEntity<Veterinario> showVet(@PathVariable Long id) {
+
+        Veterinario vet = veterinarioService.SearchById(id);
+
+        if (vet == null) {
+            return new ResponseEntity<Veterinario>(vet, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Veterinario>(vet, HttpStatus.OK);
     }
 
     //http://localhost:8090/veterinario/add
     @PostMapping("/add")
     @Operation(summary = "Agregar un veterinario")
-    public void addVet(@RequestBody Veterinario veterinario){
-        veterinarioService.add(veterinario);
+    public ResponseEntity<Veterinario> addVet(@RequestBody Veterinario veterinario){
+
+        Veterinario vet = veterinarioService.add(veterinario);
+
+        if (vet == null) {
+            return new ResponseEntity<Veterinario>(vet, HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<Veterinario>(vet, HttpStatus.CREATED);
     }
 
     //http://localhost:8090/veterinario/delete/1
     @DeleteMapping("/delete/{id}")
     @Operation(summary = "Eliminar un veterinario dado su id")
-    public void deleteVet(@PathVariable Long id){
+    public ResponseEntity<String> deleteVet(@PathVariable Long id){
+        Veterinario vet = veterinarioService.SearchById(id);
+
+        if (vet == null) {
+            return new ResponseEntity<String>("VETERINARIO NOT FOUND", HttpStatus.NOT_FOUND);
+        }
+
         veterinarioService.updateState(id);
+
+        return new ResponseEntity<>("STATE UPDATED", HttpStatus.OK);
     }
 
     //http://localhost:8090/veterinario/update
+    //TODO: Preguntar profe
     @PutMapping("/update")
     @Operation(summary = "Actualizar un veterinario")
-    public void updateVet(@RequestBody Veterinario veterinario){
-        veterinarioService.update(veterinario);
+    public ResponseEntity<Veterinario> updateVet(@RequestBody Veterinario veterinario){
+        Veterinario vetUpdated = veterinarioService.update(veterinario);
+
+        if (vetUpdated == null) {
+            return new ResponseEntity<Veterinario>(vetUpdated, HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>(vetUpdated, HttpStatus.OK);
     }
     
 }
