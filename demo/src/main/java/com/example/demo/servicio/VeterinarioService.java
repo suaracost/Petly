@@ -20,6 +20,9 @@ public interface VeterinarioService {
 
     public Veterinario updateState(Long id);
 
+    //Buscar veterinarios que no sean el admin
+    List<Veterinario> findByEspecialidadNotAdmin();
+
     //Dashboard - 3
     public Long countVeterinarios();
 

@@ -68,4 +68,9 @@ public class VeterinarioServiceImpl implements VeterinarioService{
     public Veterinario SearchByCedula(String cedula) {
         return repo.findByCedula(cedula);
     }
+
+    @Override
+    public List<Veterinario> findByEspecialidadNotAdmin() {
+        return repo.findByEspecialidadNot("Administrador");
+    }
 }

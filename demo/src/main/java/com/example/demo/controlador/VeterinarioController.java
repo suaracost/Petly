@@ -33,11 +33,10 @@ public class VeterinarioController {
     @Operation(summary = "Mostrar todos los veterinarios")
     public ResponseEntity<List<Veterinario>> showAllVets() {
 
-        List<Veterinario> veterinarios = veterinarioService.SearchAll();
-        veterinarios.remove(0);
+        List<Veterinario> veterinarios = veterinarioService.findByEspecialidadNotAdmin();
 
         //Se envia el codigo de respuesta y la lista de veterinarios encontrada
-        ResponseEntity<List<Veterinario>> response = new ResponseEntity<List<Veterinario>>(veterinarios, HttpStatus.OK);
+        ResponseEntity<List<Veterinario>> response = new ResponseEntity<>(veterinarios, HttpStatus.OK);
         
         return response;
     }
@@ -85,7 +84,6 @@ public class VeterinarioController {
     }
 
     //http://localhost:8090/veterinario/update
-    //TODO: Preguntar profe
     @PutMapping("/update")
     @Operation(summary = "Actualizar un veterinario")
     public ResponseEntity<Veterinario> updateVet(@RequestBody Veterinario veterinario){
