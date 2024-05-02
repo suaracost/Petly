@@ -16,15 +16,12 @@ import com.example.demo.repositorio.MascotaRepository;
 import com.example.demo.repositorio.TratamientoRepository;
 import com.example.demo.repositorio.VeterinarioRepository;
 
-import jakarta.transaction.Transactional;
-
 import com.example.demo.repositorio.DrogaRepository;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 @Controller
-@Transactional
 @Profile("default")
 public class Databaseinit implements ApplicationRunner{
 

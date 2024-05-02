@@ -199,7 +199,7 @@ public class MascotaRepositoryTest {
     public void MascotaRepository_updateById_Mascota() {
 
         //arrange
-        Long index = 1L;
+        Long index = 1l;
 
         //act
         Mascota mascota = mascotaRepository.findById(index).get();
