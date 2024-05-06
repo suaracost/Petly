@@ -98,9 +98,9 @@ public class Databaseinit implements ApplicationRunner{
         }
         
         //Creacion de clientes
-        clienteRepository.save(new Cliente("1000000001", "Pedro", "Duran", "pedro@gmail.com", "12345671"));
-        clienteRepository.save(new Cliente("1000000002", "Juan", "Sanchez", "juan@gmail.com", "12345672"));
-        clienteRepository.save(new Cliente("1000000003", "Maria", "Perez", "maria@gmail.com", "12345673"));
+        clienteRepository.save(new Cliente("1000000001", "Alejandro", "Suarez", "alejandroesuareza@javeriana.edu.co", "12345671"));
+        clienteRepository.save(new Cliente("1000000002", "Hermann", "Hernandez", "hd.hernandez@javeriana.edu.co", "12345672"));
+        clienteRepository.save(new Cliente("1000000003", "Nicolas", "Rincon", "ni.rincon@javeriana.edu.co", "12345673"));
         clienteRepository.save(new Cliente("1000000004", "Luis", "Ramirez", "luis@gmail.com", "12345674"));
         clienteRepository.save(new Cliente("1000000005", "Ana", "Lopez", "ana@gmail.com", "12345675"));
         clienteRepository.save(new Cliente("1000000006", "Jose", "Gonzalez", "jose@gmail.com", "12345676"));
