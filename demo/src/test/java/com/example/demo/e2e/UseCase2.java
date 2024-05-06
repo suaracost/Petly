@@ -79,6 +79,10 @@ public class UseCase2 {
         //Espera que cargue la pagina principal
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className("elemento")));
 
+        //Busca la mascota
+        WebElement inputMascota = driver.findElement(By.id("myInput"));
+        inputMascota.sendKeys("Venus");
+
         //Le da al boton de ver detalles de una mascota
         WebElement infoButton = wait.until(ExpectedConditions.elementToBeClickable(By.className("informa")));
         JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -100,6 +104,10 @@ public class UseCase2 {
 
         //Espera que cargue la pagina
         wait.until(ExpectedConditions.presenceOfElementLocated(By.className("elemento")));
+
+        //Busca la mascota
+        WebElement inputMascota2 = driver.findElement(By.id("myInput"));
+        inputMascota2.sendKeys("Venus");
 
         //Le da al boton de ver detalles de una mascota
         WebElement infoButton2 = wait.until(ExpectedConditions.elementToBeClickable(By.className("informa")));

@@ -72,7 +72,13 @@ public class DatabaseinitTest implements ApplicationRunner{
         int numFoto = 0;
 
         for (int i = 1; i <= 10; i++) {
-            String nombre = nombresPerros[(int) (Math.random() * 50) ];
+            String nombre;
+
+            if(i==1)
+                nombre = "Venus";
+            else
+                nombre = nombresPerros[(int) (Math.random() * 50) ];
+
             String raza = razasPerros[(int) (Math.random() * 25)];
             int edad = (int) (Math.random() * 15);
             float peso = (float) (Math.round(((Math.random() * 20) + 5) * 10) / 10.0);
