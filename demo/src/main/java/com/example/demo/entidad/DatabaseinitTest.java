@@ -124,7 +124,7 @@ public class DatabaseinitTest implements ApplicationRunner{
 
         //Leer las drogas del archivo excel y guardarlos en la base de datos
         try {
-            InputStream file = getClass().getClassLoader().getResourceAsStream("MEDICAMENTOS_VETERINARIA.xlsx"); 
+            InputStream file = getClass().getClassLoader().getResourceAsStream("MEDICAMENTOS_VETERINARIA_TEST.xlsx");
             
             Workbook workbook = new XSSFWorkbook(file);
             Sheet sheet = workbook.getSheet("MEDICAMENTOS BD FINAL");
@@ -152,8 +152,8 @@ public class DatabaseinitTest implements ApplicationRunner{
         //Creacion de tratamientos
         for (int i = 1; i <= 10; i++) {
             int idVeterinario = (int) (Math.random() * 8) + 2;
-            int idDroga = (int) (Math.random() * 523) + 1;
-            int mes = (int) (Math.random() * 12) + 1;
+            int idDroga = (int) (Math.random() * 24) + 1;
+            int mes = 5;
             int dia = (int) (Math.random() * 30) + 1;
             String fecha = dia + "-" + mes + "-2024"; // Cambia la fecha según sea necesario
             Tratamiento tratamiento = new Tratamiento();

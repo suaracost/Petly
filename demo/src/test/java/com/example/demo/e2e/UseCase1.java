@@ -2,6 +2,7 @@ package com.example.demo.e2e;
 
 import java.time.Duration;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -40,7 +41,7 @@ public class UseCase1 {
     }
 
     @Test
-    public void SystemTest_RegisterPet_Login() {
+    public void SystemTest_UseCase_Complete() {
         //Busca pagina y la maximiza
         driver.get(BASE_URL + "login/veterinario");
         driver.manage().window().maximize();
@@ -60,7 +61,6 @@ public class UseCase1 {
         WebElement botonVolver = wait.until(ExpectedConditions.elementToBeClickable(By.className("swal2-confirm")));
         botonVolver.click();
 
-        //Ingresa el la contraseña correcta
         inputContra.sendKeys("3");
         botonInicio.click();
 
@@ -132,11 +132,9 @@ public class UseCase1 {
         WebElement botonVolver2 = wait.until(ExpectedConditions.elementToBeClickable(By.className("swal2-confirm")));
         botonVolver2.click();
 
-        //Ingresa la cedula bien
         inputCedulaRegistro.sendKeys("9");
         registerButton.click();
 
-        //Confirma el registro
         WebElement botonRegistrar2 = wait.until(ExpectedConditions.elementToBeClickable(By.className("swal2-confirm")));
         botonRegistrar2.click();
 
@@ -165,9 +163,9 @@ public class UseCase1 {
         verInfoMascota.click();
     }
 
-    //No me gusta dejar codigo comentado pero por ahora es necesario
-    /*@AfterEach
+    @AfterEach
     void tearDown() {
-        driver.quit();
-    }*/
+        //TODO: quitar comentario
+        //driver.quit();
+    }
 }
