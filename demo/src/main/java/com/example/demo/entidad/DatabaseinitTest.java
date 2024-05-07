@@ -99,7 +99,7 @@ public class DatabaseinitTest implements ApplicationRunner{
         }
         
         //Creacion de clientes
-        clienteRepository.save(new Cliente("1000000001", "Pedro", "Duran", "pedro@gmail.com", "12345671"));
+        clienteRepository.save(new Cliente("1000000001", "Pedro", "Duran", "alejandroesuareza@javeriana.edu.co", "12345671"));
         clienteRepository.save(new Cliente("1000000002", "Juan", "Sanchez", "juan@gmail.com", "12345672"));
         clienteRepository.save(new Cliente("1000000003", "Maria", "Perez", "maria@gmail.com", "12345673"));
         clienteRepository.save(new Cliente("1000000004", "Luis", "Ramirez", "luis@gmail.com", "12345674"));

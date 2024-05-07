@@ -152,7 +152,6 @@ public class UseCase2 {
 
     @AfterEach
     void tearDown() {
-        //TODO: quitar comentario
-        //driver.quit();
+        driver.quit();
     }
 }
