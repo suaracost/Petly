@@ -61,4 +61,10 @@ public class TratamientoServiceImpl implements TratamientoService{
     public List<Object[]> countTratamientosPorDroga() {
         return repo.countTratamientosPorDroga();
     }
+
+    @Override
+    public List<Object[]> tratamientosMensualesAnio() { return repo.tratamientosMensualesAnio(); }
+
+    @Override
+    public List<Object[]> gananciasMensualesAnio() { return repo.gananciasMensualesAnio(); }
 }

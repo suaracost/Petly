@@ -3,10 +3,7 @@ package com.example.demo.controlador;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.DrogaService;
@@ -98,4 +95,15 @@ public class DashboardController {
     public List<Object[]> showTopTresDrogasVendidas() {
         return drogaService.topTresDrogasVendidas();
     }
+
+    //http://localhost:8090/dashboard/reporte/anual
+    @GetMapping("/reporte/anual")
+    @Operation(summary = "Mostrar el reporte anual de tratamientos, separado por mes")
+    public List<Object[]> showReporteMensual() { return tratamientoService.tratamientosMensualesAnio(); }
+
+    //http://localhost:8090/dashboard/ganancias/mensuales
+    @GetMapping("/ganancias/mensuales")
+    @Operation(summary = "Mostrar las ganancias mensuales de la veterinaria")
+    public List<Object[]> showGananciasMensuales() { return tratamientoService.gananciasMensualesAnio(); }
+
 }

@@ -25,4 +25,10 @@ public interface TratamientoService {
 
     //Dashboard - 2
     public List<Object[]> countTratamientosPorDroga();
+
+    //Query para el reporte mensual
+    public List<Object[]> tratamientosMensualesAnio();
+
+    //Query para las ganancias anuales por mes
+    public List<Object[]> gananciasMensualesAnio();
 }
