@@ -59,4 +59,7 @@ public class DrogaServiceIpml implements DrogaService{
     public List<Object[]> topTresDrogasVendidas() {
         return repo.topTresDrogasVendidas();
     };
+
+    @Override
+    public List<Object[]> gastosIngresos() { return repo.gastosIngresos(); };
 }

@@ -102,8 +102,13 @@ public class DashboardController {
     public List<Object[]> showReporteMensual() { return tratamientoService.tratamientosMensualesAnio(); }
 
     //http://localhost:8090/dashboard/ganancias/mensuales
-    @GetMapping("/ganancias/mensuales")
+    @GetMapping("/ventas/mensuales")
     @Operation(summary = "Mostrar las ganancias mensuales de la veterinaria")
     public List<Object[]> showGananciasMensuales() { return tratamientoService.gananciasMensualesAnio(); }
+
+    //http://localhost:8090/dashboard/gastos/ingresos
+    @GetMapping("/gastos/ingresos")
+    @Operation(summary = "Mostrar los ingresos y gastos de la veterinaria")
+    public List<Object[]> showGastosIngresos() { return drogaService.gastosIngresos(); }
 
 }

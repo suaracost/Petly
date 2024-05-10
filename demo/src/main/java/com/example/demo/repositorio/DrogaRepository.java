@@ -26,4 +26,8 @@ public interface DrogaRepository extends JpaRepository<Droga, Long>{
     //Dashboard - 9: Top tres tratamientos con mas unidades vendidas
     @Query(value = "SELECT d.nombre, SUM(d.unidades_vendidas) FROM droga d GROUP BY d.nombre ORDER BY SUM(d.unidades_vendidas) DESC LIMIT 3", nativeQuery = true)
     List<Object[]> topTresDrogasVendidas();
+
+    //Query para gastos vs ingresos
+    @Query(value = "SELECT SUM(unidades_vendidas*precio_compra) as gastos, SUM(unidades_vendidas*precio_venta) as ingresos FROM (SELECT unidades_vendidas, precio_compra, precio_venta FROM droga GROUP BY nombre)", nativeQuery = true)
+    List<Object[]> gastosIngresos();
 }

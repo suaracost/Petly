@@ -28,4 +28,6 @@ public interface DrogaService {
 
     //Dashboard - 9
     public List<Object[]> topTresDrogasVendidas();
+
+    public List<Object[]> gastosIngresos();
 }

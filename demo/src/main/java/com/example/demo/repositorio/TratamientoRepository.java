@@ -27,6 +27,7 @@ public interface TratamientoRepository extends JpaRepository<Tratamiento, Long>{
     @Query(value = "SELECT MONTH(t.fecha), d.nombre, COUNT(*) FROM tratamiento t INNER JOIN droga d ON t.droga_id = d.id WHERE YEAR(t.fecha) = YEAR(CURRENT_DATE()) GROUP BY MONTH(t.fecha), d.nombre ORDER BY MONTH(t.fecha) ASC", nativeQuery = true)
     List<Object[]> tratamientosMensualesAnio();
 
+    //Query para ventas mensuales
     @Query(value = "Select mes, sum(unidades*precio_venta) from (SELECT MONTH(t.fecha) as mes, d.nombre, COUNT(*) as unidades, d.precio_venta FROM tratamiento t INNER JOIN droga d ON t.droga_id = d.id WHERE YEAR(t.fecha) = YEAR(CURRENT_DATE()) GROUP BY MONTH(t.fecha), d.nombre ORDER BY MONTH(t.fecha) ASC) group by mes", nativeQuery = true)
-    List<Object[]> gananciasMensualesAnio();
+    List<Object[]> ventasMensualesAnio();
 }
