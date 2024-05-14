@@ -8,11 +8,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Tratamiento {
 
-    //! Creo que se deberia cambiar a tipo LocalDate
     private LocalDate fecha;
     @Id
     @GeneratedValue
@@ -36,57 +39,11 @@ public class Tratamiento {
     @Nonnull
     private Droga droga;
 
-    public Tratamiento() {
-    }
-
     public Tratamiento(LocalDate fecha, Mascota mascota, Veterinario veterinario, Droga droga) {
         this.fecha = fecha;
         this.mascota = mascota;
         this.veterinario = veterinario;
         this.droga = droga;
     }
-
-    public LocalDate getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
-    }
-
-    public Mascota getmascota() {
-        return mascota;
-    }
-
-    public void setmascota(Mascota mascota) {
-        this.mascota = mascota;
-    }
-
-    public Veterinario getveterinario() {
-        return veterinario;
-    }
-
-    public void setveterinario(Veterinario veterinario) {
-        this.veterinario = veterinario;
-    }
-
-    public Droga getdroga() {
-        return droga;
-    }
-
-    public void setdroga(Droga droga) {
-        this.droga = droga;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    
-
     
 }

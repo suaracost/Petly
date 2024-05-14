@@ -116,9 +116,9 @@ public class TratamientoServiceTestNaive {
 
         // act
         Tratamiento tratamiento = new Tratamiento();
-        tratamiento.setmascota(mascota);
-        tratamiento.setveterinario(veterinario);
-        tratamiento.setdroga(droga);
+        tratamiento.setMascota(mascota);
+        tratamiento.setVeterinario(veterinario);
+        tratamiento.setDroga(droga);
         tratamiento.setFecha(fechaLocalDate);
 
         tratamientoService.add(tratamiento);
@@ -152,9 +152,9 @@ public class TratamientoServiceTestNaive {
 
         // act
         Tratamiento tratamiento = new Tratamiento();
-        tratamiento.setmascota(mascota);
-        tratamiento.setveterinario(veterinario);
-        tratamiento.setdroga(droga);
+        tratamiento.setMascota(mascota);
+        tratamiento.setVeterinario(veterinario);
+        tratamiento.setDroga(droga);
         tratamiento.setFecha(fechaLocalDate);
 
         tratamientoService.add(tratamiento);
