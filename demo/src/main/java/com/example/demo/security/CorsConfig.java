@@ -1,3 +1,4 @@
+//TODO: Hermann si esto lo necesitas revisalo bien
 package com.example.demo.security;
 
 import java.util.Arrays;
@@ -15,7 +16,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 public class CorsConfig {
 
     //! Preguntar al profesor por qué no funciona con FilterRegistrationBean
-    /*@Bean
+    /*
+    @Bean
     public FilterRegistrationBean<CorsFilter> corsFilter() {
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -41,7 +43,8 @@ public class CorsConfig {
 
         bean.setOrder(-102);
         return bean;
-    }*/
+    }
+    */
 
     @Bean
     public CorsFilter corsFilter() {

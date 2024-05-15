@@ -24,6 +24,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Veterinario {
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
     @OneToOne(cascade = CascadeType.ALL)
     private UserEntity user;
 
@@ -35,9 +39,6 @@ public class Veterinario {
     private String especialidad;
     private int numAtenciones;
     private String estado;
-    @Id
-    @GeneratedValue
-    private Long id;
 
     //Relacion con la tabla tratamiento para representar los tratamientos que ha hecho el veterinario
     @JsonIgnore

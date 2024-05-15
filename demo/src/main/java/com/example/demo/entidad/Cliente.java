@@ -3,6 +3,8 @@ package com.example.demo.entidad;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +19,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Cliente {
 
+    @Id
+    @GeneratedValue
+    private Long id;
+
     @OneToOne(cascade = CascadeType.ALL)
     private UserEntity user;
     
@@ -25,9 +31,6 @@ public class Cliente {
     private String apellido;
     private String correo;
     private String celular;
-    @Id
-    @GeneratedValue
-    private Long id;
 
     //Relacion con la tabla mascota para representar las mascotas que tiene el cliente
     //@JsonIgnore
