@@ -23,7 +23,7 @@ public class Cliente {
     @GeneratedValue
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private UserEntity user;
     
     private String cedula;
