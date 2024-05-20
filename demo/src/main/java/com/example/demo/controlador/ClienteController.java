@@ -4,12 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entidad.Cliente;
 import com.example.demo.entidad.Mascota;
+import com.example.demo.entidad.UserEntity;
+import com.example.demo.repositorio.UserRepository;
+import com.example.demo.security.CustomUserDetailService;
 import com.example.demo.servicio.ClienteService;
 import com.example.demo.servicio.MascotaService;
 
@@ -35,12 +42,34 @@ public class ClienteController {
     @Autowired
     MascotaService mascotaService;
 
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    private CustomUserDetailService customUserDetailService;
+
     //http://localhost:8090/cliente/all
     @GetMapping("/all")
     @Operation(summary = "Mostrar todos los clientes")
     public List<Cliente> showAllClients(Model model) {
 
         return clienteService.SearchAll();
+
+    }
+
+    //http://localhost:8090/cliente/details
+    @GetMapping("/details")
+    public ResponseEntity<Cliente> buscarCliente() {
+        
+        Cliente cliente = clienteService.SearchByCedula(
+            SecurityContextHolder.getContext().getAuthentication().getName()
+        );
+
+        if (cliente == null) {
+            return new ResponseEntity<Cliente>(cliente, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<Cliente>(cliente, HttpStatus.OK);
 
     }
 
@@ -65,9 +94,23 @@ public class ClienteController {
     //http://localhost:8090/cliente/agregar
     @PostMapping("/agregar")
     @Operation(summary = "Agregar un cliente")
-    public void agregarCliente(@RequestBody Cliente cliente) {
+    public ResponseEntity agregarCliente(@RequestBody Cliente cliente) {
+        
+        //clienteService.add(cliente);
+        
+        if(userRepository.existsByUsername(cliente.getCedula())){
+            return new ResponseEntity<String>("Este usuario ya existe", HttpStatus.BAD_REQUEST);
+        }
 
-        clienteService.add(cliente);
+        UserEntity userEntity = customUserDetailService.ClienteToUser(cliente);
+        cliente.setUser(userEntity);
+        Cliente newCliente = clienteService.add(cliente);
+
+        if (newCliente == null) {
+            return new ResponseEntity<Cliente>(newCliente, HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<Cliente>(newCliente, HttpStatus.CREATED);        
 
     }
 

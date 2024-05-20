@@ -451,7 +451,7 @@ public class Databaseinit implements ApplicationRunner{
 
     private UserEntity ClientToUser (Cliente cliente) {
         UserEntity user = new UserEntity();
-        user.setUsername(cliente.getCorreo());
+        user.setUsername(cliente.getCedula());
         user.setPassword(passwordEncoder.encode("123"));
         Role roles = roleRepository.findByName("Cliente").get();
         user.setRoles(List.of(roles));

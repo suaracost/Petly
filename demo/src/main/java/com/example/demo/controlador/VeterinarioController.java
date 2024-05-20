@@ -1,10 +1,12 @@
 package com.example.demo.controlador;
 
+import java.security.Security;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DTO.VeterinarioDTO;
 import com.example.demo.DTO.VeterinarioMapper;
+import com.example.demo.entidad.UserEntity;
 import com.example.demo.entidad.Veterinario;
+import com.example.demo.repositorio.UserRepository;
+import com.example.demo.security.CustomUserDetailService;
 import com.example.demo.servicio.VeterinarioService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,6 +34,12 @@ public class VeterinarioController {
 
     @Autowired
     VeterinarioService veterinarioService;
+
+    @Autowired
+    UserRepository userRepository;
+
+    @Autowired
+    private CustomUserDetailService customUserDetailService;
 
     //http://localhost:8090/veterinario/all
     @GetMapping("/all")
@@ -42,6 +53,22 @@ public class VeterinarioController {
         ResponseEntity<List<VeterinarioDTO>> response = new ResponseEntity<>(veterinariosDTO, HttpStatus.OK);
         
         return response;
+    }
+
+    @GetMapping("/details")
+    public ResponseEntity<VeterinarioDTO> buscarVeterinario() {
+
+        Veterinario veterinario = veterinarioService.SearchByCedula(
+            SecurityContextHolder.getContext().getAuthentication().getName()
+        );
+
+        VeterinarioDTO veterinarioDTO = VeterinarioMapper.INSTANCE.convert(veterinario);
+
+        if (veterinario == null) {
+            return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<VeterinarioDTO>(veterinarioDTO, HttpStatus.OK);
     }
 
     //http://localhost:8090/veterinario/find/1
@@ -61,8 +88,9 @@ public class VeterinarioController {
     //http://localhost:8090/veterinario/add
     @PostMapping("/add")
     @Operation(summary = "Agregar un veterinario")
-    public ResponseEntity<VeterinarioDTO> addVet(@RequestBody Veterinario veterinario){
+    public ResponseEntity addVet(@RequestBody Veterinario veterinario){
 
+        /*
         Veterinario vet = veterinarioService.add(veterinario);
         VeterinarioDTO vetDTO = VeterinarioMapper.INSTANCE.convert(vet);
 
@@ -71,6 +99,24 @@ public class VeterinarioController {
         }
 
         return new ResponseEntity<VeterinarioDTO>(vetDTO, HttpStatus.CREATED);
+        */
+
+        
+        if(userRepository.existsByUsername(veterinario.getCedula())){
+            return new ResponseEntity<String>("Este usuario ya existe", HttpStatus.BAD_REQUEST);
+        }
+        UserEntity userEntity = customUserDetailService.VeterinarioToUser(veterinario);
+        veterinario.setUser(userEntity);
+        
+        Veterinario veterinarioDB = veterinarioService.add(veterinario);
+        VeterinarioDTO newVeterinario = VeterinarioMapper.INSTANCE.convert(veterinarioDB);
+
+        if (newVeterinario == null) {
+            return new ResponseEntity<VeterinarioDTO>(newVeterinario, HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<VeterinarioDTO>(newVeterinario, HttpStatus.CREATED);
+
     }
 
     //http://localhost:8090/veterinario/delete/1
