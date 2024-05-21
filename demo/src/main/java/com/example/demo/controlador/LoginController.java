@@ -53,6 +53,10 @@ public class LoginController {
         return ResponseEntity.badRequest().body("Contraseña incorrecta");
         */
 
+        System.out.println("\n \n");
+        System.out.println("Entrando al login veterinario" + veterinario.getCedula() + " " + veterinario.getContrasena());
+        System.out.println("\n \n");
+
         Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(veterinario.getCedula(), veterinario.getContrasena())
         );
@@ -60,6 +64,10 @@ public class LoginController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = jwtGenerator.generateToken(authentication);
+
+        System.out.println("\n \n");
+        System.out.println("El token generado es: " + token);
+        System.out.println("\n \n");
 
         return new ResponseEntity<String>(token, HttpStatus.OK);
     }

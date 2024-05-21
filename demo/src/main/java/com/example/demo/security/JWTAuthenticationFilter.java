@@ -31,6 +31,11 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
         String token = getJWT(request);
 
         if(token != null && jwtGenerator.validateToken(token)) {
+
+            System.out.println("\n \n");
+            System.out.println("Entrando a la validacion del token");
+            System.out.println("\n \n");
+
             String username = jwtGenerator.extractUsername(token);
             UserDetails userDetails = customUserDetailService.loadUserByUsername(username);
 

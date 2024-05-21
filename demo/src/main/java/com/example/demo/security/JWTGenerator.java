@@ -40,9 +40,15 @@ public class JWTGenerator {
 
     public boolean validateToken(String token){
         try{
+            System.out.println("\n \n");
+            System.out.println("Token valido: " + token);
+            System.out.println("\n \n");
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;
         }catch(Exception e){
+            System.out.println("\n \n");
+            System.out.println("Token invalido: " + e.getMessage());
+            System.out.println("\n \n");
             return false;
         }
     }

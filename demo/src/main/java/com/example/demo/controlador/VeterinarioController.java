@@ -55,8 +55,13 @@ public class VeterinarioController {
         return response;
     }
 
+    //http://localhost:8090/veterinario/details
     @GetMapping("/details")
     public ResponseEntity<VeterinarioDTO> buscarVeterinario() {
+
+        System.out.println("\n \n");
+        System.out.println("Entrando a details de un veterinario " + SecurityContextHolder.getContext().getAuthentication().getName());
+        System.out.println("\n \n");
 
         Veterinario veterinario = veterinarioService.SearchByCedula(
             SecurityContextHolder.getContext().getAuthentication().getName()
