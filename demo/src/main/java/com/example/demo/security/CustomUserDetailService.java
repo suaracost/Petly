@@ -81,5 +81,11 @@ public class CustomUserDetailService implements UserDetailsService{
         user.setRoles(List.of(roles));
         return userRepository.save(user);
     }
+
+    public UserEntity VeterinarioToUserUpdate(Veterinario veterinario){
+        UserEntity user = userRepository.findByUsername(veterinario.getCedula()).get();
+        user.setPassword(passwordEncoder.encode(veterinario.getContrasena()));
+        return userRepository.save(user);
+    }
     
 }

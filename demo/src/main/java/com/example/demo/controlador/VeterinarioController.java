@@ -1,6 +1,5 @@
 package com.example.demo.controlador;
 
-import java.security.Security;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -143,6 +142,10 @@ public class VeterinarioController {
     @PutMapping("/update")
     @Operation(summary = "Actualizar un veterinario")
     public ResponseEntity<VeterinarioDTO> updateVet(@RequestBody Veterinario veterinario){
+        
+        UserEntity userEntity = customUserDetailService.VeterinarioToUserUpdate(veterinario);
+        veterinario.setUser(userEntity);
+        
         Veterinario vetUpdated = veterinarioService.update(veterinario);
         VeterinarioDTO vetDTO = VeterinarioMapper.INSTANCE.convert(vetUpdated);
 
