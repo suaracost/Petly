@@ -1,6 +1,7 @@
 package com.example.demo.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,5 +46,22 @@ public class UserController {
         return null; // O puedes retornar un error HTTP adecuado
     }
     
+    @GetMapping("/rolToken")
+    public int buscarRolToken() {
+        UserEntity user = userService.findByUsername(
+            SecurityContextHolder.getContext().getAuthentication().getName()
+        );
+
+        String role = user.getRoles().get(0).getName();
+
+        if(role.compareTo("Admin") == 0)
+            return 1;
+        else if(role.compareTo("Veterinario") == 0)
+            return 2;
+        else if(role.compareTo("Cliente") == 0)
+            return 3;
+        else
+            return 0;
+    }
     
 }
