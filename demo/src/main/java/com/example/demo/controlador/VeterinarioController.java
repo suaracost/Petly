@@ -142,6 +142,12 @@ public class VeterinarioController {
     @PutMapping("/update")
     @Operation(summary = "Actualizar un veterinario")
     public ResponseEntity<VeterinarioDTO> updateVet(@RequestBody Veterinario veterinario){
+
+        Veterinario auxVet = veterinarioService.SearchByCedula(veterinario.getCedula());
+        
+        if(veterinario.getContrasena() == null){
+            veterinario.setContrasena(auxVet.getContrasena());
+        }
         
         UserEntity userEntity = customUserDetailService.VeterinarioToUserUpdate(veterinario);
         veterinario.setUser(userEntity);
