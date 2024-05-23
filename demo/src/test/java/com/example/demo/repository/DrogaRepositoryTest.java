@@ -116,13 +116,13 @@ public class DrogaRepositoryTest {
 
         // crear un tratamiento que asocie una mascota con un veterinario y una droga
         Tratamiento tratamiento = new Tratamiento();
-        tratamiento.setmascota(mascota1);
-        tratamiento.setveterinario(veterinario1);
+        tratamiento.setMascota(mascota1);
+        tratamiento.setVeterinario(veterinario1);
 
         veterinario1.setNumAtenciones(veterinario1.getNumAtenciones() + 1);
         veterinarioRepository.save(veterinario1);
 
-        tratamiento.setdroga(drogaP);
+        tratamiento.setDroga(drogaP);
 
         String fecha = 27 + "-" + 4 + "-2024";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d-M-yyyy");

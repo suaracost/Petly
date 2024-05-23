@@ -163,8 +163,8 @@ public class DatabaseinitTest implements ApplicationRunner{
             int dia = (int) (Math.random() * 30) + 1;
             String fecha = dia + "-" + mes + "-2024"; // Cambia la fecha según sea necesario
             Tratamiento tratamiento = new Tratamiento();
-            tratamiento.setmascota(mascotaRepository.findById((long) i).get());
-            tratamiento.setveterinario(veterinarioRepository.findById((long) idVeterinario).get());
+            tratamiento.setMascota(mascotaRepository.findById((long) i).get());
+            tratamiento.setVeterinario(veterinarioRepository.findById((long) idVeterinario).get());
 
             //Sumarle un numero de atención al veterinario
             Veterinario vet = veterinarioRepository.findById((long) idVeterinario).get();
@@ -175,7 +175,7 @@ public class DatabaseinitTest implements ApplicationRunner{
             boolean flag = false;
             while(flag == false){
                 if(drogaRepository.findById((long) idDroga).get().getUnidadesDisponibles() != 0) {
-                    tratamiento.setdroga(drogaRepository.findById((long) idDroga).get());
+                    tratamiento.setDroga(drogaRepository.findById((long) idDroga).get());
                     flag = true;
                 }
                 else
